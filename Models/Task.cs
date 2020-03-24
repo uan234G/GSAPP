@@ -13,10 +13,6 @@ namespace GSAPP.Models
         // 1.groceries
         // 2.medication
         // 3.other
-        // JUAN DO YOU SEE THIS?
-        // PLEASE WORK
-        // WORK PLEASE
-        // LAST CHANCEEEEEEEE
         [Required]
         public string Items { get; set; }
         // user can write down everything they need in textbox

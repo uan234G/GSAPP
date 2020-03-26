@@ -99,9 +99,9 @@ namespace GSAPP.Controllers
                     return View("Index");
                 }
                 UserSession = UserInDb.UserId;
-                return RedirectToAction("Home");
+                return RedirectToAction("Dashboard");
             }
-            return View("Index");
+            return View("Login");
         }
 
     }

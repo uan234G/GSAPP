@@ -19,6 +19,21 @@ namespace GSAPP.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        private MyContext dbContext;
+
+        // here we can "inject" our context service into the constructor
+        public HomeController(MyContext context)
+        {
+            dbContext = context;
+        }
+
+        private int? UserSession
+        {
+            get { return HttpContext.Session.GetInt32("UserId"); }
+            set { HttpContext.Session.SetInt32("UserId", (int)value); }
+        }
+
         public IActionResult LandingPage()
         {
             return View();

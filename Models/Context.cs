@@ -9,7 +9,7 @@ namespace GSAPP.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Request> Requests { get; set; }
 
     }
 }

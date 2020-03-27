@@ -108,5 +108,17 @@ namespace GSAPP.Controllers
             return View("Login");
         }
 
+        [HttpPost("requesthelp")]
+        public IActionResult RequestHelp(Request newRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                dbContext.Add(newRequest);
+                dbContext.SaveChanges();
+                return RedirectToAction("Detail");
+            }
+            return View("RequestForm");
+        }
+
     }
 }

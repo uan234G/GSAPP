@@ -68,8 +68,8 @@ namespace GSAPP.Controllers
             return View();
         }
 
-        [HttpPost("register")]
-        public IActionResult Register(User newUser)
+        [HttpPost("registeruser")]
+        public IActionResult RegisterUser(User newUser)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,11 @@ namespace GSAPP.Controllers
                 dbContext.Add(newUser);
                 dbContext.SaveChanges();
                 UserSession = newUser.UserId;
-                return RedirectToAction("Dashboard");
+                if (newUser.Status == "No")
+                {
+                    return RedirectToAction("Dashboard");
+                }
+                return RedirectToAction("Form");
             }
             return View("Register");
         }

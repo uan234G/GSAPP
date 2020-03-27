@@ -43,7 +43,7 @@ namespace GSAPP.Models
         // see  adress model
         public DateTime CreatedAt = DateTime.Now;
         public DateTime UpdatedAt = DateTime.Now;
-        public List<Task> TasksCreated { get; set; }
+        public List<Request> RequestsCreated { get; set; }
         // one to many ralationship to task model..
     }
     [NotMapped]

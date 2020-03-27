@@ -13,10 +13,10 @@
                     <a href="#how">How it Works</a>
                 </li>
                 <li>
-                    <a asp-action="Login">Login</a>
+                    <a asp-action="Login" asp-controller="Home">Login</a>
                 </li>
                 <li>
-                    <a asp-action="Register">Register</a>
+                    <a asp-action="Register" asp-controller="Home" id="register-btn">Register</a>
                 </li>
             </ul>
         </div>
@@ -33,9 +33,10 @@
     <div class="col image"></div>
 </section>
 
-<section id="how" class="wrapper" data-aos="fade-up">
+<section id="how" class="wrapper" data-aos="fade-down">
     <h3 class="abril">How It Works</h3>
     <div class="cards">
+
         <div class="card">
             <h4>Person In Need</h4>
             <ul>
@@ -61,5 +62,6 @@
                 </li>
             </ul>
         </div>
+
     </div>
 </section>

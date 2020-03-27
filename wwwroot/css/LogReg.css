@@ -1,0 +1,10 @@
+/* This is for the login */
+#LogReg-header .nav-links a{
+    color: #000;
+}
+#log-body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

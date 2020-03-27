@@ -38,22 +38,31 @@ namespace GSAPP.Controllers
         {
             return View();
         }
+
+        [HttpGet("Login")]
         public IActionResult Login()
         {
             return View();
         }
+
+        [HttpGet("Register")]
         public IActionResult Register()
         {
             return View();
         }
+
+        [HttpGet("Dashboard")]
         public IActionResult Dashboard()
         {
             return View();
         }
+
+        [HttpGet("Detail")]
         public IActionResult Detail()
         {
             return View();
         }
+
         public IActionResult Form()
         {
             return View();
@@ -75,7 +84,7 @@ namespace GSAPP.Controllers
                 dbContext.Add(newUser);
                 dbContext.SaveChanges();
                 UserSession = newUser.UserId;
-                if (newUser.Status == "No")
+                if (newUser.Status == false)
                 {
                     return RedirectToAction("Dashboard");
                 }
@@ -106,6 +115,18 @@ namespace GSAPP.Controllers
                 return RedirectToAction("Dashboard");
             }
             return View("Login");
+        }
+
+        [HttpPost("requesthelp")]
+        public IActionResult RequestHelp(Request newRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                dbContext.Add(newRequest);
+                dbContext.SaveChanges();
+                return RedirectToAction("Detail");
+            }
+            return View("RequestForm");
         }
 
     }

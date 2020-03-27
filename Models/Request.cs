@@ -3,26 +3,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GSAPP.Models
 {
-    public class Task
+    public class Request
     {
         [Key]
-        public int TaskID { get; set; }
+        public int RequestId { get; set; }
 
-        [Required]
-        public string Category { get; set; }
-        // 1.groceries
-        // 2.medication
-        // 3.other
         [Required]
         public string Items { get; set; }
         // user can write down everything they need in textbox
 
         [Required]
-        public string Urgency { get; set; }
-        // 1. low
-        // 2. normal
-        // 3. critical
-        [Required]
+        public DateTime Urgency { get; set; }
+        public string Notes { get; set; }
         public bool IsCompleted { get; set; }
         // default val = false;
         public int PickedUpByID { get; set; }

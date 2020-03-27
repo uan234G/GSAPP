@@ -10,16 +10,35 @@
 <h1>Need Help?</h1>
 <form asp-action="RegisterUser" asp-controller="Home" method="POST">
     <span asp-validation-for="FirstName"></span>
-    First Name: <input class="form-control" asp-for="FirstName">
+    First Name*: <input class="form-control" asp-for="FirstName">
     <span asp-validation-for="LastName"></span>
-    Last Name: <input class="form-control" asp-for="LastName">
+    Last Name*: <input class="form-control" asp-for="LastName">
     <span asp-validation-for="Email"></span>
-    Email Address: <input class="form-control" asp-for="Email">
+    Email Address*: <input class="form-control" asp-for="Email">
     <span asp-validation-for="Password"></span>
-    Password: <input class="form-control" asp-for="Password">
+    Password*: <input class="form-control" asp-for="Password">
+    <span asp-validation-for="Confirm"></span>
     Confirm Password: <input class="form-control" asp-for="Confirm">
+    <span asp-validation-for="PhoneNumber"></span>
+    PhoneNumber*: <input class="form-control" asp-for="PhoneNumber">
+    <span asp-validation-for="ImageUrl"></span>
+    Profile Pic*: <input class="form-control" asp-for="ImageUrl">
+    <span asp-validation-for="VenmoId"></span>
+    Venmo*: <input class="form-control" asp-for="VenmoId"> 
     <br>
-    <input type="hidden" asp-for="Status" value="Yes">
+    <hr>
+    <span asp-validation-for="Address1"></span>
+    Address Line*: <input class="form-control" asp-for="Address1"><span>
+    Adress Line2: <input class="form-control" asp-for="Password">
+    <span asp-validation-for="City"></span>
+    City*: <input class="form-control" asp-for="City"><span>
+    <span asp-validation-for="ZipCode"></span>
+    Zip Code*: <input class="form-control" asp-for="ZipCode"><span>
+    <span asp-validation-for="State"></span>
+    State*: <input class="form-control" asp-for="State"><span>
+    <span asp-validation-for="Country"></span>
+    Country*: <input class="form-control" asp-for="Country"><span>
+    <input type="hidden" asp-for="Status" value="true">
     <input type="submit" value="Register">
 </form>
 
@@ -33,8 +52,27 @@
     Email Address: <input class="form-control" asp-for="Email">
     <span asp-validation-for="Password"></span>
     Password: <input class="form-control" asp-for="Password">
+    <span asp-validation-for="Confirm"></span>
     Confirm Password: <input class="form-control" asp-for="Confirm">
+    <span asp-validation-for="PhoneNumber"></span>
+    PhoneNumber*: <input class="form-control" asp-for="PhoneNumber">
+    <span asp-validation-for="ImageUrl"></span>
+    Profile Pic*: <input class="form-control" asp-for="ImageUrl">
+    <span asp-validation-for="VenmoId"></span>
+    Venmo*: <input class="form-control" asp-for="VenmoId"> 
     <br>
-    <input type="hidden" asp-for="Status" value="No">
+    <hr>
+    <span asp-validation-for="Address1"></span>
+    Address Line*: <input class="form-control" asp-for="Address1"><span>
+    Adress Line2: <input class="form-control" asp-for="Password">
+    <span asp-validation-for="City"></span>
+    City*: <input class="form-control" asp-for="City"><span>
+    <span asp-validation-for="ZipCode"></span>
+    Zip Code*: <input class="form-control" asp-for="ZipCode"><span>
+    <span asp-validation-for="State"></span>
+    State*: <input class="form-control" asp-for="State"><span>
+    <span asp-validation-for="Country"></span>
+    Country*: <input class="form-control" asp-for="Country"><span>
+    <input type="hidden" asp-for="Status" value="false">
     <input type="submit" value="Register">
 </form>

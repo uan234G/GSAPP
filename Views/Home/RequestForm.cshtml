@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Form Page";
+}
+<h1>@ViewData["Title"]</h1>
+
+@model Request
+
+<p>This is the request form page.</p>
+
+<form asp-action="RequestHelp" asp-controller="Home" method="POST">
+    <span asp-validation-for="Items"></span>
+    What do you need?: <input class="form-control" asp-for="Items">
+    <span asp-validation-for="Urgency"></span>
+    When do you need this by?: <input class="form-control" asp-for="Urgency">
+    Notes: <input class="form-control" asp-for="Notes">
+    <input type="submit" value="Register">
+</form>

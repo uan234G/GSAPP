@@ -19,9 +19,15 @@ namespace GSAPP.Models
         public string LastName { get; set; }
 
         [Required]
-        public string Status { get; set; }
+        public bool Status { get; set; }
         // upon registering you can choose Helper or Person in need of help??
-
+        // true = needs help , false = helper
+        [Required]
+        public string VenmoId { get; set; }
+        [Required]
+        public string ImageUrl { get; set; }
+        [Required]
+        public string PhoneNumber { get; set; }
         [Required]
         [EmailAddress]
         [MinLength(4, ErrorMessage = "Email address should be more than 4 characters")]
@@ -38,23 +44,34 @@ namespace GSAPP.Models
         [DataType(DataType.Password)]
         public string Confirm { get; set; }
 
-        public virtual Address Location { get; set; }
-        // joining one to one to adress 
-        // see  adress model
-        public DateTime CreatedAt = DateTime.Now;
-        public DateTime UpdatedAt = DateTime.Now;
-        public List<Task> TasksCreated { get; set; }
-        // one to many ralationship to task model..
-    }
-    [NotMapped]
-    public class Login
-    {
         [Required]
-        [EmailAddress]
-        public string LoginEmail { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
-        public string LoginPassword { get; set; }
+        public string City { get; set; }
+
+        [Required]
+        public int ZipCode { get; set; }
+
+        [Required]
+        public string Country { get; set; }
+        [Required]
+        public string State { get; set; }
+        public DateTime CreatedAt = DateTime.Now;
+        public DateTime UpdatedAt = DateTime.Now;
+        public List<Request> RequestsCreated { get; set; }
+        // one to many ralationship to task model..
     }
+}
+[NotMapped]
+public class Login
+{
+    [Required]
+    [EmailAddress]
+    public string LoginEmail { get; set; }
+
+    [Required]
+    [DataType(DataType.Password)]
+    public string LoginPassword { get; set; }
 }

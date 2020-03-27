@@ -16,6 +16,26 @@ h3{
 }
 .landing-nav .nav-links ul li a{
     color: #fff;
+    transition: color 0.5s ease-out;
+}
+.landing-nav .nav-links ul li a:hover{
+    color: rgba(255,255,255,0.4);
+    transition: color 0.3s ease-in;
+}
+.landing-nav .nav-links #register-btn{
+    background-color: #fff;
+    border: 2px solid #fff;
+    color: #000;
+    padding: 2px 20px;
+    transition: all 0.5s ease-out;
+}
+.landing-nav .nav-links #register-btn:hover{
+    background-color: transparent;
+    color: #fff;
+    transition: all 0.3s ease-in;
+}
+.landing-nav .nav-links #register-btn:active{
+    transform: scale(0.95);
 }
 
 /* BANNER */

@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using GSAPP.Models;
 
-
 namespace GSAPP
 {
     public class Startup
@@ -57,8 +56,3 @@ namespace GSAPP
         }
     }
 }
-
-// PLEASE MOTHER FUCKING WORK
-// seriously
-//hello
-//world

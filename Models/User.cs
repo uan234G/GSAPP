@@ -71,14 +71,7 @@ public class Login
     [EmailAddress]
     public string LoginEmail { get; set; }
 
-<<<<<<< HEAD
     [Required]
     [DataType(DataType.Password)]
     public string LoginPassword { get; set; }
-=======
-        [Required]
-        [DataType(DataType.Password)]
-        public string LoginPassword { get; set; }
-    }
->>>>>>> 1c6320479f7930dfbc60ce74e26ce661c35d3dd2
 }

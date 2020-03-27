@@ -38,22 +38,31 @@ namespace GSAPP.Controllers
         {
             return View();
         }
+
+        [HttpGet("Login")]
         public IActionResult Login()
         {
             return View();
         }
+
+        [HttpGet("Register")]
         public IActionResult Register()
         {
             return View();
         }
+
+        [HttpGet("Dashboard")]
         public IActionResult Dashboard()
         {
             return View();
         }
+
+        [HttpGet("Detail")]
         public IActionResult Detail()
         {
             return View();
         }
+
         public IActionResult Form()
         {
             return View();

@@ -76,7 +76,7 @@ namespace GSAPP.Controllers
                 if (dbContext.Users.Any(i => i.Email == newUser.Email))
                 {
                     ModelState.AddModelError("Email", "Email already exists!");
-                    return View("Index");
+                    return View("RequestForm");
                 }
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 string hashedPw = hasher.HashPassword(newUser, newUser.Password);
@@ -88,7 +88,7 @@ namespace GSAPP.Controllers
                 {
                     return RedirectToAction("Dashboard");
                 }
-                return RedirectToAction("Form");
+                return RedirectToAction("RequestForm");
             }
             return View("Register");
         }
@@ -101,15 +101,15 @@ namespace GSAPP.Controllers
                 var UserInDb = dbContext.Users.FirstOrDefault(i => i.Email == currentUser.LoginEmail);
                 if (UserInDb == null)
                 {
-                    ModelState.AddModelError("Email", "Invalid Credentials");
-                    return View("Index");
+                    ModelState.AddModelError("LoginEmail", "Invalid Credentials");
+                    return View("Login");
                 }
                 var hasher = new PasswordHasher<Login>();
                 var result = hasher.VerifyHashedPassword(currentUser, UserInDb.Password, currentUser.LoginPassword);
                 if (result == 0)
                 {
-                    ModelState.AddModelError("Password", "Invalid Credentials");
-                    return View("Index");
+                    ModelState.AddModelError("LoginEmail", "Invalid Credentials");
+                    return View("Login");
                 }
                 UserSession = UserInDb.UserId;
                 return RedirectToAction("Dashboard");

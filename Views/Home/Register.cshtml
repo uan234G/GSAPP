@@ -3,4 +3,38 @@
 }
 <h1>@ViewData["Title"]</h1>
 
+@model User
+
 <p>This is the register page.</p>
+
+<h1>Need Help?</h1>
+<form asp-action="RegisterUser" asp-controller="Home" method="POST">
+    <span asp-validation-for="FirstName"></span>
+    First Name: <input class="form-control" asp-for="FirstName">
+    <span asp-validation-for="LastName"></span>
+    Last Name: <input class="form-control" asp-for="LastName">
+    <span asp-validation-for="Email"></span>
+    Email Address: <input class="form-control" asp-for="Email">
+    <span asp-validation-for="Password"></span>
+    Password: <input class="form-control" asp-for="Password">
+    Confirm Password: <input class="form-control" asp-for="Confirm">
+    <br>
+    <input type="hidden" asp-for="Status" value="Yes">
+    <input type="submit" value="Register">
+</form>
+
+<h1>Become a Helper</h1>
+<form asp-action="RegisterUser" asp-controller="Home" method="POST">
+    <span asp-validation-for="FirstName"></span>
+    First Name: <input class="form-control" asp-for="FirstName">
+    <span asp-validation-for="LastName"></span>
+    Last Name: <input class="form-control" asp-for="LastName">
+    <span asp-validation-for="Email"></span>
+    Email Address: <input class="form-control" asp-for="Email">
+    <span asp-validation-for="Password"></span>
+    Password: <input class="form-control" asp-for="Password">
+    Confirm Password: <input class="form-control" asp-for="Confirm">
+    <br>
+    <input type="hidden" asp-for="Status" value="No">
+    <input type="submit" value="Register">
+</form>

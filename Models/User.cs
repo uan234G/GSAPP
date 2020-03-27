@@ -58,7 +58,3 @@ namespace GSAPP.Models
         public string LoginPassword { get; set; }
     }
 }
-
-// Hello world!! - Rolando
-// juan was here
-// new change to see if it works for daesung

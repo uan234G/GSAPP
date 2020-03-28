@@ -54,9 +54,14 @@ namespace GSAPP.Controllers
         [HttpGet("Dashboard")]
         public IActionResult Dashboard()
         {
+            if (UserSession == null)
+            {
+                return RedirectToAction("LandingPage");
+            }
+            User CurrentUser = dbContext.Users.FirstOrDefault(a => a.UserId == (int)UserSession);
+            ViewBag.NearbyUsers = dbContext.Users.Include(a => a.RequestsCreated).FirstOrDefault(a => a.ZipCode == CurrentUser.ZipCode);
             return View();
         }
-
         [HttpGet("Detail")]
         public IActionResult Detail()
         {
@@ -101,15 +106,15 @@ namespace GSAPP.Controllers
                 var UserInDb = dbContext.Users.FirstOrDefault(i => i.Email == currentUser.LoginEmail);
                 if (UserInDb == null)
                 {
-                    ModelState.AddModelError("Email", "Invalid Credentials");
-                    return View("Index");
+                    ModelState.AddModelError("LoginEmail", "Invalid Credentials");
+                    return View("Login");
                 }
                 var hasher = new PasswordHasher<Login>();
                 var result = hasher.VerifyHashedPassword(currentUser, UserInDb.Password, currentUser.LoginPassword);
                 if (result == 0)
                 {
-                    ModelState.AddModelError("Password", "Invalid Credentials");
-                    return View("Index");
+                    ModelState.AddModelError("LoginEmail", "Invalid Credentials");
+                    return View("Login");
                 }
                 UserSession = UserInDb.UserId;
                 return RedirectToAction("Dashboard");

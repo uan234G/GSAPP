@@ -4,15 +4,9 @@ h3{
 }
 
 /* NAVIGATION */
-#landing-header{
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
 .landing-nav .logo h1{
     font-size: 2.15rem;
+    color: #000;
 }
 .landing-nav .nav-links ul li a{
     color: #fff;

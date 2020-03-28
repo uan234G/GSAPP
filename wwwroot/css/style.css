@@ -11,7 +11,12 @@ html{
     background: #f2f3f7;
 }
 header{
+    width: 100%;
     padding: 1rem 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 ul li{
     list-style-type: none;

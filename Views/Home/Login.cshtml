@@ -5,9 +5,11 @@
 }
 
 <header id="LogReg-header">
-    <div class="wrapper nav landing-nav" data-aos="fade-down">
+    <div class="wrapper nav landing-nav">
         <div class="logo">
-            <h1 class="abril">Together</h1>
+            <a asp-action="LandingPage" asp-controller="Home">
+                <h1 class="abril">Together</h1>
+            </a>
         </div>
         <div class="nav-links">
             <ul>
@@ -20,13 +22,15 @@
 </header>
 
 <section id="log-body" class="wrapper">
-    <h3>Login</h3>
-    <form asp-action="LoginUser" asp-controller="Home" method="POST">
-        <span asp-validation-for="LoginEmail"></span>
-        Email: <input class="form-control" asp-for="LoginEmail">
-        <span asp-validation-for="LoginPassword"></span>
-        Password: <input class="form-control" asp-for="LoginPassword">
-        <br>
-        <input type="submit" value="Login">
-    </form>
+    <div class="log-container" data-aos="zoom-in">
+        <h3>Login</h3>
+        <form asp-action="LoginUser" asp-controller="Home" method="POST">
+            <span asp-validation-for="LoginEmail"></span>
+            Email: <input class="form-control" asp-for="LoginEmail">
+            <span asp-validation-for="LoginPassword"></span>
+            Password: <input class="form-control" asp-for="LoginPassword">
+            <br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
 </section>

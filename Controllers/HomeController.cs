@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -66,6 +66,7 @@ namespace GSAPP.Controllers
             List<User> NearbyUsers = dbContext.Users.Include(a => a.RequestsCreated).Where(a => a.ZipCode == CurrentUser.ZipCode).ToList();
             return View(NearbyUsers);
         }
+        
         [HttpGet("View/{Uid}/Details")]
         public IActionResult Detail(int Uid)
         {

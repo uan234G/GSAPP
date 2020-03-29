@@ -25,13 +25,18 @@
     <div class="reg-container" data-aos="zoom-in">
 
         <h3>Register</h3>
+        <p>We ask you to create a Venmo account first before registering. Venmo is a digital wallet that lets you make and share payments with other people. You can download the iOS or Android app or click on the link below to sign up on Venmo.com</p>
+        <a href="https://venmo.com/signup" class="form-redirect-link venmo">Create a Venmo account</a>
+        <p>After creating your Venmo account, select the form that corresponds to you</p>
         <div class="btn-alignment">
-            <button id="help-btn" class="reg-btn">Need help?</button>
+            <button id="help-btn" class="reg-btn">In need of help</button>
+            <p>Or</p>
             <button id="helper-btn" class="reg-btn">Become a helper</button>
         </div>
 
         @* This form is for the one that needs help *@
-        <div id="help-form" class="reg-form-box" data-aos="fade-down">
+        <div id="help-form" class="reg-form-box">
+            <h4>Help Registration</h4>
             <form asp-action="RegisterUser" asp-controller="Home" method="POST">
                 <span asp-validation-for="FirstName" class="red"></span>
                 First Name * <input asp-for="FirstName" placeholder="Enter your name">
@@ -48,9 +53,10 @@
                 <span asp-validation-for="ImageUrl" class="red"></span>
                 Profile Pic * <input asp-for="ImageUrl">
                 <span asp-validation-for="VenmoId" class="red"></span>
-                Venmo ID * (To make payments)<input asp-for="VenmoId" placeholder="Enter your Venmo ID"> 
+                Venmo ID * (To make or receive payments)<input asp-for="VenmoId" placeholder="Enter your Venmo ID"> 
                 <span asp-validation-for="Address1" class="red"></span>
                 Address Line 1 * <input asp-for="Address1" placeholder="Enter your address 1">
+                <span> @* Empty span for equal horizontail spacing *@ </span>
                 Adress Line 2 <input asp-for="Password" placeholder="Enter your address 2">
                 <span asp-validation-for="City" class="red"></span>
                 City * <input asp-for="City" placeholder="Enter your city">
@@ -61,13 +67,15 @@
                 <span asp-validation-for="Country" class="red"></span>
                 Country * <input asp-for="Country" placeholder="Enter your country">
                 <input type="hidden" asp-for="Status" value="true">
-                <input type="submit" class="form-btn" value="Register">
+                <span> @* Empty span for equal horizontail spacing *@ </span>
+                <input type="submit" class="form-btn" value="REGISTER">
             </form>
             <a asp-action="Login" asp-controller="Home" class="form-redirect-link">Already have an account?</a>
         </div>
 
         @* This form is for the helper *@
         <div id="helper-form" class="reg-form-box">
+           <h4>Helper Registration</h4>
             <form asp-action="RegisterUser" asp-controller="Home" method="POST">
                 <span asp-validation-for="FirstName" class="red"></span>
                 First Name * <input asp-for="FirstName" placeholder="Enter your name">
@@ -84,9 +92,10 @@
                 <span asp-validation-for="ImageUrl" class="red"></span>
                 Profile Pic * <input asp-for="ImageUrl">
                 <span asp-validation-for="VenmoId" class="red"></span>
-                Venmo ID * (To receive payments)<input asp-for="VenmoId" placeholder="Enter your Venmo ID">
+                Venmo ID * (To make or receive payments)<input asp-for="VenmoId" placeholder="Enter your Venmo ID">
                 <span asp-validation-for="Address1" class="red"></span>
                 Address Line * <input asp-for="Address1" placeholder="Enter your address 1">
+                <span> @* Empty span for equal horizontail spacing *@ </span>
                 Adress Line2 <input asp-for="Password" placeholder="Enter your address 2">
                 <span asp-validation-for="City" class="red"></span>
                 City * <input asp-for="City" placeholder="Enter your city">
@@ -97,7 +106,8 @@
                 <span asp-validation-for="Country" class="red"></span>
                 Country * <input asp-for="Country" placeholder="Enter your country">
                 <input type="hidden" asp-for="Status" value="false">
-                <input type="submit" class="form-btn" value="Register">
+                <span> @* Empty span for equal horizontail spacing *@ </span>
+                <input type="submit" class="form-btn" value="REGISTER">
             </form>
             <a asp-action="Login" asp-controller="Home" class="form-redirect-link">Already have an account?</a>
         </div>

@@ -78,23 +78,14 @@ form .form-btn:active{
 .reg-container{
     position: relative;
 }
-#help-form{
-    position: absolute;
-    padding: 3rem;
-    width: 100%;
-    top: 200px;
-    left: 0;
-    z-index: 2;
-    margin-bottom: 2rem;
-    background-color: #fff;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-}
-#helper-form{
-    display: none;
+.venmo{
+    margin-bottom: 12px;
 }
 .btn-alignment{
+    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .reg-btn{
     width: 45%;
@@ -132,4 +123,19 @@ form .form-btn:active{
 }
 .reg-btn:active{
     transform: scale(0.95);
+}
+#help-form,
+#helper-form{
+    display: none;
+}
+.reg-form-box{
+    position: absolute;
+    padding: 3rem;
+    width: 100%;
+    top: 370px;
+    left: 0;
+    z-index: 2;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }

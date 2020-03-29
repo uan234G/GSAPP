@@ -3,6 +3,22 @@
 @section Landing{
     <link rel="stylesheet" href="~/css/LogReg.css">
 }
+@if(ViewBag.hasError == true)
+{
+<script>
+    (function helperRemainOpen(){
+        const helperForm = document.getElementById('helper-form');
+        @* helperForm.style.display = 'block' *@
+        $('#helper-form').slideToggle('fast');
+        console.log('open sesame');
+    })()
+    @* (function helpRemainOpen(){
+        const helpForm = document.getElementById('help-form');
+        helpForm.style.display = 'block';
+        console.log('open sesame');
+    })() *@
+</script>
+}
 
 <header id="LogReg-header">
     <div class="wrapper nav landing-nav">

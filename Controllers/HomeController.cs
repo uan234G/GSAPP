@@ -58,18 +58,27 @@ namespace GSAPP.Controllers
             {
                 return RedirectToAction("LandingPage");
             }
-            User CurrentUser = dbContext.Users.FirstOrDefault(a => a.UserId == (int)UserSession);
-            ViewBag.NearbyUsers = dbContext.Users.Include(a => a.RequestsCreated).FirstOrDefault(a => a.ZipCode == CurrentUser.ZipCode);
-            return View();
+            User CurrentUser = dbContext.Users.FirstOrDefault(a => a.UserId == UserSession);
+            List<User> NearbyUsers = dbContext.Users.Include(a => a.RequestsCreated).Where(a => a.ZipCode == CurrentUser.ZipCode).ToList();
+            return View(NearbyUsers);
         }
-        [HttpGet("Detail")]
-        public IActionResult Detail()
+        [HttpGet("View/{Uid}/Details")]
+        public IActionResult Detail(int Uid)
         {
-            return View();
+            if (UserSession == null)
+            {
+                return RedirectToAction("LandingPage");
+            }
+            User DetailsFor = dbContext.Users.FirstOrDefault(q => q.UserId == Uid);
+            return View(DetailsFor);
         }
 
         public IActionResult Form()
         {
+            if (UserSession == null)
+            {
+                return RedirectToAction("LandingPage");
+            }
             return View();
         }
 

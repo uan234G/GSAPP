@@ -1,7 +1,33 @@
+@model List<User>
+    @* brought list of users with same zip code as logged user *@
+
 @{
     ViewData["Title"] = "Dashboard Page";
 }
 <h1>@ViewData["Title"]</h1>
-
-<p>This is the dashboard page.</p>
-@ViewBag.CurrenRequests
+<table>
+    <thead>
+        <tr>
+            <th>FullName</th>
+            <th>Location</th>    
+            @* city state only *@
+            <th>Request Urgency</th>
+            @* urgency date *@
+            <th></th>
+            <th>Action</th>
+            @* view details *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName @user.LastName</td>
+                <td>@user.City, @user.State</td>
+                <td>@user.RequestsCreated[0].Urgency</td>
+                <td></td>
+                <td><a asp-action="Detail" asp-route-Uid="@user.UserId">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

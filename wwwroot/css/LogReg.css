@@ -78,6 +78,9 @@ form .form-btn:active{
 .reg-container{
     position: relative;
 }
+.reg-container p{
+    text-align: center;
+}
 .venmo{
     margin-bottom: 12px;
 }

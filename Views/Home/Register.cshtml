@@ -3,6 +3,22 @@
 @section Landing{
     <link rel="stylesheet" href="~/css/LogReg.css">
 }
+@if(ViewBag.hasError == true)
+{
+<script>
+    (function helperRemainOpen(){
+        const helperForm = document.getElementById('helper-form');
+        @* helperForm.style.display = 'block' *@
+        $('#helper-form').slideToggle('fast');
+        console.log('open sesame');
+    })()
+    @* (function helpRemainOpen(){
+        const helpForm = document.getElementById('help-form');
+        helpForm.style.display = 'block';
+        console.log('open sesame');
+    })() *@
+</script>
+}
 
 <header id="LogReg-header">
     <div class="wrapper nav landing-nav">
@@ -27,7 +43,6 @@
         <h3>Register</h3>
         <p>We ask you to create a Venmo account first before registering. Venmo is a digital wallet that lets you make and share payments with other people. You can download the iOS or Android app or click on the link below to sign up on Venmo.com</p>
         <a href="https://venmo.com/signup" target="_blank" class="form-redirect-link venmo">Create a Venmo account</a>
-        @* target="_blank" opens new tab.. so they dont leave our site *@
         <p>After creating your Venmo account, select the form that corresponds to you</p>
         <div class="btn-alignment">
             <button id="help-btn" class="reg-btn">In need of help</button>

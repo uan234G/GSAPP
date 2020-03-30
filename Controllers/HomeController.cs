@@ -148,7 +148,7 @@ namespace GSAPP.Controllers
                 newRequest.UserID = (int)UserSession;
                 dbContext.Add(newRequest);
                 dbContext.SaveChanges();
-                return RedirectToAction("Detail");
+                return RedirectToAction("Dashboard");
             }
             return View("RequestForm");
         }

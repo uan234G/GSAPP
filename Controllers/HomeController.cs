@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace GSAPP.Controllers
 
 
 
-        [HttpGet("together")]
+        // [HttpGet("together")]
         public IActionResult LandingPage()
         {
             return View();

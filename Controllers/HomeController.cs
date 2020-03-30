@@ -34,41 +34,62 @@ namespace GSAPP.Controllers
             set { HttpContext.Session.SetInt32("UserId", (int)value); }
         }
 
+
+
+        [HttpGet("together")]
         public IActionResult LandingPage()
         {
             return View();
         }
 
-        [HttpGet("Login")]
+        [HttpGet("together/login")]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpGet("Register")]
+        [HttpGet("together/register")]
         public IActionResult Register()
         {
+            // ViewBag.hasError = true;
             return View();
         }
 
-        [HttpGet("Dashboard")]
+        [HttpGet("together/dashboard")]
         public IActionResult Dashboard()
         {
-            return View();
+            if (UserSession == null)
+            {
+                return RedirectToAction("LandingPage");
+            }
+            User CurrentUser = dbContext.Users.FirstOrDefault(a => a.UserId == UserSession);
+            List<User> NearbyUsers = dbContext.Users.Include(a => a.RequestsCreated).Where(a => a.ZipCode == CurrentUser.ZipCode).ToList();
+            return View(NearbyUsers);
         }
 
-        [HttpGet("Detail")]
-        public IActionResult Detail()
+        [HttpGet("View/{Uid}/Details")]
+        public IActionResult Detail(int Uid)
         {
-            return View();
+            if (UserSession == null)
+            {
+                return RedirectToAction("LandingPage");
+            }
+            User DetailsFor = dbContext.Users.FirstOrDefault(q => q.UserId == Uid);
+            return View(DetailsFor);
         }
 
         public IActionResult Form()
         {
+            if (UserSession == null)
+            {
+                return RedirectToAction("LandingPage");
+            }
             return View();
         }
 
-        [HttpPost("registeruser")]
+
+
+        [HttpPost("together/register/new-user")]
         public IActionResult RegisterUser(User newUser)
         {
             if (ModelState.IsValid)
@@ -76,7 +97,8 @@ namespace GSAPP.Controllers
                 if (dbContext.Users.Any(i => i.Email == newUser.Email))
                 {
                     ModelState.AddModelError("Email", "Email already exists!");
-                    return View("RequestForm");
+                    ViewBag.hasError = true;
+                    return View("Register");
                 }
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 string hashedPw = hasher.HashPassword(newUser, newUser.Password);
@@ -88,12 +110,13 @@ namespace GSAPP.Controllers
                 {
                     return RedirectToAction("Dashboard");
                 }
-                return RedirectToAction("RequestForm");
+                return RedirectToAction("Dashboard");
             }
+            ViewBag.hasError = true;
             return View("Register");
         }
 
-        [HttpPost("loginuser")]
+        [HttpPost("together/login/user")]
         public IActionResult LoginUser(Login currentUser)
         {
             if (ModelState.IsValid)
@@ -117,7 +140,7 @@ namespace GSAPP.Controllers
             return View("Login");
         }
 
-        [HttpPost("requesthelp")]
+        [HttpPost("together/request-help")]
         public IActionResult RequestHelp(Request newRequest)
         {
             if (ModelState.IsValid)

@@ -1,10 +1,144 @@
-/* This is for the login */
+/* Universal styles for Login and Registration pages */
+.form-redirect-link{
+    color: cornflowerblue;
+    text-decoration: underline;
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+form>*{
+    margin-bottom: 12px;
+}
+form input{
+    height: 2rem;
+    outline: 0;
+    border: 2px solid #000;
+    padding: 0 5px;
+    font-size: 1rem;
+}
+form .form-btn{
+    background-color: #000;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: 50%;
+    margin: 0 auto;
+    transition: all 0.5s ease-out;
+}
+form .form-btn:hover{
+    cursor: pointer;
+    color: #000;
+    background-color: transparent;
+    transition: all 0.3s ease-in;
+}
+form .form-btn:active{
+    transform: scale();
+}
+
+
+/* Styles for Login.cshtml */
 #LogReg-header .nav-links a{
     color: #000;
+    padding: 2px 15px;
+    border: 2px solid transparent;
+    transition: all 0.5s ease-out;
 }
-#log-body{
+#LogReg-header .nav-links a:hover{
+    border-color: #000;
+    transition: border-color 0.3s ease-in;
+}
+#log-body,
+#reg-body{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.log-container,
+.reg-container{
+    width: 50%;
+    padding: 3rem;
+    background-color: #fff;
+    /* box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); */
+}
+.log-container h3,
+.reg-container h3{
+    font-size: 1.85rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+/* Styles for Register.cshtml */
+.reg-container{
+    position: relative;
+}
+.reg-container p{
+    text-align: center;
+}
+.venmo{
+    margin-bottom: 12px;
+}
+.btn-alignment{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.reg-btn{
+    width: 45%;
+    height: 2rem;
+    outline: 0;
+    background-color: transparent;
+    border: 2px solid #000;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s ease-out;
+}
+.reg-btn:hover{
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+.reg-btn:after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background-color: #000;
+}
+.reg-btn:hover:after,
+.reg-btn:active:after{
+    height: 100%;
+}
+.reg-btn:active{
+    transform: scale(0.95);
+}
+#help-form,
+#helper-form{
+    display: none;
+}
+.reg-form-box{
+    position: absolute;
+    padding: 3rem;
+    width: 100%;
+    top: 370px;
+    left: 0;
+    z-index: 2;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }

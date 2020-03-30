@@ -4,16 +4,6 @@ h3{
 }
 
 /* NAVIGATION */
-#landing-header{
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-.landing-nav .logo h1{
-    font-size: 2.15rem;
-}
 .landing-nav .nav-links ul li a{
     color: #fff;
     transition: color 0.5s ease-out;

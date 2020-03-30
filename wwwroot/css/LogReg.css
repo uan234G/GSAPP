@@ -127,10 +127,6 @@ form .form-btn:active{
 .reg-btn:active{
     transform: scale(0.95);
 }
-#help-form,
-#helper-form{
-    display: none;
-}
 .reg-form-box{
     position: absolute;
     padding: 3rem;

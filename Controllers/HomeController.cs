@@ -36,7 +36,6 @@ namespace GSAPP.Controllers
 
 
 
-        // [HttpGet("together")]
         public IActionResult LandingPage()
         {
             return View();
@@ -175,6 +174,7 @@ namespace GSAPP.Controllers
             {
                 dbContext.Add(newRequest);
                 dbContext.SaveChanges();
+                newRequest.UserID = (int)UserSession;
                 return RedirectToAction("Dashboard");
             }
             return View("RequestForm");
@@ -182,4 +182,3 @@ namespace GSAPP.Controllers
 
     }
 }
-

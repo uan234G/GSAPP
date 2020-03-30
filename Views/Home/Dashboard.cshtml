@@ -4,6 +4,11 @@
 @{
     ViewData["Title"] = "Dashboard Page";
 }
+
+<h1>Dashboard</h1>
+
+<a asp-action="RequestForm">Make a request!</a>
+
 <h1>@ViewData["Title"]</h1>
 <table>
     <thead>
@@ -17,13 +22,16 @@
     <tbody>
         @foreach (var user in Model)
         {
+            @if(user.RequestsCreated == null)
+            {
             <tr>
                 <td>@user.FirstName @user.LastName</td>
                 <td>@user.City, @user.State</td>
-                <td>@user.RequestsCreated[0].Urgency</td>
+                @* <td>@u</td> *@
                 <td></td>
                 <td><a asp-action="Detail" asp-route-Uid="@user.UserId">View</a></td>
             </tr>
+            }
         }
     </tbody>
 </table>

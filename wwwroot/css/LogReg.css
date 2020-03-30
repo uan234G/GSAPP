@@ -82,7 +82,8 @@ form .form-btn:active{
     text-align: center;
 }
 .venmo{
-    margin-bottom: 12px;
+    margin: 12px auto 12px auto;
+    width: 35%;
 }
 .btn-alignment{
     margin-top: 1rem;

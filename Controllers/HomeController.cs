@@ -36,7 +36,7 @@ namespace GSAPP.Controllers
 
 
 
-        [HttpGet("together")]
+        // [HttpGet("together")]
         public IActionResult LandingPage()
         {
             return View();

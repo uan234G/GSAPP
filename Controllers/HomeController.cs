@@ -48,10 +48,19 @@ namespace GSAPP.Controllers
             return View();
         }
 
-        [HttpGet("together/register")]
-        public IActionResult Register()
+        [HttpGet("together/select-role")]
+        public IActionResult SelectRole()
         {
-            // ViewBag.hasError = true;
+            return View();
+        }
+        [HttpGet("together/helper")]
+        public IActionResult HelperRegView()
+        {
+            return View();
+        }
+        [HttpGet("together/needofhelp")]
+        public IActionResult HelpRegView()
+        {
             return View();
         }
 
@@ -66,7 +75,6 @@ namespace GSAPP.Controllers
             List<User> NearbyUsers = dbContext.Users.Include(a => a.RequestsCreated).Where(a => a.ZipCode == CurrentUser.ZipCode).ToList();
             return View(NearbyUsers);
         }
-        
         [HttpGet("View/{Uid}/Details")]
         public IActionResult Detail(int Uid)
         {
@@ -78,7 +86,7 @@ namespace GSAPP.Controllers
             return View(DetailsFor);
         }
 
-        public IActionResult Form()
+        public IActionResult RequestForm()
         {
             if (UserSession == null)
             {
@@ -89,31 +97,51 @@ namespace GSAPP.Controllers
 
 
 
-        [HttpPost("together/register/new-user")]
-        public IActionResult RegisterUser(User newUser)
+        [HttpPost("together/register/help-user")]
+        public IActionResult HelpReg(User HelpUser)
         {
             if (ModelState.IsValid)
             {
-                if (dbContext.Users.Any(i => i.Email == newUser.Email))
+                if (dbContext.Users.Any(i => i.Email == HelpUser.Email))
                 {
                     ModelState.AddModelError("Email", "Email already exists!");
-                    ViewBag.hasError = true;
-                    return View("Register");
+                    return View("HelpReg");
                 }
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
-                string hashedPw = hasher.HashPassword(newUser, newUser.Password);
-                newUser.Password = hashedPw;
-                dbContext.Add(newUser);
+                string hashedPw = hasher.HashPassword(HelpUser, HelpUser.Password);
+                HelpUser.Password = hashedPw;
+                dbContext.Add(HelpUser);
                 dbContext.SaveChanges();
-                UserSession = newUser.UserId;
-                if (newUser.Status == false)
+                UserSession = HelpUser.UserId;
+                // if (HelpUser.Status == false)
+                // {
+                //     return RedirectToAction("Dashboard");
+                // }
+                return RedirectToAction("RequestForm");
+            }
+            return View("HelpRegView");
+        }
+
+        [HttpPost("together/register/helper-user")]
+        public IActionResult HelperReg(User HelperUser)
+        {
+            if (ModelState.IsValid)
+            {
+                if (dbContext.Users.Any(i => i.Email == HelperUser.Email))
                 {
-                    return RedirectToAction("Dashboard");
+                    ModelState.AddModelError("Email", "Email already exists!");
+                    return View("HelperReg");
                 }
+                PasswordHasher<User> hasher = new PasswordHasher<User>();
+                string hashedPw = hasher.HashPassword(HelperUser, HelperUser.Password);
+                HelperUser.Password = hashedPw;
+                dbContext.Add(HelperUser);
+                dbContext.SaveChanges();
+                UserSession = HelperUser.UserId;
+
                 return RedirectToAction("Dashboard");
             }
-            ViewBag.hasError = true;
-            return View("Register");
+            return View("HelperRegView");
         }
 
         [HttpPost("together/login/user")]
@@ -147,7 +175,7 @@ namespace GSAPP.Controllers
             {
                 dbContext.Add(newRequest);
                 dbContext.SaveChanges();
-                return RedirectToAction("Detail");
+                return RedirectToAction("Dashboard");
             }
             return View("RequestForm");
         }

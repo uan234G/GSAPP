@@ -44,13 +44,13 @@ form .form-btn:active{
 /* Styles for Login.cshtml */
 #LogReg-header .nav-links a{
     color: #000;
-    padding: 2px 15px;
-    border: 2px solid transparent;
+    border-color: #000;
     transition: all 0.5s ease-out;
 }
 #LogReg-header .nav-links a:hover{
-    border-color: #000;
-    transition: border-color 0.3s ease-in;
+    background-color: #000;
+    color: #fff;
+    transition: all 0.3s ease-in;
 }
 #log-body,
 #reg-body{
@@ -67,7 +67,6 @@ form .form-btn:active{
 }
 .log-container h3,
 .reg-container h3{
-    font-size: 1.85rem;
     text-align: center;
     margin-bottom: 2rem;
 }

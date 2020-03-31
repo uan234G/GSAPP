@@ -1,8 +1,3 @@
-/* UNIVERSAL STYLES */
-h3{
-    font-size: 2.5rem;
-}
-
 /* NAVIGATION */
 .landing-nav .nav-links ul li a{
     color: #fff;
@@ -14,18 +9,14 @@ h3{
 }
 .landing-nav .nav-links #register-btn{
     background-color: #fff;
-    border: 2px solid #fff;
+    border-color: #fff;
     color: #000;
-    padding: 2px 20px;
     transition: all 0.5s ease-out;
 }
 .landing-nav .nav-links #register-btn:hover{
     background-color: transparent;
     color: #fff;
     transition: all 0.3s ease-in;
-}
-.landing-nav .nav-links #register-btn:active{
-    transform: scale(0.95);
 }
 
 /* BANNER */

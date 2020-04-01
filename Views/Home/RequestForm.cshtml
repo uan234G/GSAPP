@@ -1,17 +1,37 @@
-@{
-    ViewData["Title"] = "Form Page";
-}
-<h1>@ViewData["Title"]</h1>
-
 @model Request
 
-<p>This is the request form page.</p>
+@section Landing{
+    <link rel="stylesheet" href="~/css/LogReg.css">
+}
 
-<form asp-action="RequestHelp" asp-controller="Home" method="POST">
-    <span asp-validation-for="Items"></span>
-    What do you need?: <input class="form-control" asp-for="Items">
-    <span asp-validation-for="Urgency"></span>
-    When do you need this by?: <input class="form-control" asp-for="Urgency">
-    Notes: <input class="form-control" asp-for="Notes">
-    <input type="submit" value="Register">
-</form>
+<header id="LogReg-header">
+    <div class="wrapper nav">
+        <div class="logo">
+            <a asp-action="LandingPage" asp-controller="Home">
+                <h1 class="abril">Together</h1>
+            </a>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li>
+                    <a asp-action="Dashboard" asp-controller="Home" class="standout-btn">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<section id="request-main">
+    <div id="request-form" class="reg-form-box" data-aos="zoom-out">
+        <form asp-action="RequestHelp" asp-controller="Home" method="POST">
+            <span asp-validation-for="Items"></span>
+            What do you need? <input class="form-control" asp-for="Items">
+            <span asp-validation-for="Urgency"></span>
+            When do you need this by? <input class="form-control" asp-for="Urgency">
+            <span> @* Empty span for equal horizontail spacing *@ </span>
+            Notes: <textarea class="form-control" asp-for="Notes"></textarea>
+            <span> @* Empty span for equal horizontail spacing *@ </span>
+            <input type="submit" class="form-btn" value="SUBMIT">
+        </form>
+    </div>
+</section>

@@ -16,9 +16,17 @@ form>*{
 }
 form input{
     height: 2rem;
+    padding: 0 5px;
+}
+form textarea{
+    height: 7rem;
+    padding: 5px;
+}
+form input,
+form textarea{
     outline: 0;
     border: 2px solid #000;
-    padding: 0 5px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
 }
 form .form-btn{
@@ -53,7 +61,8 @@ form .form-btn:active{
     transition: all 0.3s ease-in;
 }
 #log-body,
-#reg-body{
+#reg-body,
+#request-main{
     height: 100vh;
     display: flex;
     justify-content: center;

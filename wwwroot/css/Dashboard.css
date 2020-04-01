@@ -31,7 +31,7 @@ table{
     background-color: #fff;
 }
 table th{
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.85);
     color: #fff;
     padding: 8px 0;
 }

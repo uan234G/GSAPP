@@ -1,37 +1,55 @@
 @model List<User>
     @* brought list of users with same zip code as logged user *@
 
-@{
-    ViewData["Title"] = "Dashboard Page";
+@section Dashboard{
+    <link rel="stylesheet" href="~/css/Dashboard.css">
 }
 
-<h1>Dashboard</h1>
+<header id="Dash-header">
+    <div class="wrapper nav">
+        <div class="logo">
+            <a asp-action="LandingPage" asp-controller="Home">
+                <h1>Dashboard</h1>
+            </a>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li>
+                    <a asp-action="Logout" asp-controller="Home">Logout</a>
+                </li>
+                <li>
+                    <a asp-action="RequestForm" asp-controller="Home" id="request-btn" class="standout-btn">Make a request</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
 
-<a asp-action="RequestForm">Make a request!</a>
+<section id="dash-main" class="wrapper">
 
-<h1>@ViewData["Title"]</h1>
-<table>
-    <thead>
-        <tr>
-            <th>FullName</th>
-            <th>Location</th>    
-            <th>Request Urgency</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
-            @if(user.RequestsCreated == null)
-            {
+    <table>
+        <thead>
             <tr>
-                <td>@user.FirstName @user.LastName</td>
-                <td>@user.City, @user.State</td>
-                @* <td>@u</td> *@
-                <td></td>
-                <td><a asp-action="Detail" asp-route-Uid="@user.UserId">View</a></td>
+                <th>FullName</th>
+                <th>Address</th>
+                <th>Request Urgency</th>
+                <th>Action</th>
             </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                @if(user.RequestsCreated == null)
+                {
+                <tr>
+                    <td>@user.FirstName @user.LastName</td>
+                    <td>@user.City, @user.State</td>
+                    @* <td>@u</td> *@
+                    <td></td>
+                    <td><a asp-action="Detail" asp-route-Uid="@user.UserId" class="view-btn">View</a></td>
+                </tr>
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</section>

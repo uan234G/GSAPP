@@ -37,14 +37,14 @@ namespace GSAPP.Models
         [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password required")]
         [DataType(DataType.Password)]
         [MinLength(8, ErrorMessage = "Password must be at least 8 characters")]
         public string Password { get; set; }
 
         [NotMapped]
-        [Required]
-        [Compare("Password")]
+        [Required(ErrorMessage = "Confirm password")]
+        [Compare("Password", ErrorMessage="Passwords don't match")]
         [DataType(DataType.Password)]
         public string Confirm { get; set; }
 
@@ -64,9 +64,10 @@ namespace GSAPP.Models
 
         [Required(ErrorMessage = "Country required")]
         public string Country { get; set; }
-        
+
         [Required(ErrorMessage = "State required")]
         public string State { get; set; }
+
         public DateTime CreatedAt = DateTime.Now;
         public DateTime UpdatedAt = DateTime.Now;
         public List<Request> RequestsCreated { get; set; }

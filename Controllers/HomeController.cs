@@ -180,5 +180,11 @@ namespace GSAPP.Controllers
             return View("RequestForm");
         }
 
+        // [HttpGet("together/logout")]
+        // public IActionResult Logout()
+        // {
+        //     UserSession.Clear();
+        // }
+
     }
 }

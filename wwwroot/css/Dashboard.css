@@ -1,10 +1,56 @@
-
+/* Dashboard navigation */
+#Dash-header .nav-links li:first-child a{
+    color: #000;
+    border: 2px solid transparent;
+    padding: 2px 20px;
+    transition: all 0.5s ease-out;
+}
+#Dash-header .nav-links li:hover:first-child a{
+    border-color: #000;
+    transition: border-color 0.3s ease-in;
+}
+#Dash-header .nav-links #request-btn{
+    color: #000;
+    border-color: #000;
+    transition: all 0.5s ease-out;
+}
+#Dash-header .nav-links #request-btn:hover{
+    background-color: #000;
+    color: #fff;
+    transition: all 0.3s ease-in;
+}
 
 /* Dashboard body */
 #dash-main{
-    margin-top: 8rem;
+    margin-top: 13rem;
+    height: 70vh;
+    overflow-y: scroll;
 }
 table{
     width: 100%;
-    margin-top: 2rem;
+    height: 100%;
+    background-color: #fff;
+}
+table thead tr th{
+    background-color: #000;
+    color: #fff;
+    padding: 8px 0;
+}
+table td{
+    text-align: center;
+    padding: 8px 0;
+}
+table tr:nth-child(even){
+    background-color: gainsboro;
+}
+table .view-btn{
+    background-color: dodgerblue;
+    color: #fff;
+    border-radius: 5px;
+    padding: 1px 20px;
+    transition: all 0.5s ease-out;
+}
+table .view-btn:hover{
+    background-color: cornflowerblue;
+    transition: all 0.3s ease-in;
 }

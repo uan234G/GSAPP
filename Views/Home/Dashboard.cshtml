@@ -6,7 +6,7 @@
 }
 
 <header id="Dash-header">
-    <div class="wrapper nav landing-nav">
+    <div class="wrapper nav">
         <div class="logo">
             <a asp-action="LandingPage" asp-controller="Home">
                 <h1>Dashboard</h1>
@@ -18,7 +18,7 @@
                     <a asp-action="Logout" asp-controller="Home">Logout</a>
                 </li>
                 <li>
-                    <a asp-action="RequestForm" asp-controller="Home" class="standout-btn">Make a request!</a>
+                    <a asp-action="RequestForm" asp-controller="Home" id="request-btn" class="standout-btn">Make a request</a>
                 </li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
         <thead>
             <tr>
                 <th>FullName</th>
-                <th>Location</th>
+                <th>Address</th>
                 <th>Request Urgency</th>
                 <th>Action</th>
             </tr>
@@ -46,10 +46,118 @@
                     <td>@user.City, @user.State</td>
                     @* <td>@u</td> *@
                     <td></td>
-                    <td><a asp-action="Detail" asp-route-Uid="@user.UserId">View</a></td>
+                    <td><a asp-action="Detail" asp-route-Uid="@user.UserId" class="view-btn">View</a></td>
                 </tr>
                 }
             }
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
+            <tr>
+                <td>Michael Choi</td>
+                <td>1234 Somewhere St, Costa Mesa, Ca, 92607</td>
+                <td>Same day</td>
+                <td><a asp-action="Detail"class="view-btn">View</a></td>
+            </tr>
         </tbody>
     </table>
 </section>

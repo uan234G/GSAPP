@@ -2,6 +2,7 @@
 #Dash-header .nav-links li:first-child a{
     color: #000;
     border: 2px solid transparent;
+    border-radius: 5px;
     padding: 2px 20px;
     transition: all 0.5s ease-out;
 }

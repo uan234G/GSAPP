@@ -26,36 +26,72 @@
     <div id="help-form" class="reg-form-box" data-aos="zoom-out">
         <h4>Help Registration</h4>
         <form asp-action="HelpReg" asp-controller="Home" method="POST">
-            <span asp-validation-for="FirstName" class="red"></span>
-            First Name * <input asp-for="FirstName" placeholder="Enter your name">
-            <span asp-validation-for="LastName" class="red"></span>
-            Last Name * <input asp-for="LastName" placeholder="Enter your last name">
-            <span asp-validation-for="Email" class="red"></span>
-            Email Address * <input asp-for="Email" placeholder="Enter your email">
-            <span asp-validation-for="Password" class="red"></span>
-            Password * <input asp-for="Password" placeholder="Enter a password">
-            <span asp-validation-for="Confirm" class="red"></span>
-            Confirm Password <input asp-for="Confirm" placeholder="Confirm password">
-            <span asp-validation-for="PhoneNumber" class="red"></span>
-            PhoneNumber * <input asp-for="PhoneNumber" placeholder="Enter your phone number">
-            <span asp-validation-for="ImageUrl" class="red"></span>
-            Profile Pic * <input asp-for="ImageUrl">
-            <span asp-validation-for="VenmoId" class="red"></span>
-            Venmo ID * (To make or receive payments)<input asp-for="VenmoId" placeholder="Enter your Venmo ID"> 
-            <span asp-validation-for="Address1" class="red"></span>
-            Address Line 1 * <input asp-for="Address1" placeholder="Enter your address 1">
-            <span> @* Empty span for equal horizontail spacing *@ </span>
-            Adress Line 2 <input asp-for="Password" placeholder="Enter your address 2">
-            <span asp-validation-for="City" class="red"></span>
-            City * <input asp-for="City" placeholder="Enter your city">
-            <span asp-validation-for="ZipCode" class="red"></span>
-            Zip Code * <input asp-for="ZipCode" placeholder="Enter your zip code">
-            <span asp-validation-for="State" class="red"></span>
-            State * <input asp-for="State" placeholder="Enter your state">
-            <span asp-validation-for="Country" class="red"></span>
-            Country * <input asp-for="Country" placeholder="Enter your country">
+
+            <label for="FirstName">First Name * <span asp-validation-for="FirstName" class="red"></span></label>
+            <input asp-for="FirstName" placeholder="Enter your name">
+
+            <label asp-for="LastName">Last Name * <span asp-validation-for="LastName" class="red"></span></label>
+            <input asp-for="LastName" placeholder="Enter your last name">
+
+            <div class="single-row">
+                <div class="inputs">
+                    <label asp-for="Email">Email Address * <span asp-validation-for="Email" class="red"></span></label>
+                    <input asp-for="Email" placeholder="example@example.com">
+                </div>
+
+                <div class="inputs">
+                    <label asp-for="PhoneNumber">Phone Number * <span asp-validation-for="PhoneNumber" class="red"></span></label>
+                    <input asp-for="PhoneNumber" placeholder="(123) 456-7890">
+                </div>
+            </div>
+
+            <label asp-for="ImageUrl">Profile Pic * <span asp-validation-for="ImageUrl" class="red"></span></label>
+            <input asp-for="ImageUrl">
+
+            <label asp-for="VenmoId">Venmo ID * <span asp-validation-for="VenmoId" class="red"></span></label>
+            <input asp-for="VenmoId" placeholder="Enter your Venmo ID">
+            <hr>
+            <label asp-for="Address1">Address Line 1 * <span asp-validation-for="Address1" class="red"></span></label>
+            <input asp-for="Address1" placeholder="Enter your address 1">
+
+            <label asp-for="Password">Adress Line 2</label>
+            <input asp-for="Password" placeholder="Enter your address 2">
+
+            <div class="single-row">
+
+                <div class="inputs">
+                    <label asp-for="City">City * <span asp-validation-for="City" class="red"></span></label>
+                    <input asp-for="City" placeholder="Enter your city">
+                </div>
+
+                <div class="inputs">
+                    <label asp-for="ZipCode">Zip Code * <span asp-validation-for="ZipCode" class="red"></span></label>
+                    <input asp-for="ZipCode" placeholder="Enter your zip code">
+                </div>
+
+            </div>
+
+            <div class="single-row">
+
+                <div class="inputs">
+                    <label asp-for="State">State * <span asp-validation-for="State" class="red"></span></label>
+                    <input asp-for="State" placeholder="Enter your state">
+                </div>
+
+                <div class="inputs">
+                    <label asp-for="Country">Country * <span asp-validation-for="Country" class="red"></span></label>
+                    <input asp-for="Country" placeholder="Enter your country">
+                </div>
+
+            </div>
+
+            <label asp-for="Password">Password * <span asp-validation-for="Password" class="red"></span></label>
+            <input asp-for="Password" placeholder="Enter a password">
+
+            <label asp-for="Confirm">Confirm Password <span asp-validation-for="Confirm" class="red"></span></label>
+            <input asp-for="Confirm" placeholder="Confirm password">
+
             <input type="hidden" asp-for="Status" value="true">
-            <span> @* Empty span for equal horizontail spacing *@ </span>
             <input type="submit" class="form-btn" value="REGISTER">
         </form>
         <a asp-action="Login" asp-controller="Home" class="form-redirect-link">Already have an account?</a>

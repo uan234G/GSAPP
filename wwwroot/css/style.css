@@ -56,7 +56,7 @@ header .logo h1{
 }
 .nav-links ul li{
     display: inline-block;
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 .standout-btn{
     padding: 2px 20px;

@@ -19,13 +19,32 @@
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
-  </script>
+    </script>
+    @* <script>
+        const pwdInput = document.getElementById('password');
+        const show = document.getElementById('show-pwd');
+
+        show.addEventListener('mousedown', showPwd);
+
+        function showPwd(){
+            if(pwdInput.type = 'password'){
+                console.log('hello');
+                show.innerHTML = '<i class="far fa-eye-slash"></i>';
+                pwdInput.type = 'text';
+            } 
+        }
+    </script> *@
 
 </head>
 <body>
     @RenderBody()
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="~/js/site.js"></script>
+    <script>
+        AOS.init({
+            offset: 300,
+            duration: 850
+        });
+    </script>
 </body>
 </html>

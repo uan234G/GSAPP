@@ -18,6 +18,42 @@ form input{
     height: 2rem;
     padding: 0 5px;
 }
+form #pwd-box{
+  height: 2rem;
+  border-radius: 7px;
+  border: 2px solid #000;
+  margin-bottom: 1rem;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+}
+form #pwd-box input{
+  border: 0;
+  height: 1.75rem;
+  border-radius: 7px;
+  width:90%;
+  margin: 0;
+}
+form #pwd-box span{
+  width: 10%;
+  height: 100%;
+  display:flex;
+  color: rgba(0,0,0,0.4);
+  background-color: transparent;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+  z-index: 1;
+  transition: all 0.5s ease-out;
+}
+form #pwd-box span:hover{
+  cursor: pointer;
+  background-color: #f2f3f7;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  color: cornflowerblue;
+  transition: all 0.2s ease-in;
+}
 form textarea{
     height: 7rem;
     padding: 5px;

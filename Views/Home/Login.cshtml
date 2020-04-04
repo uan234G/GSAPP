@@ -26,9 +26,9 @@
         <h3>Login</h3>
         <form asp-action="LoginUser" asp-controller="Home" method="POST">
             <span asp-validation-for="LoginEmail" class="red"></span>
-            Email: <input class="form-control" asp-for="LoginEmail" placeholder="Enter email">
+            Email: <input asp-for="LoginEmail" placeholder="Enter email">
             <span asp-validation-for="LoginPassword" class="red"></span>
-            Password: <input class="form-control" asp-for="LoginPassword" placeholder="Enter password">
+            Password: <input asp-for="LoginPassword" placeholder="Enter password"><i class="far fa-eye"></i>
             <br>
             <input type="submit" class="form-btn" value="LOGIN">
         </form>

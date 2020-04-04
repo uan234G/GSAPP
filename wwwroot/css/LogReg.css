@@ -48,7 +48,6 @@ form #pwd-box span{
 }
 form #pwd-box span:hover{
   cursor: pointer;
-  background-color: #f2f3f7;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
   color: cornflowerblue;

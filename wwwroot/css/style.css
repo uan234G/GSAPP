@@ -30,10 +30,16 @@ a{
 p{
     line-height: 25px;
 }
-
 header .logo h1{
     font-size: 2.35rem;
     color: #000;
+}
+
+.pic{
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 .bold{
     font-weight: 700;

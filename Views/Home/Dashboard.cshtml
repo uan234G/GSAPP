@@ -37,12 +37,11 @@
         <tbody>
             @foreach (var user in Model)
             {
-                @if(user.RequestsCreated == null)
+                @if(user.Status == true)
                 {
                 <tr>
                     <td>@user.FirstName @user.LastName</td>
                     <td>@user.City, @user.State</td>
-                    @* <td>@u</td> *@
                     <td></td>
                     <td><a asp-action="Detail" asp-route-Uid="@user.UserId" class="view-btn">View</a></td>
                 </tr>

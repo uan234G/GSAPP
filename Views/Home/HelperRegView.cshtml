@@ -4,6 +4,63 @@
     <link rel="stylesheet" href="~/css/LogReg.css">
 }
 
+
+<style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+</style>
+
+
+
+    <script>      
+      
+      function getCoordinates (address, callback){
+      var geocoder = new google.maps.Geocoder();
+        var coordinates;
+        geocoder.geocode({address: address}, function(results, status){
+          coords_obj = results[0].geometry.location;
+          coordinates = [coords_obj.nb, coords_obj.ob];
+        })
+      }
+
+      var map;
+
+      function initMap2(){
+        getCoordinates('1045 Mission street san fransisco', function(coords){
+          var mapOptions = {
+            zoom: 14,
+            center: new google.maps.LatLng(coords[0], coords[1]),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+        map = new google.maps.Map(document.getElementById('map'),mapOptions);
+        })
+      }
+
+// Initialize and add the map
+      function initMap() {
+        getCoordinates('15 Eastshore Irvine', function(coords){
+          // The location of Uluru
+          var uluru = {lat: coords[0], lng: coords[1]};
+          // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 15, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+        })
+      }
+    </script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATmhZCudDM6-9P11F4N8eWpC307XgRUaI&callback=initMap2">
+</script>
+
+<h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
 <header id="LogReg-header">
     <div class="wrapper nav landing-nav">
         <div class="logo">

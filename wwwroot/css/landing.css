@@ -1,11 +1,14 @@
 /* NAVIGATION */
 .landing-nav .nav-links ul li a{
     color: #fff;
-    transition: color 0.5s ease-out;
+    border: 2px solid transparent;
+    padding: 2px 20px;
+    transition: all 0.5s ease-out;
 }
 .landing-nav .nav-links ul li a:hover{
-    color: rgba(255,255,255,0.4);
-    transition: color 0.3s ease-in;
+    /* color: rgba(255,255,255,0.4); */
+    border-color: #fff;
+    transition: border-color 0.3s ease-in;
 }
 .landing-nav .nav-links #register-btn{
     background-color: #fff;
@@ -43,6 +46,10 @@
 #banner .col{
     width: 49%;
 }
+#banner .col p{
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
 #banner .image{
     background-image: linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.1), rgba(0,0,0,0.5) ), url('https://images.unsplash.com/photo-1542323228-002ac256e7b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
     background-size: cover;
@@ -65,18 +72,16 @@
 }
 #how .cards .card{
     width: 40%;
-    padding: 2rem 2.5rem;
-    background: rgba(255,255,255,0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-#how .cards .card h4{
-    text-align: center;
-    letter-spacing: 0.5px;
-    font-size: 1.2rem;
-    margin-bottom: 2rem !important;
+#how .cards .card p:first-of-type{
+    margin-bottom: 12px;
 }
-#how .cards .card ul li{
-    margin-bottom: 1rem;
+#how .cards .card p{
+    line-height: 1.5;
 }
-#how .cards .card ul li:last-child{
-    margin-bottom: 0;
+#how .cards .image{
+    width: 57%;
 }

@@ -11,21 +11,70 @@ form{
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
 }
-form>*{
-    margin-bottom: 12px;
+form label{
+    font-size: 0.9rem;
 }
 form input{
     height: 2rem;
-    outline: 0;
-    border: 2px solid #000;
     padding: 0 5px;
-    font-size: 1rem;
+}
+form #pwd-box{
+  height: 2rem;
+  border-radius: 7px;
+  border: 2px solid #000;
+  margin-bottom: 1rem;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+}
+form #pwd-box input{
+  border: 0;
+  height: 1.75rem;
+  border-radius: 7px;
+  width:90%;
+  margin: 0;
+}
+form #pwd-box span{
+  width: 10%;
+  height: 100%;
+  display:flex;
+  color: rgba(0,0,0,0.4);
+  background-color: transparent;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+  z-index: 1;
+  transition: all 0.5s ease-out;
+}
+form #pwd-box span:hover{
+  cursor: pointer;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  color: cornflowerblue;
+  transition: all 0.2s ease-in;
+}
+form textarea{
+    height: 7rem;
+    padding: 5px;
+}
+form input,
+form textarea{
+    outline: 0;
+    margin-bottom: 1rem;
+    border-radius: 7px;
+    border: 2px solid #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+form hr{
+    margin: 1.25rem 0;
 }
 form .form-btn{
     background-color: #000;
     color: #fff;
     font-weight: 700;
     letter-spacing: 1px;
+    border-radius: 25px;
     width: 50%;
     margin: 0 auto;
     transition: all 0.5s ease-out;
@@ -39,21 +88,27 @@ form .form-btn:hover{
 form .form-btn:active{
     transform: scale();
 }
+form .single-row .inputs{
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+}
 
 
 /* Styles for Login.cshtml */
 #LogReg-header .nav-links a{
     color: #000;
-    padding: 2px 15px;
-    border: 2px solid transparent;
+    border-color: #000;
     transition: all 0.5s ease-out;
 }
 #LogReg-header .nav-links a:hover{
-    border-color: #000;
-    transition: border-color 0.3s ease-in;
+    background-color: #000;
+    color: #fff;
+    transition: all 0.3s ease-in;
 }
 #log-body,
-#reg-body{
+#reg-body,
+#request-main{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -64,15 +119,12 @@ form .form-btn:active{
     width: 50%;
     padding: 3rem;
     background-color: #fff;
-    /* box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); */
 }
 .log-container h3,
 .reg-container h3{
-    font-size: 1.85rem;
     text-align: center;
     margin-bottom: 2rem;
 }
-
 
 /* Styles for Register.cshtml */
 .reg-container{
@@ -87,13 +139,18 @@ form .form-btn:active{
 }
 .btn-alignment{
     margin-top: 1rem;
+}
+.btn-alignment,
+.single-row{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .reg-btn{
     width: 45%;
-    height: 2rem;
+    text-align: center;
+    color: #000;
+    padding: 7px;
     outline: 0;
     background-color: transparent;
     border: 2px solid #000;
@@ -128,14 +185,20 @@ form .form-btn:active{
 .reg-btn:active{
     transform: scale(0.95);
 }
+
+/* These styles apply for both Help & Helper.cshtml files */
+.help-helper-main{
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .reg-form-box{
-    position: absolute;
+    width: 40%;
     padding: 3rem;
-    width: 100%;
-    top: 370px;
-    left: 0;
-    z-index: 2;
     margin-bottom: 2rem;
     background-color: #fff;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+.reg-form-box h4{
+    margin-bottom: 1rem;
 }

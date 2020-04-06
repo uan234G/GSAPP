@@ -21,16 +21,25 @@ header{
 ul li{
     list-style-type: none;
 }
+h3{
+    font-size: 2.5rem;
+}
 a{
     text-decoration: none;
 }
 p{
     line-height: 25px;
 }
-
 header .logo h1{
     font-size: 2.35rem;
     color: #000;
+}
+
+.pic{
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 .bold{
     font-weight: 700;
@@ -53,5 +62,14 @@ header .logo h1{
 }
 .nav-links ul li{
     display: inline-block;
-    margin-left: 2.5rem;
+    margin-left: 0.5rem;
+}
+.standout-btn{
+    padding: 2px 20px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+}
+.standout-btn:active{
+    transform: scale(0.95);
 }

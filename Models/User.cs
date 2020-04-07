@@ -44,7 +44,7 @@ namespace GSAPP.Models
 
         [NotMapped]
         [Required(ErrorMessage = "Confirm password")]
-        [Compare("Password", ErrorMessage="Passwords don't match")]
+        [Compare("Password", ErrorMessage = "Passwords don't match")]
         [DataType(DataType.Password)]
         public string Confirm { get; set; }
 
@@ -58,8 +58,7 @@ namespace GSAPP.Models
         [MinLength(2, ErrorMessage = "Name should be more than 2 characters")]
         public string City { get; set; }
 
-        [Required]
-        [MinLength(2, ErrorMessage = "Name should be more than 2 characters")]
+        [Required(ErrorMessage = "Zip code required")]
         public int ZipCode { get; set; }
 
         [Required(ErrorMessage = "Country required")]

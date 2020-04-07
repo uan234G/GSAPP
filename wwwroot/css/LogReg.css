@@ -200,6 +200,9 @@ form .single-row .inputs{
     margin-bottom: 2rem;
     background-color: #fff;
 }
-.reg-form-box h4{
+.reg-form-box .form-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
 }

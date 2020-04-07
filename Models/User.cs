@@ -76,11 +76,11 @@ namespace GSAPP.Models
 [NotMapped]
 public class Login
 {
-    [Required(ErrorMessage="Enter your email")]
+    [Required(ErrorMessage = "Enter your email")]
     [EmailAddress]
     public string LoginEmail { get; set; }
 
-    [Required(ErrorMessage="Enter your password")]
+    [Required(ErrorMessage = "Enter your password")]
     [DataType(DataType.Password)]
     public string LoginPassword { get; set; }
 }

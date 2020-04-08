@@ -6,6 +6,10 @@
     text-align: center;
     margin-top: 12px;
 }
+.width-link{
+    margin: 12px auto 12px auto;
+    width: 35%;
+}
 form{
     display: flex;
     flex-direction: column;
@@ -38,6 +42,9 @@ form textarea{
 }
 form hr{
     margin: 1.25rem 0;
+}
+form #upload-input{
+    border: 0;
 }
 form #pwd-box{
   height: 2rem;
@@ -143,10 +150,6 @@ form .single-row .inputs{
 }
 .reg-container p{
     text-align: center;
-}
-.venmo{
-    margin: 12px auto 12px auto;
-    width: 35%;
 }
 .btn-alignment{
     margin-top: 1rem;

@@ -1,4 +1,5 @@
-﻿﻿using System;
+﻿﻿/////////////////////////adding comment to not delete using system when saving
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -69,8 +70,8 @@ namespace GSAPP.Controllers
                 return RedirectToAction("LandingPage");
             }
             User CurrentUser = dbContext.Users.FirstOrDefault(a => a.UserId == UserSession);
-            List<User> NearbyUsers = dbContext.Users.Include(a => a.RequestsCreated).Where(a => a.ZipCode == CurrentUser.ZipCode).ToList();
-            return View(NearbyUsers);
+            List<Request> NearbyRequests = dbContext.Requests.Include(a => a.Creator).Where(a => a.Creator.ZipCode == CurrentUser.ZipCode).ToList();
+            return View(NearbyRequests);
         }
 
         [HttpGet("View/{Uid}/Details")]
@@ -103,7 +104,7 @@ namespace GSAPP.Controllers
                 if (dbContext.Users.Any(i => i.Email == HelpUser.Email))
                 {
                     ModelState.AddModelError("Email", "Email already exists!");
-                    return View("HelpReg");
+                    return View("HelpRegView");
                 }
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 string hashedPw = hasher.HashPassword(HelpUser, HelpUser.Password);
@@ -171,9 +172,9 @@ namespace GSAPP.Controllers
         {
             if (ModelState.IsValid)
             {
+                newRequest.UserID = (int)UserSession;
                 dbContext.Add(newRequest);
                 dbContext.SaveChanges();
-                newRequest.UserID = (int)UserSession;
                 return RedirectToAction("Dashboard");
             }
             return View("RequestForm");

@@ -23,7 +23,10 @@
 
 <section class="help-helper-main">
     <div id="helper-form" class="reg-form-box" data-aos="zoom-out">
-        <h4>Helper Registration</h4>
+        <div class="form-header">
+            <h4>Helper Registration</h4>
+            <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
+        </div>
         <form asp-action="HelperReg" asp-controller="Home" method="POST">
             <label for="FirstName">First Name * <span asp-validation-for="FirstName" class="red"></span></label>
             <input asp-for="FirstName" placeholder="Enter your name">
@@ -52,8 +55,8 @@
             <label asp-for="Address1">Address Line 1 * <span asp-validation-for="Address1" class="red"></span></label>
             <input asp-for="Address1" placeholder="Enter your address 1">
 
-            <label asp-for="Password">Adress Line 2</label>
-            <input asp-for="Password" placeholder="Enter your address 2">
+            <label asp-for="Address2">Adress Line 2</label>
+            <input asp-for="Address2" placeholder="Enter your address 2">
 
             <div class="single-row">
 

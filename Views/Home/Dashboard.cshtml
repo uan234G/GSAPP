@@ -1,4 +1,4 @@
-@model List<User>
+@model List<Request>
     @* brought list of users with same zip code as logged user *@
 
 @section Dashboard{
@@ -25,7 +25,7 @@
 
 <section id="dash-main" class="wrapper">
 
-    <table>
+<table>
         <thead>
             <tr>
                 <th>Full Name</th>
@@ -35,18 +35,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var user in Model)
+            @foreach (var request in Model)
             {
-                @if(user.RequestsCreated == null)
-                {
                 <tr>
-                    <td>@user.FirstName @user.LastName</td>
-                    <td>@user.City, @user.State</td>
-                    @* <td>@u</td> *@
-                    <td></td>
-                    <td><a asp-action="Detail" asp-route-Uid="@user.UserId" class="view-btn">View</a></td>
+                    <td>@request.Creator.FirstName @request.Creator.LastName</td>
+                    <td>@request.Creator.City, @request.Creator.State</td>
+                    <td>@request.Urgency</td>
+                    <td><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
                 </tr>
-                }
             }
         </tbody>
     </table>

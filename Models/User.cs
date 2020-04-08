@@ -58,7 +58,7 @@ namespace GSAPP.Models
         [MinLength(2, ErrorMessage = "Name should be more than 2 characters")]
         public string City { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Zip code required")]
         public int ZipCode { get; set; }
 
         [Required(ErrorMessage = "Country required")]

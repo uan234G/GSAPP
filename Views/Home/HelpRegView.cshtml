@@ -24,7 +24,10 @@
 
 <section class="help-helper-main">
     <div id="help-form" class="reg-form-box" data-aos="zoom-out">
-        <h4>Help Registration</h4>
+        <div class="form-header">
+            <h4>Help Registration</h4>
+            <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
+        </div>
         <form asp-action="HelpReg" asp-controller="Home" method="POST">
 
             <label for="FirstName">First Name * <span asp-validation-for="FirstName" class="red"></span></label>

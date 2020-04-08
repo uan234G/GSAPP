@@ -105,7 +105,7 @@ namespace GSAPP.Controllers
                 if (dbContext.Users.Any(i => i.Email == HelpUser.Email))
                 {
                     ModelState.AddModelError("Email", "Email already exists!");
-                    return View("HelpReg");
+                    return View("HelpRegView");
                 }
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 string hashedPw = hasher.HashPassword(HelpUser, HelpUser.Password);

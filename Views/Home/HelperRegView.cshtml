@@ -27,7 +27,7 @@
             <h4>Helper Registration</h4>
             <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
         </div>
-        <form asp-action="HelperReg" asp-controller="Home" method="POST">
+        <form asp-action="HelperReg" asp-controller="Home" method="POST" enctype="multipart/form-data">
             <label for="FirstName">First Name * <span asp-validation-for="FirstName" class="red"></span></label>
             <input asp-for="FirstName" placeholder="Enter your name">
 

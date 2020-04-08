@@ -43,7 +43,7 @@ form textarea{
 form hr{
     margin: 1.25rem 0;
 }
-form #upload-input{
+form .upload-input{
     border: 0;
 }
 form #pwd-box{

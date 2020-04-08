@@ -6,7 +6,6 @@
     transition: all 0.5s ease-out;
 }
 .landing-nav .nav-links ul li a:hover{
-    /* color: rgba(255,255,255,0.4); */
     border-color: #fff;
     transition: border-color 0.3s ease-in;
 }
@@ -57,7 +56,7 @@
     background-repeat: no-repeat;
 }
 
-/* HOW IT WORKS */
+/* Our MISSION */
 #how{
     margin-top: 5rem;
 }
@@ -84,4 +83,45 @@
 }
 #how .cards .image{
     width: 57%;
+    height: 70vh;
+}
+
+/* FOOTER */
+footer{
+    height: 25vh;
+    color: #fff;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#footer-nav a{
+    color: #fff;
+}
+#footer-nav .logo h1{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+#footer-nav .logo span{
+    font-size: 0.85rem;
+}
+#footer-nav .footer-links h4{
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+#footer-nav .footer-links ul li{
+    display: block;
+    margin-bottom: 5px;
+}
+#footer-nav .footer-links ul li:last-child{
+    margin-bottom: 0;
+}
+#footer-nav .footer-links ul li a{
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.85rem;
+    transition: color 0.4s ease-out;
+}
+#footer-nav .footer-links ul li a:hover{
+    color: rgba(255, 255, 255, 1);
+    transition: color 0.2s ease-in;
 }

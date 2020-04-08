@@ -1,4 +1,4 @@
-﻿﻿/////////////////////////adding comment to not delete using system when saving
+﻿﻿/////////////////adding comment to not delete using system when saving
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,6 +9,8 @@ using GSAPP.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace GSAPP.Controllers
 {
@@ -22,11 +24,13 @@ namespace GSAPP.Controllers
         }
 
         private MyContext dbContext;
+        private IHostingEnvironment _hostingEnvironment;
 
         // here we can "inject" our context service into the constructor
-        public HomeController(MyContext context)
+        public HomeController(MyContext context, IHostingEnvironment environment)
         {
             dbContext = context;
+            _hostingEnvironment = environment;
         }
 
         private int? UserSession
@@ -105,18 +109,23 @@ namespace GSAPP.Controllers
                 if (dbContext.Users.Any(i => i.Email == HelpUser.Email))
                 {
                     ModelState.AddModelError("Email", "Email already exists!");
-                    return View("HelpReg");
+                    return View("HelpRegView");
                 }
+                string fileName = null;
+                if (HelpUser.Photo != null)
+                {
+                    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
+                    fileName = HelpUser.Photo.FileName;
+                    string filePath = Path.Combine(uploadsFolder, fileName);
+                    HelpUser.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+                HelpUser.ImageUrl = fileName;
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 string hashedPw = hasher.HashPassword(HelpUser, HelpUser.Password);
                 HelpUser.Password = hashedPw;
                 dbContext.Add(HelpUser);
                 dbContext.SaveChanges();
                 UserSession = HelpUser.UserId;
-                // if (HelpUser.Status == false)
-                // {
-                //     return RedirectToAction("Dashboard");
-                // }
                 return RedirectToAction("RequestForm");
             }
             return View("HelpRegView");
@@ -132,6 +141,15 @@ namespace GSAPP.Controllers
                     ModelState.AddModelError("Email", "Email already exists!");
                     return View("HelperReg");
                 }
+                string fileName = null;
+                if (HelperUser.Photo != null)
+                {
+                    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
+                    fileName = HelperUser.Photo.FileName;
+                    string filePath = Path.Combine(uploadsFolder, fileName);
+                    HelperUser.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+                HelperUser.ImageUrl = fileName;
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 string hashedPw = hasher.HashPassword(HelperUser, HelperUser.Password);
                 HelperUser.Password = hashedPw;
@@ -169,16 +187,17 @@ namespace GSAPP.Controllers
         }
 
         [HttpPost("together/request-help")]
-        public IActionResult RequestHelp(Request newRequest)
+        public IActionResult submitRequest(Request newRequest)
         {
-            if (ModelState.IsValid)
-            {
-                newRequest.UserID = (int)UserSession;
-                dbContext.Add(newRequest);
-                dbContext.SaveChanges();
-                return RedirectToAction("Dashboard");
-            }
-            return View("RequestForm");
+            // if (ModelState.IsValid)
+            // {
+            User userfromDb = dbContext.Users.FirstOrDefault(a => a.UserId == UserSession);
+            newRequest.UserID = userfromDb.UserId;
+            dbContext.Add(newRequest);
+            dbContext.SaveChanges();
+            return RedirectToAction("Dashboard");
+            // }
+            // return View("RequestForm");
         }
 
         [HttpGet("together/logout")]

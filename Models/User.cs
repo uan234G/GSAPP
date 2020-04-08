@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace GSAPP.Models
 {
@@ -25,8 +26,10 @@ namespace GSAPP.Models
         [Required(ErrorMessage = "Enter your Venmo ID")]
         public string VenmoId { get; set; }
 
-        [Required(ErrorMessage = "Upload a picture")]
         public string ImageUrl { get; set; }
+
+        [NotMapped]
+        public IFormFile Photo { get; set; }
 
         [Required(ErrorMessage = "Phone # required")]
         public string PhoneNumber { get; set; }
@@ -58,7 +61,7 @@ namespace GSAPP.Models
         [MinLength(2, ErrorMessage = "Name should be more than 2 characters")]
         public string City { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Zip code required")]
         public int ZipCode { get; set; }
 
         [Required(ErrorMessage = "Country required")]

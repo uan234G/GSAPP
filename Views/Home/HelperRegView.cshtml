@@ -23,8 +23,19 @@
 
 <section class="help-helper-main">
     <div id="helper-form" class="reg-form-box" data-aos="zoom-out">
+<<<<<<< HEAD
+<<<<<<< HEAD
         <h4>Helper Registration</h4>
+        <form asp-action="HelperReg" asp-controller="Home" method="POST" enctype="multipart/form-data" >
+=======
+=======
+>>>>>>> edad09f61212d6ab7cdd6ceed2c6be5a76f21a5e
+        <div class="form-header">
+            <h4>Helper Registration</h4>
+            <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
+        </div>
         <form asp-action="HelperReg" asp-controller="Home" method="POST">
+>>>>>>> edad09f61212d6ab7cdd6ceed2c6be5a76f21a5e
             <label for="FirstName">First Name * <span asp-validation-for="FirstName" class="red"></span></label>
             <input asp-for="FirstName" placeholder="Enter your name">
 
@@ -43,8 +54,8 @@
                 </div>
             </div>
 
-            <label asp-for="ImageUrl">Profile Pic * <span asp-validation-for="ImageUrl" class="red"></span></label>
-            <input asp-for="ImageUrl">
+            <label asp-for="Photo">Profile Pic * <span asp-validation-for="Photo" class="red"></span></label>
+            <input asp-for="Photo">
 
             <label asp-for="VenmoId">Venmo ID * <span asp-validation-for="VenmoId" class="red"></span></label>
             <input asp-for="VenmoId" placeholder="Enter your Venmo ID">

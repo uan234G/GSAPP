@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GSAPP.Migrations
 {
-    public partial class TestMigration : Migration
+    public partial class firstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +18,7 @@ namespace GSAPP.Migrations
                     LastName = table.Column<string>(nullable: false),
                     Status = table.Column<bool>(nullable: false),
                     VenmoId = table.Column<string>(nullable: false),
-                    ImageUrl = table.Column<string>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
@@ -40,7 +40,7 @@ namespace GSAPP.Migrations
                 {
                     RequestId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Items = table.Column<string>(nullable: false),
+                    Items = table.Column<string>(nullable: true),
                     Urgency = table.Column<DateTime>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
                     IsCompleted = table.Column<bool>(nullable: false),

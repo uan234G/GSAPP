@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GSAPP.Models
 {
@@ -7,11 +8,9 @@ namespace GSAPP.Models
     {
         [Key]
         public int RequestId { get; set; }
-
         [Required]
         public string Items { get; set; }
         // user can write down everything they need in textbox
-
         [Required]
         public DateTime Urgency { get; set; }
         public string Notes { get; set; }

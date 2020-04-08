@@ -18,10 +18,31 @@ form input{
     height: 2rem;
     padding: 0 5px;
 }
+form input::placeholder{
+    color: #243f51;
+    opacity: 0.6;
+}
+form textarea{
+    height: 7rem;
+    padding: 5px;
+}
+form input,
+form textarea{
+    outline: 0;
+    margin-bottom: 1rem;
+    border-radius: 7px;
+    border: 2px solid #243f51;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.5s ease-out;
+}
+form hr{
+    margin: 1.25rem 0;
+}
 form #pwd-box{
   height: 2rem;
   border-radius: 7px;
-  border: 2px solid #000;
+  border: 2px solid #243f51;
   margin-bottom: 1rem;
   display:flex;
   justify-content: space-between;
@@ -38,7 +59,8 @@ form #pwd-box span{
   width: 10%;
   height: 100%;
   display:flex;
-  color: rgba(0,0,0,0.4);
+  color: #243f51;
+  opacity: 0.6;
   background-color: transparent;
   flex-direction:column;
   justify-content: center;
@@ -50,27 +72,12 @@ form #pwd-box span:hover{
   cursor: pointer;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
-  color: cornflowerblue;
+  opacity: 1;
   transition: all 0.2s ease-in;
 }
-form textarea{
-    height: 7rem;
-    padding: 5px;
-}
-form input,
-form textarea{
-    outline: 0;
-    margin-bottom: 1rem;
-    border-radius: 7px;
-    border: 2px solid #000;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-}
-form hr{
-    margin: 1.25rem 0;
-}
 form .form-btn{
-    background-color: #000;
+    background: linear-gradient(to right, #F76241, #ff7759);
+    border-color: transparent;
     color: #fff;
     font-weight: 700;
     letter-spacing: 1px;
@@ -80,8 +87,9 @@ form .form-btn{
     transition: all 0.5s ease-out;
 }
 form .form-btn:hover{
+    box-shadow: 4px 4px 7px rgba(0,0,0,0.4);
     cursor: pointer;
-    color: #000;
+    color: #fff;
     background-color: transparent;
     transition: all 0.3s ease-in;
 }
@@ -96,13 +104,16 @@ form .single-row .inputs{
 
 
 /* Styles for Login.cshtml */
+#LogReg-header .logo h1{
+    color: #243f51;
+}
 #LogReg-header .nav-links a{
-    color: #000;
-    border-color: #000;
+    color: #243f51;
+    border-color: #243f51;
     transition: all 0.5s ease-out;
 }
 #LogReg-header .nav-links a:hover{
-    background-color: #000;
+    background-color: #243f51;
     color: #fff;
     transition: all 0.3s ease-in;
 }
@@ -149,12 +160,11 @@ form .single-row .inputs{
 .reg-btn{
     width: 45%;
     text-align: center;
-    color: #000;
+    color: #fff;
     padding: 7px;
     outline: 0;
     border-radius: 25px;
-    background-color: transparent;
-    border: 2px solid #000;
+    background: linear-gradient(to right, #F76241, #ff7759);
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
@@ -162,11 +172,11 @@ form .single-row .inputs{
     transition: all 0.5s ease-out;
 }
 .reg-btn:hover{
-    color: #fff;
+    box-shadow: 4px 4px 7px rgba(0,0,0,0.4);
     cursor: pointer;
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
 }
-.reg-btn:after{
+/* .reg-btn:after{
     content: '';
     position: absolute;
     z-index: -1;
@@ -177,12 +187,12 @@ form .single-row .inputs{
     height: 0;
     top: 0;
     left: 0;
-    background-color: #000;
+    background-color: #243f51;
 }
 .reg-btn:hover:after,
 .reg-btn:active:after{
     height: 100%;
-}
+} */
 .reg-btn:active{
     transform: scale(0.95);
 }

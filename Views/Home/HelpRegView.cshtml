@@ -28,7 +28,8 @@
             <h4>Help Registration</h4>
             <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
         </div>
-        <form asp-action="HelpReg" asp-controller="Home" method="POST" enctype="multipart/form-data" >
+
+        <form asp-action="HelpReg" asp-controller="Home" method="POST" enctype="multipart/form-data">
             <label for="FirstName">First Name * <span asp-validation-for="FirstName" class="red"></span></label>
             <input asp-for="FirstName" placeholder="Enter your name">
 
@@ -96,6 +97,6 @@
             <input type="hidden" asp-for="Status" value="true">
             <input type="submit" class="form-btn" value="REGISTER">
         </form>
-        <a asp-action="Login" asp-controller="Home" class="form-redirect-link">Already have an account?</a>
+        <a asp-action="Login" asp-controller="Home" class="form-redirect-link width-link">Already have an account?</a>
     </div>
 </section>

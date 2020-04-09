@@ -23,7 +23,7 @@ uploadBtn.addEventListener('click', function(){
 });
 realFileInput.addEventListener('change', function(){
     if(realFileInput.value){
-        fileCallOut.innerHTML = realFileInput.value;
+        fileCallOut.innerHTML = realFileInput.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/);
     } else{
         fileCallOut.innerHTML = 'No file chosen';
     }

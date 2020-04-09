@@ -6,6 +6,10 @@
     text-align: center;
     margin-top: 12px;
 }
+.width-link{
+    margin: 12px auto 12px auto;
+    width: 35%;
+}
 form{
     display: flex;
     flex-direction: column;
@@ -39,41 +43,44 @@ form textarea{
 form hr{
     margin: 1.25rem 0;
 }
+form .upload-input{
+    border: 0;
+}
 form #pwd-box{
-  height: 2rem;
-  border-radius: 7px;
-  border: 2px solid #243f51;
-  margin-bottom: 1rem;
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
+    height: 2rem;
+    border-radius: 7px;
+    border: 2px solid #243f51;
+    margin-bottom: 1rem;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
 }
 form #pwd-box input{
-  border: 0;
-  height: 1.75rem;
-  border-radius: 7px;
-  width:90%;
-  margin: 0;
+    border: 0;
+    height: 1.75rem;
+    border-radius: 7px;
+    width:90%;
+    margin: 0;
 }
 form #pwd-box span{
-  width: 10%;
-  height: 100%;
-  display:flex;
-  color: #243f51;
-  opacity: 0.6;
-  background-color: transparent;
-  flex-direction:column;
-  justify-content: center;
-  align-items:center;
-  z-index: 1;
-  transition: all 0.5s ease-out;
+    width: 10%;
+    height: 100%;
+    display:flex;
+    color: #243f51;
+    opacity: 0.6;
+    background-color: transparent;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    z-index: 1;
+    transition: all 0.5s ease-out;
 }
 form #pwd-box span:hover{
-  cursor: pointer;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  opacity: 1;
-  transition: all 0.2s ease-in;
+    cursor: pointer;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    opacity: 1;
+    transition: all 0.2s ease-in;
 }
 form .form-btn{
     background: linear-gradient(to right, #F76241, #ff7759);
@@ -144,10 +151,6 @@ form .single-row .inputs{
 .reg-container p{
     text-align: center;
 }
-.venmo{
-    margin: 12px auto 12px auto;
-    width: 35%;
-}
 .btn-alignment{
     margin-top: 1rem;
 }
@@ -176,23 +179,6 @@ form .single-row .inputs{
     cursor: pointer;
     transition: all 0.2s ease-in;
 }
-/* .reg-btn:after{
-    content: '';
-    position: absolute;
-    z-index: -1;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    width: 100%;
-    height: 0;
-    top: 0;
-    left: 0;
-    background-color: #243f51;
-}
-.reg-btn:hover:after,
-.reg-btn:active:after{
-    height: 100%;
-} */
 .reg-btn:active{
     transform: scale(0.95);
 }

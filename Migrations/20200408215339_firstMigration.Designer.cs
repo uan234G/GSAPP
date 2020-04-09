@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSAPP.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20200329171430_TestMigration")]
-    partial class TestMigration
+    [Migration("20200408215339_firstMigration")]
+    partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,8 +26,7 @@ namespace GSAPP.Migrations
 
                     b.Property<bool>("IsCompleted");
 
-                    b.Property<string>("Items")
-                        .IsRequired();
+                    b.Property<string>("Items");
 
                     b.Property<string>("Notes");
 
@@ -66,8 +65,7 @@ namespace GSAPP.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired();
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired();
+                    b.Property<string>("ImageUrl");
 
                     b.Property<string>("LastName")
                         .IsRequired();

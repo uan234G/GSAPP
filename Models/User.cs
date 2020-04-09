@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace GSAPP.Models
 {
@@ -25,8 +26,10 @@ namespace GSAPP.Models
         [Required(ErrorMessage = "Enter your Venmo ID")]
         public string VenmoId { get; set; }
 
-        [Required(ErrorMessage = "Upload a picture")]
         public string ImageUrl { get; set; }
+
+        [NotMapped]
+        public IFormFile Photo { get; set; }
 
         [Required(ErrorMessage = "Phone # required")]
         public string PhoneNumber { get; set; }

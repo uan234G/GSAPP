@@ -27,7 +27,7 @@
             <h4>Helper Registration</h4>
             <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
         </div>
-        <form asp-action="HelperReg" asp-controller="Home" method="POST">
+        <form asp-action="HelperReg" asp-controller="Home" method="POST" enctype="multipart/form-data">
             <label for="FirstName">First Name * <span asp-validation-for="FirstName" class="red"></span></label>
             <input asp-for="FirstName" placeholder="Enter your name">
 
@@ -46,8 +46,8 @@
                 </div>
             </div>
 
-            <label asp-for="ImageUrl">Profile Pic * <span asp-validation-for="ImageUrl" class="red"></span></label>
-            <input asp-for="ImageUrl">
+            <label asp-for="Photo">Profile Pic * <span asp-validation-for="Photo" class="red"></span></label>
+            <input asp-for="Photo">
 
             <label asp-for="VenmoId">Venmo ID * <span asp-validation-for="VenmoId" class="red"></span></label>
             <input asp-for="VenmoId" placeholder="Enter your Venmo ID">
@@ -95,6 +95,6 @@
             <input type="hidden" asp-for="Status" value="false">
             <input type="submit" class="form-btn" value="REGISTER">
         </form>
-        <a asp-action="Login" asp-controller="Home" class="form-redirect-link">Already have an account?</a>
+        <a asp-action="Login" asp-controller="Home" class="form-redirect-link width-link">Already have an account?</a>
     </div>
 </section>

@@ -1,11 +1,8 @@
 ﻿const pwdInput = document.getElementById('password');
 const show = document.getElementById('show-pwd');
 
-// show.addEventListener('mousedown', showPwd);
-
 function showPwd(){
     if(pwdInput.type === 'password'){
-        console.log('hello');
         show.innerHTML = '<i class="far fa-eye-slash"></i>';
         pwdInput.type = 'text';
     } else{
@@ -14,18 +11,31 @@ function showPwd(){
     }
 }
 
-const realFileInput = document.querySelector('.real-file');
-const uploadBtn = document.querySelector('.upload-btn');
-const fileCallOut = document.querySelector('.file-callout');
+Array.prototype.forEach.call(
+    document.querySelectorAll(".upload-btn"),
+    function(button) {
+        const hiddenInput = button.parentElement.querySelector(
+        ".real-file"
+        );
 
-uploadBtn.addEventListener('click', function(){
-    realFileInput.click();
-});
-realFileInput.addEventListener('change', function(){
-    if(realFileInput.value){
-        fileCallOut.innerHTML = realFileInput.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/);
-    } else{
-        fileCallOut.innerHTML = 'No file chosen';
+        const label = button.parentElement.querySelector(".file-callout");
+        const defaultLabelText = "No file selected";
+
+        label.textContent = defaultLabelText;
+        label.title = defaultLabelText;
+
+        button.addEventListener("click", function() {
+            hiddenInput.click();
+        });
+        hiddenInput.addEventListener("change", function() {
+        const filenameList = Array.prototype.map.call(hiddenInput.files, function(
+            file
+        ) {
+            return file.name;
+        });
+        label.textContent = filenameList.join(", ") || defaultLabelText;
+        label.title = label.textContent;
+        });
     }
-})
+);
 

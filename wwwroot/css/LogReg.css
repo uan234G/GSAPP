@@ -41,7 +41,6 @@ form textarea{
     transition: all 0.5s ease-out;
 }
 form hr{
-    /* margin: 1.25rem 0; */
     margin-top: 1rem;
     margin-bottom: 1.25rem;
 }

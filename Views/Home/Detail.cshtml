@@ -5,11 +5,6 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
         #map {
             position: absolute;
             top: 0;
@@ -19,7 +14,18 @@
     </style>
 
 <body>
-    <div id="map"></div>
+    <div class="banner">
+        <div class="col">
+            <div id="map"></div>
+        </div>
+        <div class="col">
+            <img src="~/images/@Model.ImageUrl" height="200px" width="200px">
+            @foreach (var req in @Model.RequestsCreated)
+            {
+                <h1>@req.Items</h1>
+            }
+        </div>
+    </div>
     <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
     <script src="https://unpkg.com/@@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
     <script>
@@ -27,7 +33,7 @@
         var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
         mapboxClient.geocoding
             .forwardGeocode({
-                query: '3335 Susan St, CA',
+                query: '@Model.Address1, @Model.State, @Model.Country',
                 autocomplete: false,
                 limit: 1
             })
@@ -45,7 +51,7 @@
                         container: 'map',
                         style: 'mapbox://styles/mapbox/streets-v11',
                         center: feature.center,
-                        zoom: 10
+                        zoom: 15
                     });
                     new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
                 }

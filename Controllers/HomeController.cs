@@ -85,7 +85,8 @@ namespace GSAPP.Controllers
             {
                 return RedirectToAction("LandingPage");
             }
-            User DetailsFor = dbContext.Users.FirstOrDefault(q => q.UserId == Uid);
+            // User DetailsFor = dbContext.Users.FirstOrDefault(q => q.UserId == Uid);
+            User DetailsFor = dbContext.Users.Include(a => a.RequestsCreated).FirstOrDefault(q => q.UserId == Uid);
             return View(DetailsFor);
         }
 
@@ -204,6 +205,21 @@ namespace GSAPP.Controllers
         {
             HttpContext.Session.Clear();
             return View("LandingPage");
+        }
+
+        [HttpPost("/complete/request/{reqId}")]
+        public IActionResult Complete(int reqId)
+        {
+            if (ModelState.IsValid)
+            {
+                Request requestFromDb = dbContext.Requests.FirstOrDefault(a => a.RequestId == reqId);
+                requestFromDb.IsCompleted = true;
+                requestFromDb.PickedUpByID = (int)UserSession;
+                dbContext.SaveChanges();
+                return RedirectToAction("ThankYou");
+
+            }
+            return View("Details");
         }
 
     }

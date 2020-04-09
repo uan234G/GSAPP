@@ -14,3 +14,18 @@ function showPwd(){
     }
 }
 
+const realFileInput = document.querySelector('.real-file');
+const uploadBtn = document.querySelector('.upload-btn');
+const fileCallOut = document.querySelector('.file-callout');
+
+uploadBtn.addEventListener('click', function(){
+    realFileInput.click();
+});
+realFileInput.addEventListener('change', function(){
+    if(realFileInput.value){
+        fileCallOut.innerHTML = realFileInput.value;
+    } else{
+        fileCallOut.innerHTML = 'No file chosen';
+    }
+})
+

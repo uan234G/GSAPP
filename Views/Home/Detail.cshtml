@@ -19,6 +19,7 @@
     </style>
 
 <body>
+    <img src="~/images/@Model.ImageUrl" height="200px" width="200px">
     <div id="map"></div>
     <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
     <script src="https://unpkg.com/@@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
@@ -27,7 +28,7 @@
         var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
         mapboxClient.geocoding
             .forwardGeocode({
-                query: '3335 Susan St, CA',
+                query: '@Model.Address1, @Model.City, @Model.ZipCode',
                 autocomplete: false,
                 limit: 1
             })
@@ -45,7 +46,7 @@
                         container: 'map',
                         style: 'mapbox://styles/mapbox/streets-v11',
                         center: feature.center,
-                        zoom: 10
+                        zoom: 17
                     });
                     new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
                 }

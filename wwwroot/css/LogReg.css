@@ -41,10 +41,42 @@ form textarea{
     transition: all 0.5s ease-out;
 }
 form hr{
-    margin: 1.25rem 0;
+    /* margin: 1.25rem 0; */
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
 }
-form .upload-input{
+form .image-upload{
+    overflow: hidden;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+form .image-upload .upload-btn{
     border: 0;
+    outline: 0;
+    background: #243f51;
+    color: #fff;
+    border: 2px solid #243f51;
+    padding: 7px 25px;
+    font-size: 0.85rem;
+    border-radius: 7px;
+    margin-right: 10px;
+    transition: all 0.5s ease-out;
+}
+form .image-upload .upload-btn:hover{
+    cursor: pointer;
+    color: #243f51;
+    background-color: transparent;
+    transition: all 0.3s ease-in;
+}
+form .image-upload .upload-btn:active{
+    transform: scale(0.95);
+}
+form .image-upload .file-callout{
+    max-width: 150px;
+    height: 28px;
+    overflow: hidden;
+    font-size: 0.85rem;
 }
 form #pwd-box{
     height: 2rem;
@@ -90,7 +122,7 @@ form .form-btn{
     letter-spacing: 1px;
     border-radius: 25px;
     width: 50%;
-    margin: 0 auto;
+    margin: 1rem auto 0 auto;
     transition: all 0.5s ease-out;
 }
 form .form-btn:hover{
@@ -102,6 +134,10 @@ form .form-btn:hover{
 }
 form .form-btn:active{
     transform: scale();
+}
+form .single-row{
+    display: flex;
+    justify-content: space-between;
 }
 form .single-row .inputs{
     width: 47%;
@@ -154,8 +190,7 @@ form .single-row .inputs{
 .btn-alignment{
     margin-top: 1rem;
 }
-.btn-alignment,
-.single-row{
+.btn-alignment{
     display: flex;
     justify-content: space-between;
     align-items: center;

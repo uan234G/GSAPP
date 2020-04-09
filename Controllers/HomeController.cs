@@ -39,8 +39,6 @@ namespace GSAPP.Controllers
             set { HttpContext.Session.SetInt32("UserId", (int)value); }
         }
 
-
-
         public IActionResult LandingPage()
         {
             return View();
@@ -79,6 +77,7 @@ namespace GSAPP.Controllers
             List<Request> NearbyRequests = dbContext.Requests.Include(a => a.Creator).Where(a => a.Creator.ZipCode == CurrentUser.ZipCode).ToList();
             return View(NearbyRequests);
         }
+
         [HttpGet("View/{Uid}/Details")]
         public IActionResult Detail(int Uid)
         {

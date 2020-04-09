@@ -14,16 +14,33 @@
     </style>
 
 <body>
-    <div class="banner">
-        <div class="col">
-            <div id="map"></div>
-        </div>
-        <div class="col">
+    <div>
+        <div class="user-container">
             <img src="~/images/@Model.ImageUrl" height="200px" width="200px">
+            @Model.FirstName @Model.LastName
+            Venmo Id: @Model.VenmoId
+            Phone Number: @Model.PhoneNumber
+            Email Address: @Model.Email
+            @* considering a guets may have more than one request. display each request *@
+            <h2>Requests:</h2>
             @foreach (var req in @Model.RequestsCreated)
             {
-                <h1>@req.Items</h1>
+                @if (@req.IsCompleted == false)
+                {
+                    <div>
+                        Request For: <p>@req.Items</p>
+                        Items Needed:<p>@req.Notes</p>
+                        Needed By:<h6>@req.Urgency</h6>
+                        <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
+                            <input type="submit" class="form-btn" value="Accept Request">
+                        </form>
+                    </div>
+                }
             }
+        </div>
+        @* display map on right side *@
+        <div class="map-container">
+            @* <div id="map"></div> *@
         </div>
     </div>
     <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>

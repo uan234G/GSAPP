@@ -38,4 +38,3 @@ Array.prototype.forEach.call(
         });
     }
 );
-

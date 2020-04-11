@@ -35,13 +35,17 @@
             <tbody>
                 @foreach (var request in Model)
                 {
-                    <tr>
-                        <td>@request.Creator.FirstName @request.Creator.LastName</td>
-                        <td>@request.Creator.City, @request.Creator.State</td>
-                        <td>@request.Urgency</td>
-                        <td><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
-                    </tr>
+                    @if (request.IsCompleted == false)
+                    {
+                        <tr>
+                            <td>@request.Creator.FirstName @request.Creator.LastName</td>
+                            <td>@request.Creator.City, @request.Creator.State</td>
+                            <td>@request.Urgency</td>
+                            <td><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
+                        </tr>                 
+                    }
                 }
             </tbody>
+
     </table>
 </section>

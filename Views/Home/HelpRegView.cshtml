@@ -22,8 +22,21 @@
     </div>
 </header>
 
-<section class="help-helper-main">
-    <div id="help-form" class="reg-form-box" data-aos="zoom-out">
+<section class="help-helper-main wrapper">
+
+    <div class="explanation-card" data-aos="fade-right">
+        <h4>How it works</h4>
+        <p>
+            After you fill out the form with all your information, you will be taken to another form where you will create your first request and list out the items that you need. It can be groceries, medication, food pick-up or supplies. You will be able to specify the urgency to obtain the items requested but please keep in mind that time is not a guarantee depending if the helper has a hard time obtaining the items requested.
+        </p>
+        <br>
+        <p>
+            To pay for your items, you pay your Helper before receiving your items and the Helper will notify you once your items are on your front door.
+            Tips can be provided to your helper, not required but encouraged to show your appreciation.
+        </p>
+    </div>
+
+    <div id="help-form" class="reg-form-box" data-aos="fade-left">
         <div class="form-header">
             <h4>Help Registration</h4>
             <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
@@ -44,7 +57,7 @@
 
                 <div class="inputs">
                     <label asp-for="PhoneNumber">Phone Number * <span asp-validation-for="PhoneNumber" class="red"></span></label>
-                    <input asp-for="PhoneNumber" placeholder="(123) 456-7890">
+                    <input asp-for="PhoneNumber" placeholder="123-456-7890">
                 </div>
             </div>
 

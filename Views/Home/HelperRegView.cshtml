@@ -21,8 +21,20 @@
     </div>
 </header>
 
-<section class="help-helper-main">
-    <div id="helper-form" class="reg-form-box" data-aos="zoom-out">
+<section class="help-helper-main wrapper">
+
+    <div class="explanation-card" data-aos="fade-right">
+        <h4>How it works</h4>
+        <p>
+            After you fill out the form with all your information, you will be redirected to the dashboard where you will see all the open requests in your area. You can view each request and add to your list of requests to complete. As a helper you will try to meet the time delivery that was stated on the request. If delivery will late, please be sure to contact the person and update them with situation.
+        </p>
+        <br>
+        <p>
+            Once you've gathered all the items requested, you delivered them and drop them off in their front door to avoid any close contact for health safety measures. Before leaving, please notify the person to be paid for the items through Venmo or you can make a payment request. Once you've been paid, you can go on your way to complete another request.
+        </p>
+    </div>
+
+    <div id="helper-form" class="reg-form-box" data-aos="fade-left">
         <div class="form-header">
             <h4>Helper Registration</h4>
             <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
@@ -44,7 +56,7 @@
 
                 <div class="inputs">
                     <label asp-for="PhoneNumber">Phone Number * <span asp-validation-for="PhoneNumber" class="red"></span></label>
-                    <input asp-for="PhoneNumber" placeholder="(123) 456-7890">
+                    <input asp-for="PhoneNumber" placeholder="123-456-7890">
                 </div>
             </div>
 

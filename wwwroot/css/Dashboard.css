@@ -77,4 +77,14 @@ table .view-btn:hover{
 }
 #detail-content .image{
     height: 40vh;
+    margin-bottom: 1.5rem;
+}
+#detail-content p{
+    margin-bottom: 10px;
+}
+#detail-content p span{
+    padding-right: 7px;
+}
+#detail-content p:last-of-type{
+    margin-bottom: 0;
 }

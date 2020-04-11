@@ -26,13 +26,19 @@
 </header>
 
 <section id="detail-main" class="wrapper">
-
     <div id="map"></div>
     <div id="detail-content">
-        <partial name="Detail1Partial"/>
-        <partial name="Detail2Partial"/>
-    </div>
 
+        <div class="image">
+        <img src="@Model.ImageUrl" class="pic">
+        </div>
+        <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
+        <p><span class="bold">Email: </span>@Model.Email</p>
+        <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
+        <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+        @* <partial name="Detail2Partial"/> *@
+
+    </div>
 </section>
 
 

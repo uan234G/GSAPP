@@ -1,78 +1,75 @@
 @model User
 
-<a asp-action="Dashboard">View Dashboard!</a>
+@section Dashboard{
+    <link rel="stylesheet" href="~/css/Dashboard.css">
+}
 
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
-    <style>
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 50%;
-        }
-    </style>
 
-<body>
-    <div>
-        <div class="user-container">
-            <img src="~/images/@Model.ImageUrl" height="200px" width="200px">
-            @Model.FirstName @Model.LastName
-            Venmo Id: @Model.VenmoId
-            Phone Number: @Model.PhoneNumber
-            Email Address: @Model.Email
-            @* considering a guets may have more than one request. display each request *@
-            <h2>Requests:</h2>
-            @foreach (var req in @Model.RequestsCreated)
-            {
-                @if (@req.IsCompleted == false)
-                {
-                    <div>
-                        Request For: <p>@req.Items</p>
-                        Items Needed:<p>@req.Notes</p>
-                        Needed By:<h6>@req.Urgency</h6>
-                        <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
-                            <input type="submit" class="form-btn" value="Accept Request">
-                        </form>
-                    </div>
-                }
-            }
+<header id="Dash-header">
+    <div class="wrapper nav">
+        <div class="logo">
+            <h1>Details</h1>
         </div>
-        @* display map on right side *@
-        <div class="map-container">
-            @* <div id="map"></div> *@
+        <div class="nav-links">
+            <ul>
+                <li>
+                    <a asp-action="Logout" asp-controller="Home">Logout</a>
+                </li>
+                <li>
+                    <a asp-action="Dashboard" asp-controller="Home" id="request-btn" class="standout-btn">Dashboard</a>
+                </li>
+            </ul>
         </div>
     </div>
-    <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
-    <script src="https://unpkg.com/@@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiZGFlc3VuZ2Nob2k2MjYiLCJhIjoiY2s4a3RjMDkwMDVpbjNpbnd5ZDdoamk5cCJ9.yx1ofJFjnAGsdngQi9EsuA';
-        var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
-        mapboxClient.geocoding
-            .forwardGeocode({
-                query: '@Model.Address1, @Model.State, @Model.Country',
-                autocomplete: false,
-                limit: 1
-            })
-            .send()
-            .then(function (response) {
-                if (
-                    response &&
-                    response.body &&
-                    response.body.features &&
-                    response.body.features.length
-                ) {
-                    var feature = response.body.features[0];
+</header>
 
-                    var map = new mapboxgl.Map({
-                        container: 'map',
-                        style: 'mapbox://styles/mapbox/streets-v11',
-                        center: feature.center,
-                        zoom: 15
-                    });
-                    new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
-                }
-            });
-    </script>
+<section id="detail-main" class="wrapper">
+    <div id="map"></div>
+    <div id="detail-content">
 
-</body>
+        <div class="image">
+        <img src="@Model.ImageUrl" class="pic">
+        </div>
+        <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
+        <p><span class="bold">Email: </span>@Model.Email</p>
+        <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
+        <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+        @* <partial name="Detail2Partial"/> *@
+
+    </div>
+</section>
+
+
+<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+<script src="https://unpkg.com/@@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGFlc3VuZ2Nob2k2MjYiLCJhIjoiY2s4a3RjMDkwMDVpbjNpbnd5ZDdoamk5cCJ9.yx1ofJFjnAGsdngQi9EsuA';
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+    mapboxClient.geocoding
+        .forwardGeocode({
+            query: '@Model.Address1, @Model.City, @Model.ZipCode',
+            autocomplete: false,
+            limit: 1
+        })
+        .send()
+        .then(function (response) {
+            if (
+                response &&
+                response.body &&
+                response.body.features &&
+                response.body.features.length
+            ) {
+                var feature = response.body.features[0];
+
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: feature.center,
+                    zoom: 15
+                });
+                new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+            }
+        });
+</script>

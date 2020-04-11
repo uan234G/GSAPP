@@ -23,12 +23,13 @@ namespace GSAPP.Models
         public bool Status { get; set; }
         // upon registering you can choose Helper or Person in need of help??
         // true = needs help , false = helper
-        [Required(ErrorMessage = "Enter your Venmo ID")]
+        [Required(ErrorMessage = "Venmo ID required")]
         public string VenmoId { get; set; }
 
         public string ImageUrl { get; set; }
 
         [NotMapped]
+        [Required(ErrorMessage = "Picture required")]
         public IFormFile Photo { get; set; }
 
         [Required(ErrorMessage = "Phone # required")]

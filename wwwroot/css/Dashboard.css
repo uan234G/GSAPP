@@ -1,22 +1,25 @@
 /* Dashboard navigation */
+#Dash-header .logo h1{
+    color: #243f51;
+}
 #Dash-header .nav-links li:first-child a{
-    color: #000;
+    color: #243f51;
     border: 2px solid transparent;
     border-radius: 5px;
     padding: 2px 20px;
     transition: all 0.5s ease-out;
 }
 #Dash-header .nav-links li:hover:first-child a{
-    border-color: #000;
+    border-color: #243f51;
     transition: border-color 0.3s ease-in;
 }
 #Dash-header .nav-links #request-btn{
-    color: #000;
-    border-color: #000;
+    color: #243f51;
+    border-color: #243f51;
     transition: all 0.5s ease-out;
 }
 #Dash-header .nav-links #request-btn:hover{
-    background-color: #000;
+    background-color: #243f51;
     color: #fff;
     transition: all 0.3s ease-in;
 }
@@ -32,7 +35,7 @@ table{
     background-color: #fff;
 }
 table th{
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: #243f51;
     color: #fff;
     padding: 8px 0;
 }
@@ -44,7 +47,7 @@ table tr:nth-child(even){
     background-color: gainsboro;
 }
 table .view-btn{
-    background-color: dodgerblue;
+    background: linear-gradient(to right, #F76241, #ff7759);
     color: #fff;
     border-radius: 5px;
     padding: 1px 20px;
@@ -53,4 +56,25 @@ table .view-btn{
 table .view-btn:hover{
     background-color: cornflowerblue;
     transition: all 0.3s ease-in;
+}
+
+/* DETAILS.CSHTML STYLES */
+#detail-main{
+    margin-top: 10rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+#map{
+    width: 50%;
+    height: 900px
+}
+#detail-content{
+    width: 45%;
+    padding: 2rem;
+    background: #fff;
+}
+#detail-content .image{
+    height: 40vh;
 }

@@ -1,5 +1,4 @@
 @model List<Request>
-    @* brought list of users with same zip code as logged user *@
 
 @section Dashboard{
     <link rel="stylesheet" href="~/css/Dashboard.css">
@@ -24,29 +23,29 @@
 </header>
 
 <section id="dash-main" class="wrapper">
-
-<table>
-        <thead>
-            <tr>
-                <th>Full Name</th>
-                <th>Address</th>
-                <th>Request Urgency</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var request in Model)
-            {
-                @if (request.IsCompleted == false)
-                {
+    <table>
+            <thead>
                 <tr>
-                    <td>@request.Creator.FirstName @request.Creator.LastName</td>
-                    <td>@request.Creator.City, @request.Creator.State</td>
-                    <td>@request.Urgency</td>
-                    <td><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
-                </tr>                 
+                    <th>Full Name</th>
+                    <th>Address</th>
+                    <th>Request Urgency</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var request in Model)
+                {
+                    @if (request.IsCompleted == false)
+                    {
+                        <tr>
+                            <td>@request.Creator.FirstName @request.Creator.LastName</td>
+                            <td>@request.Creator.City, @request.Creator.State</td>
+                            <td>@request.Urgency</td>
+                            <td><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
+                        </tr>                 
+                    }
                 }
-            }
-        </tbody>
+            </tbody>
+
     </table>
 </section>

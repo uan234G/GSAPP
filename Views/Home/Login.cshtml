@@ -26,12 +26,12 @@
         <h3>Login</h3>
       
         <form asp-action="LoginUser" asp-controller="Home" method="POST">
-            
+
           <label asp-for="LoginEmail">
             Email: <span asp-validation-for="LoginEmail" class="red"></span>
           </label>
           <input asp-for="LoginEmail" placeholder="Enter email">
-          
+
           <label asp-for=LoginPassword>
             Password: <span asp-validation-for="LoginPassword" class="red"></span>
           </label>

@@ -27,7 +27,9 @@
             <h4>Helper Registration</h4>
             <a asp-action="SelectRole" asp-for="Home" class="form-redirect-link">Back</a>
         </div>
+
         <form asp-action="HelperReg" asp-controller="Home" method="POST" enctype="multipart/form-data">
+
             <label for="FirstName">First Name * <span asp-validation-for="FirstName" class="red"></span></label>
             <input asp-for="FirstName" placeholder="Enter your name">
 
@@ -46,12 +48,32 @@
                 </div>
             </div>
 
-            <label asp-for="Photo">Profile Pic * <span asp-validation-for="Photo" class="red"></span></label>
-            <input asp-for="Photo">
+            <div class="single-row">
+                <div class="inputs">
+                    <label asp-for="Photo">Profile Pic * <span asp-validation-for="Photo" class="red"></span></label>
 
-            <label asp-for="VenmoId">Venmo ID * <span asp-validation-for="VenmoId" class="red"></span></label>
-            <input asp-for="VenmoId" placeholder="Enter your Venmo ID">
+                    <div class="image-upload">
+                        <input asp-for="Photo" type="file" class="real-file" hidden="hidden">
+                        <button type="button" class="upload-btn">Choose a file</button>
+                        <p class="file-callout">No file selected</p>
+                    </div>
+
+                </div>
+
+                <div class="inputs">
+                    <label asp-for="VenmoId">Venmo ID * <span asp-validation-for="VenmoId" class="red"></span></label>
+                    <input asp-for="VenmoId" placeholder="Enter your Venmo ID">
+                </div>
+            </div>
+
+            <label asp-for="Password">Password * <span asp-validation-for="Password" class="red"></span></label>
+            <input asp-for="Password" placeholder="Enter a password">
+
+            <label asp-for="Confirm">Confirm Password <span asp-validation-for="Confirm" class="red"></span></label>
+            <input asp-for="Confirm" placeholder="Confirm password">
+
             <hr>
+
             <label asp-for="Address1">Address Line 1 * <span asp-validation-for="Address1" class="red"></span></label>
             <input asp-for="Address1" placeholder="Enter your address 1">
 
@@ -86,15 +108,10 @@
 
             </div>
 
-            <label asp-for="Password">Password * <span asp-validation-for="Password" class="red"></span></label>
-            <input asp-for="Password" placeholder="Enter a password">
-
-            <label asp-for="Confirm">Confirm Password <span asp-validation-for="Confirm" class="red"></span></label>
-            <input asp-for="Confirm" placeholder="Confirm password">
-
             <input type="hidden" asp-for="Status" value="false">
             <input type="submit" class="form-btn" value="REGISTER">
         </form>
         <a asp-action="Login" asp-controller="Home" class="form-redirect-link width-link">Already have an account?</a>
+
     </div>
 </section>

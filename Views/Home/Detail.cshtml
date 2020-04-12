@@ -2,6 +2,7 @@
 
 @section Dashboard{
     <link rel="stylesheet" href="~/css/Dashboard.css">
+    <link rel="stylesheet" href="~/css/LogReg.css">
 }
 
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
@@ -9,7 +10,7 @@
 
 <header id="Dash-header">
     <div class="wrapper nav">
-        <div class="logo">
+        <div class="logo" data-aos="fade-down">
             <h1>Details</h1>
         </div>
         <div class="nav-links">
@@ -26,10 +27,10 @@
 </header>
 
 <section id="detail-main" class="wrapper">
-    <div id="map"></div>
-    <div id="detail-content">
-
+    <div id="map" data-aos="zoom-in"></div>
+    <div id="detail-content" data-aos="fade-left">
         <div class="person-info-container">
+
             <div class="person-image">
                 <img src="@Model.ImageUrl" class="pic">
             </div>
@@ -39,31 +40,28 @@
                 <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
                 <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
                 <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
-            </div>
-        </div>
 
-        <div class="request-container">
-         @foreach (var req in @Model.RequestsCreated)
-            {
-                @if (@req.IsCompleted == false)
+                <div class="request-container">
+                @foreach (var req in @Model.RequestsCreated)
                 {
-                    <h3 style="color: orange;">Current Requests:</h3>
-                    <div >
-                        Needed By: @req.Urgency
-                        <br>
-                        Items Needed: @req.Items
-                        <br>
-                        Notes: @req.Notes
-                        <br>
-                        <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
-                            <input type="submit" class="form-btn" value="Accept Request">
-                        </form>
-                        
-                    </div>
+                    @if (@req.IsCompleted == false)
+                    {
+                        <h4>Current Requests</h4>
+                        <div >
+                            <p><span class="bold">Needed by: </span> @req.Urgency</p>
+                            <p><span class="bold">Items needed: </span> @req.Items</p>
+                            <p><span class="bold">Notes: </span>@req.Notes</p>
+                            <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
+                                <input type="submit" class="form-btn" value="Accept Request">
+                            </form>
+                            
+                        </div>
+                    }
                 }
-            }
-        </div>
+                </div>
+            </div>
 
+        </div>
     </div>
 </section>
 

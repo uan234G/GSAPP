@@ -78,9 +78,17 @@ table .view-btn:active{
     padding: 2rem;
     background: #fff;
 }
-#detail-content .image{
-    height: 40vh;
+.person-info-container{
+    display: flex;
+    justify-content: space-between;
+}
+.person-info-container .person-image{
+    height: 35vh;
+    width: 300px;
     margin-bottom: 1.5rem;
+}
+.person-info-container .person-info-text{
+    width: 50%;
 }
 #detail-content p{
     margin-bottom: 10px;

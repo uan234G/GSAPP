@@ -29,15 +29,21 @@
     <div id="map"></div>
     <div id="detail-content">
 
-        <div class="image">
-        <img src="~/images/@Model.ImageUrl" class="pic">
+        <div class="person-info-container">
+            <div class="person-image">
+                <img src="@Model.ImageUrl" class="pic">
+            </div>
+            <div class="person-info-text">
+                <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
+                <p><span class="bold">Email: </span>@Model.Email</p>
+                <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
+                <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
+                <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+            </div>
         </div>
-        <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
-        <p><span class="bold">Email: </span>@Model.Email</p>
-        <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
-        <p><span class="bold">VenmoId: </span>@Model.VenmoId</p>
-        <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
-            @foreach (var req in @Model.RequestsCreated)
+
+        <div class="request-container">
+         @foreach (var req in @Model.RequestsCreated)
             {
                 @if (@req.IsCompleted == false)
                 {
@@ -56,6 +62,7 @@
                     </div>
                 }
             }
+        </div>
 
     </div>
 </section>

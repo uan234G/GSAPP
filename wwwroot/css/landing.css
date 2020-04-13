@@ -70,7 +70,6 @@
 #how .cards{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3rem;
 }
 #how .cards .card{
     width: 40%;
@@ -88,6 +87,30 @@
     width: 57%;
     height: 70vh;
 }
+/* COVID-19 TRACKER */
+#covid-tracker{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+#covid-tracker .section-title{
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+#covid-tracker .section-title h3{
+    line-height: 1.25;
+}
+#covid-tracker .data-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+#covid-tracker #country{
+    margin-bottom: 1rem;
+}
+#covid-tracker p a{
+    color: cornflowerblue;
+}
+
 
 /* FOOTER */
 footer{

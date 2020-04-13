@@ -1,14 +1,23 @@
 ﻿const pwdInput = document.getElementById('password');
 const show = document.getElementById('show-pwd');
+const openNav = document.getElementById('open-nav');
+const closeNav = document.getElementById('close-btn');
+const mobileNav = document.querySelector('.mobile-nav');
 
 function showPwd() {
-    if (pwdInput.type === 'password') {
+    if (pwdInput.type === 'password'){
         show.innerHTML = '<i class="far fa-eye-slash"></i>';
         pwdInput.type = 'text';
-    } else {
+    } else{
         show.innerHTML = '<i class="far fa-eye"></i>';
         pwdInput.type = 'password';
     }
+}
+function openMenu(){
+    mobileNav.classList.add('show');
+}
+function closeMenu(){
+    mobileNav.classList.remove('show');
 }
 
 Array.prototype.forEach.call(

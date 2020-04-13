@@ -96,7 +96,7 @@
     }
     #open-nav{
         color: #fff;
-        font-size: 2.35rem;
+        font-size: 2.5rem;
     }
     #open-nav:hover{
         cursor: pointer;
@@ -147,6 +147,17 @@
     .mobile-nav ul li a{
         color: #fff;
     }
+    /* Banner */
+    #banner #leftCol{
+        left: 5%;
+        width: 60%;
+    }
+    #banner #leftCol .banner-text{
+        width: 100%;
+    }
+    #banner .col p{
+        font-size: 1.15rem;
+    }
     /* Our MISSION */
     #how .cards{
         flex-direction: column;
@@ -176,4 +187,16 @@
     /* #footer-nav{
         grid-template-columns: 1fr;
     } */
+    #footer-nav .logo span{
+        font-size: 0.9rem;
+    }
+    #footer-nav .footer-links h4{
+        font-size: 1.15rem;
+    }
+    #footer-nav .footer-links ul li{
+        margin-bottom: 7px;
+    }
+    #footer-nav .footer-links ul li a{
+        font-size: 1rem;
+    }
 }

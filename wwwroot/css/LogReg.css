@@ -144,7 +144,6 @@ form .single-row .inputs{
     flex-direction: column;
 }
 
-
 /* Styles for Login.cshtml */
 #LogReg-header .logo h1{
     color: #243f51;
@@ -223,14 +222,14 @@ form .single-row .inputs{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 .explanation-card{
     width: 45%;
     background-color: #fff;
     padding: 3rem;
     height: auto;
-    box-shadow: 4px 4px 7px rgba(0,0,0,0.4);
+    box-shadow: -4px 4px 7px rgba(0,0,0,0.4);
 }
 .explanation-card h4{
     margin-bottom: 1rem;

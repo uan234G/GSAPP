@@ -1,0 +1,41 @@
+@media screen and (max-width: 1150px){
+    /* Universal Styles */
+    html{
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 1000px){
+    /* LANDING PAGE */
+    /* Banner */
+    .banner-text h1{
+        font-size: 4rem;
+    }
+}
+
+
+@media screen and (max-width: 942px){
+    /* LANDING PAGE */
+    /* Footer */
+    footer{
+        padding: 3rem 0 0 0;
+    }
+    #footer-nav .footer-box{
+        margin-bottom: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 850px){
+    /* LANDING PAGE */
+    /* Banner */
+    #banner{
+        height: 85vh;
+    }
+
+    /* Footer */
+    footer{
+        /* padding: 3rem 0 0 0; */
+    }
+}

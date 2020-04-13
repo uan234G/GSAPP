@@ -39,9 +39,9 @@
 #banner #leftCol .banner-text{
     width: 80%;
 }
-#leftCol .banner-text h1{
+.banner-text h1{
     font-size: 4.75rem;
-    line-height: 80px;
+    line-height: 1;
     width: 70%;
     margin-bottom: 1rem;
 }
@@ -114,12 +114,21 @@
 
 /* FOOTER */
 footer{
-    height: 25vh;
+    height: auto;
+    padding: 3rem 0;
     color: #fff;
     background: #243f51;
+}
+#footer-nav{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#footer-nav .footer-box{
+    width: 14rem;
+}
+#footer-nav #together{
+    width: 5rem;
 }
 #footer-nav a{
     color: #fff;
@@ -130,6 +139,9 @@ footer{
 }
 #footer-nav .logo span{
     font-size: 0.85rem;
+}
+#footer-nav .footer-links{
+    margin: 0 1rem;
 }
 #footer-nav .footer-links h4{
     margin-bottom: 10px;

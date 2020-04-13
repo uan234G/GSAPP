@@ -1,4 +1,4 @@
-﻿﻿//////////////adding comment to not delete using system when saving
+﻿﻿///////////adding comment to not delete using system when saving
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -240,6 +240,21 @@ namespace GSAPP.Controllers
                 requestFromDb.PickedUpByID = (int)UserSession;
                 dbContext.SaveChanges();
                 return RedirectToAction("Detail", new { Uid = requestFromDb.Creator.UserId });
+            }
+            return View("Details");
+        }
+
+        [HttpPost("/cancel/request/{reqId}")]
+        public IActionResult CancelReq(int reqId)
+        {
+            if (ModelState.IsValid)
+            {
+                Request CancelReq = dbContext.Requests.FirstOrDefault(a => a.RequestId == reqId);
+                int x = CancelReq.PickedUpByID;
+                CancelReq.IsCompleted = false;
+                CancelReq.PickedUpByID = 0;
+                dbContext.SaveChanges();
+                return RedirectToAction("HelperDetails", new { UserId = x });
             }
             return View("Details");
         }

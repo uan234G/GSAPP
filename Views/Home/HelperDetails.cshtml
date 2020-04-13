@@ -1,22 +1,106 @@
 @model User
 
-<div>
-@Model.FirstName
-@Model.LastName
-@if (@ViewBag.Completed != null)
-{
-    @foreach (var req in @ViewBag.Completed)
-    {
-        <div>
-            @req.Urgency
-            @req.Notes
-            @req.Items
-        </div>
-    }
-}else{
-    <h4>You Have No Requests Completed, Visit Our <a asp-action="Dashboard">Dashboard</a> To start Helping Our Community</h4>
+@section Dashboard{
+    <link rel="stylesheet" href="~/css/Dashboard.css">
+    <link rel="stylesheet" href="~/css/LogReg.css">
 }
-@* hmmmm having dificulties displayng else statement..  *@
-</div>
+
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+
+<header id="Dash-header">
+    <div class="wrapper nav">
+        <div class="logo" data-aos="fade-down">
+            <h1>Details</h1>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li>
+                    <a asp-action="Logout" asp-controller="Home">Logout</a>
+                </li>
+                <li>
+                    <a asp-action="Dashboard" asp-controller="Home" id="request-btn" class="standout-btn">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<section id="detail-main" class="wrapper">
+    <div id="map" data-aos="zoom-in"></div>
+    <div id="detail-content" data-aos="fade-left">
+        <div class="person-info-container">
+
+            <div class="person-image">
+                <img src="~/images/@Model.ImageUrl" class="pic">
+            </div>
+            <div class="person-info-text">
+                <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
+                <p><span class="bold">Email: </span>@Model.Email</p>
+                <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
+                <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
+                <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+
+                <div class="request-container">
+                <h4>Current Requests</h4>
+                @if (@ViewBag.Completed != null)
+                {
+                    @foreach (var req in @ViewBag.Completed)
+                    {
+                        <div >
+                            <p><span class="bold">Needed by: </span> @req.Urgency</p>
+                            <p><span class="bold">Items needed: </span> @req.Items</p>
+                            <p><span class="bold">Notes: </span>@req.Notes</p>
+                            <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
+                                <input type="submit" class="form-btn" value="Cancel Request">
+                            </form>
+                        </div>
+                    }
+                }else{
+                    <p>You Have No Requests Completed, Visit Our <a asp-action="Dashboard">Dashboard</a> To start Helping Our Community</p>
+                }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+<script src="https://unpkg.com/@@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGFlc3VuZ2Nob2k2MjYiLCJhIjoiY2s4a3RjMDkwMDVpbjNpbnd5ZDdoamk5cCJ9.yx1ofJFjnAGsdngQi9EsuA';
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+    mapboxClient.geocoding
+        .forwardGeocode({
+            query: '@Model.Address1, @Model.City, @Model.ZipCode',
+            autocomplete: false,
+            limit: 1
+        })
+        .send()
+        .then(function (response) {
+            if (
+                response &&
+                response.body &&
+                response.body.features &&
+                response.body.features.length
+            ) {
+                var feature = response.body.features[0];
+
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: feature.center,
+                    zoom: 15
+                });
+                new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+                map.addControl(new mapboxgl.NavigationControl());
+            }
+        });
+</script>
+
+
 
 

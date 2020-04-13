@@ -1,0 +1,22 @@
+@model User
+
+<div>
+@Model.FirstName
+@Model.LastName
+@if (@ViewBag.Completed != null)
+{
+    @foreach (var req in @ViewBag.Completed)
+    {
+        <div>
+            @req.Urgency
+            @req.Notes
+            @req.Items
+        </div>
+    }
+}else{
+    <h4>You Have No Requests Completed, Visit Our <a asp-action="Dashboard">Dashboard</a> To start Helping Our Community</h4>
+}
+@* hmmmm having dificulties displayng else statement..  *@
+</div>
+
+

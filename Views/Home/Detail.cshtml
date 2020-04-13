@@ -50,8 +50,8 @@
                     {
                         <div >
                             <p><span class="bold">Needed by: </span> @req.Urgency</p>
-                            <p><span class="bold">Items needed: </span> @req.Items</p>
-                            <p><span class="bold">Notes: </span>@req.Notes</p>
+                            <p><span class="bold">Request For: </span> @req.Items</p>
+                            <p><span class="bold">Items: </span>@req.Notes</p>
                             @if(req.Creator.UserId != @ViewBag.UserId)
                             {
                             <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
@@ -60,7 +60,7 @@
                             }
                             else if (req.Creator.UserId == @ViewBag.UserId)
                             {
-                                 <td><a asp-action="Delete" asp-route-requestId="@req.RequestId">Delete</a></td>
+                                <td><a asp-action="Delete" asp-route-requestId="@req.RequestId">Delete</a></td>
                             }
                         </div>
                     }

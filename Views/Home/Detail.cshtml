@@ -43,11 +43,11 @@
                 <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
 
                 <div class="request-container">
+                <h4>Current Requests</h4>
                 @foreach (var req in @Model.RequestsCreated)
                 {
                     @if (@req.IsCompleted == false)
                     {
-                        <h4>Current Requests</h4>
                         <div >
                             <p><span class="bold">Needed by: </span> @req.Urgency</p>
                             <p><span class="bold">Items needed: </span> @req.Items</p>

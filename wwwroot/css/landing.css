@@ -29,6 +29,7 @@
     height: 100vh;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 #banner #leftCol{
     display: flex;
@@ -61,7 +62,7 @@
 
 /* Our MISSION */
 #how{
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 #how h3{
     text-align: center;
@@ -120,15 +121,14 @@ footer{
     background: #243f51;
 }
 #footer-nav{
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; 
     justify-content: space-between;
 }
 #footer-nav .footer-box{
-    width: 14rem;
+    margin-right: 1rem;
 }
 #footer-nav #together{
-    width: 5rem;
+    width: 7rem;
 }
 #footer-nav a{
     color: #fff;
@@ -139,9 +139,6 @@ footer{
 }
 #footer-nav .logo span{
     font-size: 0.85rem;
-}
-#footer-nav .footer-links{
-    margin: 0 1rem;
 }
 #footer-nav .footer-links h4{
     margin-bottom: 10px;

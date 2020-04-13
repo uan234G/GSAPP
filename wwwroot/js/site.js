@@ -58,6 +58,6 @@ function getCovidStats(){
     .catch(function () {
         console.log("error");
     })
-    setTimeout(getCovidStats, 18000) // update every 5 hours
+    setTimeout(getCovidStats, 86400000) // update every 24 hours
 }
 

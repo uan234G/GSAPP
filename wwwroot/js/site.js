@@ -1,11 +1,11 @@
 ﻿const pwdInput = document.getElementById('password');
 const show = document.getElementById('show-pwd');
 
-function showPwd(){
-    if(pwdInput.type === 'password'){
+function showPwd() {
+    if (pwdInput.type === 'password') {
         show.innerHTML = '<i class="far fa-eye-slash"></i>';
         pwdInput.type = 'text';
-    } else{
+    } else {
         show.innerHTML = '<i class="far fa-eye"></i>';
         pwdInput.type = 'password';
     }
@@ -13,9 +13,9 @@ function showPwd(){
 
 Array.prototype.forEach.call(
     document.querySelectorAll(".upload-btn"),
-    function(button) {
+    function (button) {
         const hiddenInput = button.parentElement.querySelector(
-        ".real-file"
+            ".real-file"
         );
 
         const label = button.parentElement.querySelector(".file-callout");
@@ -24,17 +24,17 @@ Array.prototype.forEach.call(
         label.textContent = defaultLabelText;
         label.title = defaultLabelText;
 
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             hiddenInput.click();
         });
-        hiddenInput.addEventListener("change", function() {
-        const filenameList = Array.prototype.map.call(hiddenInput.files, function(
-            file
-        ) {
-            return file.name;
-        });
-        label.textContent = filenameList.join(", ") || defaultLabelText;
-        label.title = label.textContent;
+        hiddenInput.addEventListener("change", function () {
+            const filenameList = Array.prototype.map.call(hiddenInput.files, function (
+                file
+            ) {
+                return file.name;
+            });
+            label.textContent = filenameList.join(", ") || defaultLabelText;
+            label.title = label.textContent;
         });
     }
 );

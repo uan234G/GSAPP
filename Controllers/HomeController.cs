@@ -1,4 +1,4 @@
-﻿﻿////////adding comment to not delete using system when saving
+﻿﻿///////////adding comment to not delete using system when saving
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -103,7 +103,9 @@ namespace GSAPP.Controllers
                 return RedirectToAction("LandingPage");
             }
             User DetailsFor = dbContext.Users.FirstOrDefault(q => q.UserId == UserId);
-            List<Request> CompletedReqs = dbContext.Requests.Where(q => q.PickedUpByID == DetailsFor.UserId).ToList();
+            List<Request> CompletedReqs = dbContext.Requests.Include(a => a.Creator).Where(q => q.PickedUpByID == DetailsFor.UserId).ToList();
+
+            ViewBag.CurrentUser = dbContext.Users.FirstOrDefault(q => q.UserId == UserSession);
             if (CompletedReqs.Any())
             {
                 ViewBag.Completed = CompletedReqs;

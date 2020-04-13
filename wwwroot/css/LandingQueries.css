@@ -6,7 +6,6 @@
 }
 
 @media screen and (max-width: 1000px){
-    /* LANDING PAGE */
     /* Banner */
     .banner-text h1{
         font-size: 4rem;
@@ -14,7 +13,6 @@
 }
 
 @media screen and (max-width: 942px){
-    /* LANDING PAGE */
     /* Footer */
     footer{
         padding: 2rem 0 0 0;
@@ -25,7 +23,6 @@
 }
 
 @media screen and (max-width: 850px){
-    /* LANDING PAGE */
     /* Banner */
     #banner{
         height: 85vh;
@@ -56,7 +53,6 @@
 }
 
 @media screen and (max-width: 800px){
-    /* LANDING PAGE */
     /* Navigation */
     .landing-nav .logo h1{
         color: #fff;
@@ -81,7 +77,6 @@
 }
 
 @media screen and (max-width: 690px){
-    /* LANDING PAGE */
     /* Universal Styles */
     html{
         font-size: 14px;

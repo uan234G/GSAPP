@@ -212,15 +212,15 @@ namespace GSAPP.Controllers
         [HttpPost("together/request-help")]
         public IActionResult submitRequest(Request newRequest)
         {
-            // if (ModelState.IsValid)
-            // {
+            if (ModelState.IsValid)
+            {
             User userfromDb = dbContext.Users.FirstOrDefault(a => a.UserId == UserSession);
             newRequest.UserID = userfromDb.UserId;
             dbContext.Add(newRequest);
             dbContext.SaveChanges();
             return RedirectToAction("Dashboard");
-            // }
-            // return View("RequestForm");
+            }
+            return View("RequestForm");
         }
 
         [HttpGet("together/logout")]

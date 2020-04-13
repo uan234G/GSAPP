@@ -28,13 +28,13 @@
                 What do you need? 
                 <span asp-validation-for="Items" class="red"></span>
             </label>
-            <input class="form-control" asp-for="Items">
+            <input asp-for="Items">
 
             <label asp-for="Urgency">
                 When do you need this by? 
-                <span asp-validation-for="Urgency"></span>
+                <span asp-validation-for="Urgency" class="red"></span>
             </label>
-            <input class="form-control" asp-for="Urgency">
+            <input type="datetime" asp-for="Urgency">
 
             <label asp-for="Notes">Notes:</label>
             <textarea asp-for="Notes"></textarea>

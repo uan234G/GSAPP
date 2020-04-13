@@ -8,10 +8,10 @@ namespace GSAPP.Models
     {
         [Key]
         public int RequestId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "List what you need")]
         public string Items { get; set; }
         // user can write down everything they need in textbox
-        [Required]
+        [Required(ErrorMessage = "Please enter a date and time")]
         public DateTime Urgency { get; set; }
         public string Notes { get; set; }
         public bool IsCompleted { get; set; }

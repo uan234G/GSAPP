@@ -1,9 +1,11 @@
 ﻿@section Landing{
     <link rel="stylesheet" href="~/css/Landing.css">
+    <link rel="stylesheet" href="~/css/Queries.css" />
 }
 
 <header id="landing-header">
     <div class="wrapper nav landing-nav" data-aos="fade-down">
+
         <div class="logo">
             <a asp-action="LandingPage" asp-controller="Home">
                 <h1 class="abril">Together</h1>
@@ -22,8 +24,25 @@
                 </li>
             </ul>
         </div>
+        <span id="open-nav" onclick="openMenu()">&#9776</span>
+
     </div>
 </header>
+
+<div class="mobile-nav">
+    <ul>
+        <li>
+            <a href="#how">Our Mission</a>
+        </li>
+        <li>
+            <a asp-action="Login" asp-controller="Home">Login</a>
+        </li>
+        <li>
+            <a asp-action="SelectRole" asp-controller="Home" id="register-btn" class="standout-btn">Register</a>
+        </li>
+    </ul>
+    <span id="close-btn" onclick="closeMenu()">&times;</span>
+</div>
 
 <section id="banner">
     <div id="leftCol" class="col">
@@ -51,7 +70,7 @@
 
 </section>
 
-<section id="covid-tracker" class="wrapper">
+<section id="covid-tracker" class="wrapper" data-aos="fade-down">
     <div class="section-title">
         <h3 class="abril title">COVID-19 Tracker</h3>
         <p>The latest statistics regarding the "Corona Virus"</p>
@@ -78,14 +97,14 @@
     <div class="wrapper">
         <div id="footer-nav" class="nav">
 
-            <div class="logo">
+            <div class="logo footer-box">
                 <a asp-action="LandingPage" asp-controller="Home">
                     <h1 class="abril">Together</h1>
                 </a>
                 <span>&copy; 2020 Together. All rights reserved</span>
             </div>
 
-            <div class="footer-links">
+            <div id="together" class="footer-links footer-box">
                 <h4>Together</h4>
                 <ul>
                     <li>
@@ -100,7 +119,7 @@
                 </ul>
             </div>
 
-            <div class="footer-links">
+            <div class="footer-links footer-box">
                 <h4>Resources</h4>
                 <ul>
                     <li>
@@ -118,7 +137,7 @@
                 </ul>
             </div>
 
-            <div class="footer-links">
+            <div class="footer-links footer-box">
                 <h4>Resources</h4>
                 <ul>
                     <li>

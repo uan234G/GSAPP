@@ -244,5 +244,17 @@ namespace GSAPP.Controllers
             return View("Details");
         }
 
+        [HttpGet("delete")]
+        public IActionResult Delete(int requestId)
+        {
+            if (UserSession == null)
+                return RedirectToAction("Index");
+
+            var RequestToDelete = dbContext.Requests.Include(i => i.Creator).FirstOrDefault(i => i.RequestId == requestId);
+            dbContext.Requests.Remove(RequestToDelete);
+            dbContext.SaveChanges();
+            return RedirectToAction("Detail", new { Uid = RequestToDelete.Creator.UserId });
+        }
+
     }
 }

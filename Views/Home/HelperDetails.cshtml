@@ -12,7 +12,7 @@
 <header id="Dash-header">
     <div class="wrapper nav">
         <div class="logo" data-aos="fade-down">
-            <h1>Details</h1>
+            <h1>Profile</h1>
         </div>
         <div class="nav-links">
             <ul>
@@ -28,7 +28,6 @@
 </header>
 
 <section id="detail-main" class="wrapper">
-    <div id="map" data-aos="zoom-in"></div>
     <div id="detail-content" data-aos="fade-left">
         <div class="person-info-container">
 
@@ -43,19 +42,23 @@
                 <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
 
                 <div class="request-container">
-                <h4>Current Requests</h4>
+                <h4>Accepted Requests</h4>
                 @if (@ViewBag.Completed != null)
                 {
                     @foreach (var req in @ViewBag.Completed)
                     {
                         <div >
+                            <p><span class="bold">Name:</span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId">@req.Creator.FirstName @req.Creator.LastName</a> </p>
+                            <p><span class="bold">Address:</span>@req.Creator.Address1, @req.Creator.City, @req.Creator.ZipCode</p>
                             <p><span class="bold">Needed by: </span> @req.Urgency</p>
-                            <p><span class="bold">Request For: </span> @req.Items</p>
-                            <p><span class="bold">Request For: </span> @req.</p>
-                            <p><span class="bold">Items: </span>@req.Notes</p>
-                            <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
-                                <input type="submit" class="form-btn" value="Cancel Request">
-                            </form>                              
+                            <p><span class="bold">Items needed: </span> @req.Items</p>
+                            <p><span class="bold">Notes: </span>@req.Notes</p>
+                            @if(@Model.UserId == @ViewBag.CurrentUser.UserId)
+                            {
+                                <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
+                                    <input type="submit" class="form-btn" value="Cancel Request">
+                                </form>
+                            }
                         </div>
                     }
                 }else{

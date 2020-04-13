@@ -24,13 +24,21 @@
 <section id="request-main">
     <div id="request-form" class="reg-form-box" data-aos="zoom-in">
         <form asp-action="submitRequest" asp-controller="Home" method="POST">
-            <span asp-validation-for="Items"></span>
-            What do you need? <input class="form-control" asp-for="Items">
-            <span asp-validation-for="Urgency"></span>
-            When do you need this by? <input class="form-control" asp-for="Urgency">
-            <span> @* Empty span for equal horizontail spacing *@ </span>
-            Notes: <textarea class="form-control" asp-for="Notes"></textarea>
-            <span> @* Empty span for equal horizontail spacing *@ </span>
+            <label asp-for="Items">
+                What do you need? 
+                <span asp-validation-for="Items" class="red"></span>
+            </label>
+            <input class="form-control" asp-for="Items">
+
+            <label asp-for="Urgency">
+                When do you need this by? 
+                <span asp-validation-for="Urgency"></span>
+            </label>
+            <input class="form-control" asp-for="Urgency">
+
+            <label asp-for="Notes">Notes:</label>
+            <textarea asp-for="Notes"></textarea>
+
             <input type="submit" class="form-btn" value="SUBMIT">
         </form>
     </div>

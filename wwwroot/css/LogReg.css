@@ -8,7 +8,7 @@
 }
 .width-link{
     margin: 12px auto 12px auto;
-    width: 35%;
+    width: 40%;
 }
 form{
     display: flex;
@@ -56,7 +56,7 @@ form .image-upload .upload-btn{
     background: #243f51;
     color: #fff;
     border: 2px solid #243f51;
-    padding: 7px 25px;
+    padding: 7px 15px;
     font-size: 0.85rem;
     border-radius: 7px;
     margin-right: 10px;
@@ -73,7 +73,7 @@ form .image-upload .upload-btn:active{
 }
 form .image-upload .file-callout{
     max-width: 150px;
-    height: 28px;
+    height: 27px;
     overflow: hidden;
     font-size: 0.85rem;
 }

@@ -1,6 +1,23 @@
+@media screen and (max-width: 1600px){
+    .explanation-card{
+        width: 35%;
+    }
+    .reg-form-box{
+        width: 55%;
+    }
+}
 @media screen and (max-width: 1400px){
     .log-container{
         width: 60%;
+    }
+}
+@media screen and (max-width: 1350px){
+    .explanation-card{
+        width: 30%;
+        padding: 2rem;
+    }
+    .reg-form-box{
+        width: 65%;
     }
 }
 @media screen and (max-width: 1200px){
@@ -17,7 +34,44 @@
     html{
         font-size: 16px;
     }
+    .reg-form-box{
+        padding: 2rem;
+    }
+    form .image-upload .file-callout{
+        height: 24px;
+    }
 }
+
+
+@media screen and (max-width: 1000px){
+    .help-helper-main{
+        flex-direction: column;
+    }
+    .explanation-card{
+        width: 75%;
+        margin-bottom: 2rem;
+        box-shadow: 0px 5px 8px rgba(0,0,0,0.4);
+    }
+    .reg-form-box{
+        width: 75%;
+    }
+}
+
+
+@media screen and (max-width: 850px){
+    .explanation-card{
+        width: 100%;
+    }
+    .reg-form-box{
+        width: 100%;
+    }
+
+    form .image-upload .file-callout{
+        height: 20px;
+    }
+}
+
+
 @media screen and (max-width: 800px){
     .width-link{
         width: 65%;
@@ -50,6 +104,18 @@
     form input,
     form textarea{
         font-size: 1rem;
+    }
+    form .single-row{
+        flex-direction: column;
+    }
+    form .single-row .inputs{
+        width: 100%;
+    }
+    form .image-upload{
+        margin-bottom: 1rem;
+    }
+    form .image-upload .upload-btn{
+        width: 35%;
     }
 
     .btn-alignment>*{

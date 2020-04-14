@@ -1,4 +1,4 @@
-/* Universal styles for Login and Registration pages */
+/* Universal styles for forms */
 .form-redirect-link{
     color: cornflowerblue;
     text-decoration: underline;
@@ -144,7 +144,7 @@ form .single-row .inputs{
     flex-direction: column;
 }
 
-/* Styles for Login.cshtml */
+/* lOGIN.CSHTML STYLES */
 #LogReg-header .logo h1{
     color: #243f51;
 }
@@ -178,7 +178,7 @@ form .single-row .inputs{
     margin-bottom: 2rem;
 }
 
-/* Styles for Register.cshtml */
+/* REGISTER.CSHTML STYLES */
 .reg-container{
     position: relative;
 }

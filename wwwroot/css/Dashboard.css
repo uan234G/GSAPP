@@ -123,7 +123,6 @@ table .view-btn:active{
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.5s ease-out;
-    
 }
 #delete-btn:hover{
     box-shadow: 4px 5px 7px rgba(0,0,0,0.4);
@@ -132,3 +131,5 @@ table .view-btn:active{
 #delete-btn:active{
     transform: scale(0.97);
 }
+
+/* HELPERDETAILS.CSHTML STYLES*/

@@ -2,12 +2,8 @@
 
 @section Dashboard{
     <link rel="stylesheet" href="~/css/Dashboard.css">
-    <link rel="stylesheet" href="~/css/LogReg.css">
 }
 
-
-<script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
 
 <header id="Dash-header">
     <div class="wrapper nav">
@@ -71,39 +67,7 @@
     </div>
 </section>
 
-
-<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
-<script src="https://unpkg.com/@@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
-<script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZGFlc3VuZ2Nob2k2MjYiLCJhIjoiY2s4a3RjMDkwMDVpbjNpbnd5ZDdoamk5cCJ9.yx1ofJFjnAGsdngQi9EsuA';
-    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
-    mapboxClient.geocoding
-        .forwardGeocode({
-            query: '@Model.Address1, @Model.City, @Model.ZipCode',
-            autocomplete: false,
-            limit: 1
-        })
-        .send()
-        .then(function (response) {
-            if (
-                response &&
-                response.body &&
-                response.body.features &&
-                response.body.features.length
-            ) {
-                var feature = response.body.features[0];
-
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/streets-v11',
-                    center: feature.center,
-                    zoom: 15
-                });
-                new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
-                map.addControl(new mapboxgl.NavigationControl());
-            }
-        });
-</script>
+<script></script>
 
 
 

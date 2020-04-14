@@ -3,6 +3,9 @@ const show = document.getElementById('show-pwd');
 const openNav = document.getElementById('open-nav');
 const closeNav = document.getElementById('close-btn');
 const mobileNav = document.querySelector('.mobile-nav');
+const openDashNav = document.getElementById('open-dashNav');
+const closeDashNav = document.getElementById('close-dashNav');
+const mobileDashNav = document.querySelector('.mobile-dashNav');
 
 function showPwd() {
     if (pwdInput.type === 'password'){
@@ -18,6 +21,12 @@ function openMenu(){
 }
 function closeMenu(){
     mobileNav.classList.remove('show');
+}
+function openDash(){
+    mobileDashNav.classList.add('show');
+}
+function closeDash(){
+    mobileDashNav.classList.remove('show');
 }
 
 Array.prototype.forEach.call(

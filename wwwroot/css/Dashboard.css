@@ -1,32 +1,37 @@
-.blue{
-    color: cornflowerblue;
-    text-decoration: underline;
-}
 .orange{
     color: #F76241;
     text-decoration: underline;
 }
 /* Dashboard navigation */
-#Dash-header .logo h1{
+.mobile-dashNav,
+#open-dashNav{
+    display: none;
+}
+#Dash-header .logo h1,
+#Details-header .logo h1{
     color: #243f51;
 }
-#Dash-header .nav-links li:first-child a{
+#Dash-header .nav-links li a,
+#Details-header .nav-links li a{
     color: #243f51;
     border: 2px solid transparent;
     border-radius: 5px;
     padding: 2px 20px;
     transition: all 0.5s ease-out;
 }
-#Dash-header .nav-links li:hover:first-child a{
+#Dash-header .nav-links li:hover a,
+#Details-header .nav-links li:hover a{
     border-color: #243f51;
     transition: border-color 0.3s ease-in;
 }
-#Dash-header .nav-links #request-btn{
+#Dash-header .nav-links #request-btn,
+#Details-header .nav-links #request-btn{
     color: #243f51;
     border-color: #243f51;
     transition: all 0.5s ease-out;
 }
-#Dash-header .nav-links #request-btn:hover{
+#Dash-header .nav-links #request-btn:hover,
+#Details-header .nav-links #request-btn:hover{
     background-color: #243f51;
     color: #fff;
     transition: all 0.3s ease-in;
@@ -174,8 +179,8 @@ table .view-btn:active{
     margin-top: 0;
     font-size: 0.9rem;
     width: 100%;
-    border-radius: 3px;
-    background: linear-gradient(to right, #F76241, #ff7759);
+    border-radius: 15px;
+    background: firebrick;
     transition: all 0.5s ease-out;
 }
 .requestee-container .cancel-btn:hover,

@@ -6,16 +6,16 @@
 }
 
 
-<header id="Dash-header">
+<header id="Details-header">
     <div class="wrapper nav">
         <div class="logo" data-aos="fade-down">
             <h1>Profile</h1>
         </div>
         <div class="nav-links">
             <ul>
-                <li>
+                @* <li>
                     <a asp-action="Logout" asp-controller="Home">Logout</a>
-                </li>
+                </li> *@
                 <li>
                     <a asp-action="Dashboard" asp-controller="Home" id="request-btn" class="standout-btn">Dashboard</a>
                 </li>
@@ -47,7 +47,7 @@
                         <div class="requestee-container">
 
                             <div class="col">
-                                <p><span class="bold">From: </span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId" class="blue">@req.Creator.FirstName @req.Creator.LastName</a> </p>
+                                <p><span class="bold">From: </span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId" class="orange">@req.Creator.FirstName @req.Creator.LastName</a> </p>
                             </div>
                             <div class="col">
                                 @if(@Model.UserId == @ViewBag.CurrentUser.UserId)

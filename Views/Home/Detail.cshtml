@@ -106,15 +106,15 @@
             }
         });
 
-    let mobileOnly = window.matchMedia('(max-width: 1000px)');
-    const formContainer = document.getElementById('helper-form');
-    const explainCard = document.querySelector('.explanation-card');
+    let mobileOnly = window.matchMedia('(max-width: 1200px)');
+    const detailCard = document.getElementById('detail-content');
+    const map = document.getElementById('map');
 
     function animationStop(){
         if(mobileOnly.matches){
             console.log('working');
-            explainCard.setAttribute('data-aos', '0')
-            formContainer.setAttribute('data-aos', '0');
+            detailCard.setAttribute('data-aos', 'fade-down')
+            map.setAttribute('data-aos', '0');
         }
     }
     animationStop();

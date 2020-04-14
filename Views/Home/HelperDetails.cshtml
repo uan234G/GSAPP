@@ -2,6 +2,7 @@
 
 @section Dashboard{
     <link rel="stylesheet" href="~/css/Dashboard.css">
+    <link rel="stylesheet" href="~/css/Queries.css">
 }
 
 
@@ -67,7 +68,20 @@
     </div>
 </section>
 
-<script></script>
+<script>
+    let mobileOnly = window.matchMedia('(max-width: 1000px)');
+    const formContainer = document.getElementById('help-form');
+    const explainCard = document.querySelector('.explanation-card');
+
+    function animationStop(){
+        if(mobileOnly.matches){
+            console.log('working');
+            explainCard.setAttribute('data-aos', '0')
+            formContainer.setAttribute('data-aos', '0');
+        }
+    }
+    animationStop();
+</script>
 
 
 

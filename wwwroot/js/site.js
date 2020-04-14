@@ -69,4 +69,3 @@ function getCovidStats(){
     })
     setTimeout(getCovidStats, 86400000) // update every 24 hours
 }
-

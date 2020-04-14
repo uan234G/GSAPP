@@ -2,23 +2,20 @@
 
 @section Dashboard{
     <link rel="stylesheet" href="~/css/Dashboard.css">
-    <link rel="stylesheet" href="~/css/LogReg.css">
+    <link rel="stylesheet" href="~/css/Queries.css">
 }
 
 
-<script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
-
-<header id="Dash-header">
+<header id="Details-header">
     <div class="wrapper nav">
         <div class="logo" data-aos="fade-down">
             <h1>Profile</h1>
         </div>
         <div class="nav-links">
             <ul>
-                <li>
+                @* <li>
                     <a asp-action="Logout" asp-controller="Home">Logout</a>
-                </li>
+                </li> *@
                 <li>
                     <a asp-action="Dashboard" asp-controller="Home" id="request-btn" class="standout-btn">Dashboard</a>
                 </li>
@@ -27,8 +24,8 @@
     </div>
 </header>
 
-<section id="detail-main" class="wrapper">
-    <div id="detail-content" data-aos="fade-left">
+<section id="helperDetails-main" class="wrapper">
+    <div id="helper-details" data-aos="fade-left">
         <div class="person-info-container">
 
             <div class="person-image">
@@ -47,22 +44,24 @@
                 {
                     @foreach (var req in @ViewBag.Completed)
                     {
-                        <div >
-                            <p><span class="bold">Name:</span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId">@req.Creator.FirstName @req.Creator.LastName</a> </p>
-                            <p><span class="bold">Address:</span>@req.Creator.Address1, @req.Creator.City, @req.Creator.ZipCode</p>
-                            <p><span class="bold">Needed by: </span> @req.Urgency</p>
-                            <p><span class="bold">Items needed: </span> @req.Items</p>
-                            <p><span class="bold">Notes: </span>@req.Notes</p>
-                            @if(@Model.UserId == @ViewBag.CurrentUser.UserId)
-                            {
-                                <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
-                                    <input type="submit" class="form-btn" value="Cancel Request">
-                                </form>
-                            }
+                        <div class="requestee-container">
+
+                            <div class="col">
+                                <p><span class="bold">From: </span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId" class="orange">@req.Creator.FirstName @req.Creator.LastName</a> </p>
+                            </div>
+                            <div class="col">
+                                @if(@Model.UserId == @ViewBag.CurrentUser.UserId)
+                                {
+                                    <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
+                                        <input type="submit" class="cancel-btn" value="Cancel Request">
+                                    </form>
+                                }
+                            </div>
+
                         </div>
                     }
                 }else{
-                    <p>You Have No Requests Completed, Visit Our <a asp-action="Dashboard">Dashboard</a> To start Helping Our Community</p>
+                    <p>No requests, visit the <a asp-action="Dashboard" class="blue">Dashboard</a> to start helping our community</p>
                 }
                 </div>
             </div>
@@ -71,38 +70,17 @@
     </div>
 </section>
 
-
-<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
-<script src="https://unpkg.com/@@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZGFlc3VuZ2Nob2k2MjYiLCJhIjoiY2s4a3RjMDkwMDVpbjNpbnd5ZDdoamk5cCJ9.yx1ofJFjnAGsdngQi9EsuA';
-    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
-    mapboxClient.geocoding
-        .forwardGeocode({
-            query: '@Model.Address1, @Model.City, @Model.ZipCode',
-            autocomplete: false,
-            limit: 1
-        })
-        .send()
-        .then(function (response) {
-            if (
-                response &&
-                response.body &&
-                response.body.features &&
-                response.body.features.length
-            ) {
-                var feature = response.body.features[0];
+    let mobileOnly = window.matchMedia('(max-width: 1000px)');
+    const detailCard = document.getElementById('helper-details');
 
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/streets-v11',
-                    center: feature.center,
-                    zoom: 15
-                });
-                new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
-                map.addControl(new mapboxgl.NavigationControl());
-            }
-        });
+    function animationStop(){
+        if(mobileOnly.matches){
+            console.log('working');
+            detailCard.setAttribute('data-aos', '0');
+        }
+    }
+    animationStop();
 </script>
 
 

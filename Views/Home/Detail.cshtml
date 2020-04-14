@@ -10,16 +10,16 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
 
-<header id="Dash-header">
+<header id="Details-header">
     <div class="wrapper nav">
         <div class="logo" data-aos="fade-down">
             <h1>Details</h1>
         </div>
         <div class="nav-links">
             <ul>
-                <li>
+                @* <li>
                     <a asp-action="Logout" asp-controller="Home">Logout</a>
-                </li>
+                </li> *@
                 <li>
                     <a asp-action="Dashboard" asp-controller="Home" id="request-btn" class="standout-btn">Dashboard</a>
                 </li>
@@ -46,12 +46,14 @@
                 <h4>Current Requests</h4>
                 @foreach (var req in @Model.RequestsCreated)
                 {
+                    <div>
+                        <p><span class="bold">Needed by: </span> @req.Urgency.ToString("MM/dd/yyyy HH:mm tt")</p>
+                        <p><span class="bold">Items: </span> @req.Items</p>
+                        <p><span class="bold">Notes: </span>@req.Notes</p>
+                    </div>
                     @if (@req.IsCompleted == false)
                     {
                         <div >
-                            <p><span class="bold">Needed by: </span> @req.Urgency</p>
-                            <p><span class="bold">Items: </span> @req.Items</p>
-                            <p><span class="bold">Notes: </span>@req.Notes</p>
                             @if(req.Creator.UserId != @ViewBag.UserId)
                             {
                             <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
@@ -73,7 +75,20 @@
     <div id="map" data-aos="zoom-in"></div>
 </section>
 
+<script>
+    let smallScreen = window.matchMedia('(max-width: 1200px)');
+    const detailCard = document.getElementById('detail-content');
+    const map = document.getElementById('map');
 
+    function noAnimate(){
+        if(smallScreen.matches){
+            console.log('hello world');
+            detailCard.setAttribute('data-aos', 'hello-world');
+            map.setAttribute('data-aos', 'hello-world');
+        }
+    }
+    noAnimate();
+</script>
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 <script src="https://unpkg.com/@@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
@@ -105,17 +120,4 @@
                 map.addControl(new mapboxgl.NavigationControl());
             }
         });
-
-    let mobileOnly = window.matchMedia('(max-width: 1200px)');
-    const detailCard = document.getElementById('detail-content');
-    const map = document.getElementById('map');
-
-    function animationStop(){
-        if(mobileOnly.matches){
-            console.log('working');
-            detailCard.setAttribute('data-aos', 'fade-down')
-            map.setAttribute('data-aos', '0');
-        }
-    }
-    animationStop();
 </script>

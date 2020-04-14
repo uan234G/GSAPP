@@ -75,6 +75,11 @@
     form .image-upload .file-callout{
         height: 24px;
     }
+
+    /* HelperDetails page */
+    #helper-details{
+        width: 100%;
+    }
 }
 
 
@@ -105,12 +110,23 @@
         height: 20px;
     }
 
+    /* Dashboard page */
+    #address-th,
+    .address-td{
+        display: none;
+    }
+
     /* Details page */
     #detail-content{
         width: 100%;
     }
     #map{
         width: 100%;
+    }
+
+    /* HelperDetails page */
+    #helper-details .person-image{
+        height: 35vh;
     }
 }
 
@@ -133,7 +149,7 @@
 }
 
 
-@media screen and (max-width: 690px){
+@media screen and (max-width: 720px){
     /* Universal Styles */
     html{
         font-size: 14px;
@@ -172,12 +188,81 @@
         height: 2.5rem;
     }
 
+    /* Dashboard page */
+    .mobile-dashNav,
+    #open-dashNav{
+        display: block;
+    }
+    #Dash-header .nav-links{
+        display: none;
+    }
+    #open-dashNav{
+        font-size: 2.5rem;
+    }
+    #open-dashNav:hover{
+        cursor: pointer;
+    }
+    #open-dashNav:active{
+        transform: scale(0.95);
+    }
+    #close-dashNav{
+        font-size: 4rem;
+        color: #fff;
+        position: absolute;
+        top: 2%;
+        right: 10%;
+    }
+    #close-dashNav:hover,
+    #close-dashNav:focus{
+        cursor: pointer;
+        top: 2.5%;
+        transform: rotate(180deg);
+        transition: all 0.3s ease;
+    }
+    .mobile-dashNav.show{
+        transform: translate(0);
+        transition: transform 0.2s ease;
+    }
+    .mobile-dashNav{
+        top: 0;
+        width: 350px;
+        height: 100vh;
+        position: fixed;
+        z-index: 5;
+        transform: translate(-350px);
+        background-color: #243f51;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease-out;
+    }
+    .mobile-dashNav ul li{
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+    .mobile-dashNav ul li a{
+        color: #fff;
+    }
+    #action-th,
+    .action-td,
+    .desktop-name{
+        display: none;
+    }
+    .mobile-name{
+        display: block;
+    }
+
     /* Details page */
     #detail-main{
         margin-top: 10rem;
     }
     #map{
         height: 500px;
+    }
+    #helper-details .person-image{
+        height: 40vh;
     }
     .person-info-container{
         flex-direction: column;
@@ -191,10 +276,12 @@
     .person-info-container .person-info-text{
         width: 100%;
     }
-    #detail-content p{
+    #detail-content p,
+    #helper-details p{
         font-size: 1rem;
     }
-    #detail-content p span{
+    #detail-content p span,
+    #helper-details p span{
         font-size: 1rem;
         letter-spacing: 0.25px;
     }
@@ -208,5 +295,12 @@
     #delete-btn{
         padding: 7px 20px;
         font-size: 1.1rem;
+    }
+
+    /* HelperDetails page */
+    .requestee-container .cancel-btn{
+        padding: 0 15px;
+        height: 1.85rem;
+        font-size: 1rem;
     }
 }

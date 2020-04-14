@@ -3,6 +3,7 @@
 @section Dashboard{
     <link rel="stylesheet" href="~/css/Dashboard.css">
     <link rel="stylesheet" href="~/css/LogReg.css">
+    <link rel="stylesheet" href="~/css/Queries.css">
 }
 
 
@@ -28,7 +29,6 @@
 </header>
 
 <section id="detail-main" class="wrapper">
-    <div id="map" data-aos="zoom-in"></div>
     <div id="detail-content" data-aos="fade-left">
         <div class="person-info-container">
 
@@ -50,8 +50,8 @@
                     {
                         <div >
                             <p><span class="bold">Needed by: </span> @req.Urgency</p>
-                            <p><span class="bold">Request For: </span> @req.Items</p>
-                            <p><span class="bold">Items: </span>@req.Notes</p>
+                            <p><span class="bold">Items: </span> @req.Items</p>
+                            <p><span class="bold">Notes: </span>@req.Notes</p>
                             @if(req.Creator.UserId != @ViewBag.UserId)
                             {
                             <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
@@ -60,7 +60,7 @@
                             }
                             else if (req.Creator.UserId == @ViewBag.UserId)
                             {
-                                <td><a asp-action="Delete" asp-route-requestId="@req.RequestId">Delete</a></td>
+                                <a id="delete-btn" asp-action="Delete" asp-route-requestId="@req.RequestId">Delete</a>
                             }
                         </div>
                     }
@@ -70,6 +70,7 @@
 
         </div>
     </div>
+    <div id="map" data-aos="zoom-in"></div>
 </section>
 
 
@@ -104,4 +105,17 @@
                 map.addControl(new mapboxgl.NavigationControl());
             }
         });
+
+    let mobileOnly = window.matchMedia('(max-width: 1000px)');
+    const formContainer = document.getElementById('helper-form');
+    const explainCard = document.querySelector('.explanation-card');
+
+    function animationStop(){
+        if(mobileOnly.matches){
+            console.log('working');
+            explainCard.setAttribute('data-aos', '0')
+            formContainer.setAttribute('data-aos', '0');
+        }
+    }
+    animationStop();
 </script>

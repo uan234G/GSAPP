@@ -112,3 +112,23 @@ table .view-btn:active{
     margin-top: 1.5rem;
     width: 65%;
 }
+#delete-btn{
+    margin-top: 3rem;
+    background-color: firebrick;
+    color: #fff;
+    padding: 5px 20px;
+    display: block;
+    text-align: center;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.5s ease-out;
+    
+}
+#delete-btn:hover{
+    box-shadow: 4px 5px 7px rgba(0,0,0,0.4);
+    transition: box-shadow 0.2s ease-in;
+}
+#delete-btn:active{
+    transform: scale(0.97);
+}

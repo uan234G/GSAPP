@@ -2,6 +2,7 @@
 
 @section Landing{
     <link rel="stylesheet" href="~/css/LogReg.css">
+    <link rel="stylesheet" href="~/css/Queries.css">
 }
 
 <header id="LogReg-header">
@@ -21,23 +22,23 @@
     </div>
 </header>
 
-<section id="request-main">
+<section id="request-main" class="wrapper">
     <div id="request-form" class="reg-form-box" data-aos="zoom-in">
         <form asp-action="submitRequest" asp-controller="Home" method="POST">
             <label asp-for="Items">
                 What do you need? 
                 <span asp-validation-for="Items" class="red"></span>
             </label>
-            <input asp-for="Items" placeholder="Green eggs and ham">
+            <input asp-for="Items" placeholder="Medication, house supplies, groceries etc...">
 
             <label asp-for="Urgency">
-                When do you need this by? 
+                When do you need this by? (Specify date and time)
                 <span asp-validation-for="Urgency" class="red"></span>
             </label>
-            <input asp-for="Urgency" placeholder="04/20/2020 04:20pm">
+            <input asp-for="Urgency" placeholder="01/12/2020 04:20pm">
 
             <label asp-for="Notes">Notes:</label>
-            <textarea asp-for="Notes" placeholder="Please make sure both items are green"></textarea>
+            <textarea asp-for="Notes" placeholder="Hand soap, toilet paper, 1 gl. of milk etc..."></textarea>
 
             <input type="submit" class="form-btn" value="SUBMIT">
         </form>

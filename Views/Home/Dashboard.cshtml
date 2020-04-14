@@ -28,7 +28,7 @@
                 </li> 
                 <li>
                     <a asp-action="Detail" asp-route-Uid="@ViewBag.CurrentUser.UserId" asp-controller="Home" id="request-btn" class="standout-btn">View Profile</a>
-                </li>                  
+                </li>
                 }
             </ul>
         </div>
@@ -39,10 +39,10 @@
     <table>
             <thead>
                 <tr>
-                    <th>Full Name</th>
-                    <th>Address</th>
+                    <th>Name</th>
+                    <th id="address-th">Address</th>
                     <th>Request Urgency</th>
-                    <th>Action</th>
+                    <th id="action-th">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,10 +51,17 @@
                     @if (request.IsCompleted == false)
                     {
                         <tr>
-                            <td>@request.Creator.FirstName @request.Creator.LastName</td>
-                            <td>@request.Creator.City, @request.Creator.State</td>
-                            <td>@request.Urgency</td>
-                            <td><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
+                            <td>
+                                <a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="orange mobile-name">
+                                    @request.Creator.FirstName @request.Creator.LastName
+                                </a>
+                                <span class="desktop-name">
+                                    @request.Creator.FirstName @request.Creator.LastName
+                                </span>
+                            </td>
+                            <td class="address-td">@request.Creator.City, @request.Creator.State</td>
+                            <td>@request.Urgency.ToString("MM/dd/yyyy HH:mm tt")</td>
+                            <td class="action-td"><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
                         </tr>
                     }
                 }

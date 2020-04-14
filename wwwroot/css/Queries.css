@@ -75,6 +75,11 @@
     form .image-upload .file-callout{
         height: 24px;
     }
+
+    /* HelperDetails page */
+    #helper-details{
+        width: 100%;
+    }
 }
 
 
@@ -105,12 +110,23 @@
         height: 20px;
     }
 
+    /* Dashboard page */
+    #address-th,
+    .address-td{
+        display: none;
+    }
+
     /* Details page */
     #detail-content{
         width: 100%;
     }
     #map{
         width: 100%;
+    }
+
+    /* HelperDetails page */
+    #helper-details .person-image{
+        height: 35vh;
     }
 }
 
@@ -172,12 +188,25 @@
         height: 2.5rem;
     }
 
+    /* Dashboard page */
+    #action-th,
+    .action-td,
+    .desktop-name{
+        display: none;
+    }
+    .mobile-name{
+        display: block;
+    }
+
     /* Details page */
     #detail-main{
         margin-top: 10rem;
     }
     #map{
         height: 500px;
+    }
+    #helper-details .person-image{
+        height: 40vh;
     }
     .person-info-container{
         flex-direction: column;
@@ -191,10 +220,12 @@
     .person-info-container .person-info-text{
         width: 100%;
     }
-    #detail-content p{
+    #detail-content p,
+    #helper-details p{
         font-size: 1rem;
     }
-    #detail-content p span{
+    #detail-content p span,
+    #helper-details p span{
         font-size: 1rem;
         letter-spacing: 0.25px;
     }
@@ -208,5 +239,12 @@
     #delete-btn{
         padding: 7px 20px;
         font-size: 1.1rem;
+    }
+
+    /* HelperDetails page */
+    .requestee-container .cancel-btn{
+        padding: 0 15px;
+        height: 1.85rem;
+        font-size: 1rem;
     }
 }

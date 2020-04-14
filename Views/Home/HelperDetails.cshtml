@@ -24,8 +24,8 @@
     </div>
 </header>
 
-<section id="detail-main" class="wrapper">
-    <div id="detail-content" data-aos="fade-left">
+<section id="helperDetails-main" class="wrapper">
+    <div id="helper-details" data-aos="fade-left">
         <div class="person-info-container">
 
             <div class="person-image">
@@ -44,22 +44,24 @@
                 {
                     @foreach (var req in @ViewBag.Completed)
                     {
-                        <div >
-                            <p><span class="bold">Name:</span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId">@req.Creator.FirstName @req.Creator.LastName</a> </p>
-                            <p><span class="bold">Address:</span>@req.Creator.Address1, @req.Creator.City, @req.Creator.ZipCode</p>
-                            <p><span class="bold">Needed by: </span> @req.Urgency</p>
-                            <p><span class="bold">Items needed: </span> @req.Items</p>
-                            <p><span class="bold">Notes: </span>@req.Notes</p>
-                            @if(@Model.UserId == @ViewBag.CurrentUser.UserId)
-                            {
-                                <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
-                                    <input type="submit" class="form-btn" value="Cancel Request">
-                                </form>
-                            }
+                        <div class="requestee-container">
+
+                            <div class="col">
+                                <p><span class="bold">From: </span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId" class="blue">@req.Creator.FirstName @req.Creator.LastName</a> </p>
+                            </div>
+                            <div class="col">
+                                @if(@Model.UserId == @ViewBag.CurrentUser.UserId)
+                                {
+                                    <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
+                                        <input type="submit" class="cancel-btn" value="Cancel Request">
+                                    </form>
+                                }
+                            </div>
+
                         </div>
                     }
                 }else{
-                    <p>You Have No Requests Completed, Visit Our <a asp-action="Dashboard">Dashboard</a> To start Helping Our Community</p>
+                    <p>No requests, visit the <a asp-action="Dashboard" class="blue">Dashboard</a> to start helping our community</p>
                 }
                 </div>
             </div>
@@ -70,14 +72,12 @@
 
 <script>
     let mobileOnly = window.matchMedia('(max-width: 1000px)');
-    const formContainer = document.getElementById('help-form');
-    const explainCard = document.querySelector('.explanation-card');
+    const detailCard = document.getElementById('helper-details');
 
     function animationStop(){
         if(mobileOnly.matches){
             console.log('working');
-            explainCard.setAttribute('data-aos', '0')
-            formContainer.setAttribute('data-aos', '0');
+            detailCard.setAttribute('data-aos', '0');
         }
     }
     animationStop();

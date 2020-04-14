@@ -1,3 +1,11 @@
+.blue{
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+.orange{
+    color: #F76241;
+    text-decoration: underline;
+}
 /* Dashboard navigation */
 #Dash-header .logo h1{
     color: #243f51;
@@ -25,6 +33,9 @@
 }
 
 /* Dashboard body */
+.mobile-name{
+    display: none;
+}
 #dash-main{
     margin-top: 13rem;
     height: 70vh;
@@ -65,7 +76,6 @@ table .view-btn:active{
 #detail-main{
     margin-top: 10rem;
     margin-bottom: 5rem;
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,15 +101,18 @@ table .view-btn:active{
 .person-info-container .person-info-text{
     width: 55%;
 }
-#detail-content p{
+#detail-content p,
+#helper-details p{
     font-size: 0.9rem;
     margin-bottom: 3px;
 }
-#detail-content p span{
+#detail-content p span,
+#helper-details p span{
     padding-right: 7px;
     font-size: 0.8rem;
 }
-#detail-content p:last-of-type{
+#detail-content p:last-of-type,
+#helper-details p:last-of-type{
     margin-bottom: 0;
 }
 .request-container{
@@ -133,3 +146,44 @@ table .view-btn:active{
 }
 
 /* HELPERDETAILS.CSHTML STYLES*/
+#helperDetails-main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#helper-details{
+    width: 70%;
+    padding: 2rem;
+    background: #fff;
+}
+#helper-details .person-image{
+    height: 45vh;
+}
+.requestee-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.requestee-container .cancel-btn{
+    border: 0;
+    outline: 0;
+    color: #fff;
+    padding: 5px 15px;
+    margin-top: 0;
+    font-size: 0.9rem;
+    width: 100%;
+    border-radius: 3px;
+    background: linear-gradient(to right, #F76241, #ff7759);
+    transition: all 0.5s ease-out;
+}
+.requestee-container .cancel-btn:hover,
+.requestee-container .cancel-btn:focus{
+    cursor: pointer;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+    transition: all 0.2s ease-in;
+}
+.requestee-container .cancel-btn:active{
+    transform: scale(0.97);
+}

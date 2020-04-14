@@ -78,7 +78,7 @@ namespace GSAPP.Controllers
             }
             User CurrentUser = dbContext.Users.FirstOrDefault(a => a.UserId == UserSession);
             ViewBag.CurrentUser = CurrentUser;
-            List<Request> NearbyRequests = dbContext.Requests.Include(a => a.Creator).Where(a => a.Creator.ZipCode == CurrentUser.ZipCode).ToList();
+            List<Request> NearbyRequests = dbContext.Requests.Include(a => a.Creator).Where(a => a.Creator.ZipCode == CurrentUser.ZipCode).OrderBy(a => a.Urgency).ToList();
             return View(NearbyRequests);
         }
 

@@ -178,11 +178,23 @@
         margin-bottom: 0;
     }
     /* Footer */
-    /* #footer-nav{
-        grid-template-columns: 1fr;
-    } */
+    footer{
+        padding: 2rem 0 0.5rem 0;
+    }
+    .mobile-footCol{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #footer-nav{
+        display: flex;
+        flex-direction: column;
+    }
     #footer-nav .logo span{
         font-size: 0.9rem;
+    }
+    #footer-nav .footer-box{
+        margin-bottom: 1.5rem;
     }
     #footer-nav .footer-links h4{
         font-size: 1.15rem;

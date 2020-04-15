@@ -47,7 +47,9 @@
                         <div class="requestee-container">
 
                             <div class="col">
-                                <p><span class="bold">From: </span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId" class="orange">@req.Creator.FirstName @req.Creator.LastName</a> </p>
+                                <p><span class="bold">From: </span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId" class="orange">@req.Creator.FirstName @req.Creator.LastName</a></p>
+                                <p><span class="bold">Items: </span> @req.Items</p>
+                                <p><span class="bold">Notes: </span>@req.Notes</p>
                             </div>
                             <div class="col">
                                 @if(@Model.UserId == @ViewBag.CurrentUser.UserId)

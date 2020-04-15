@@ -2,7 +2,6 @@
 
 @section Dashboard{
     <link rel="stylesheet" href="~/css/Dashboard.css">
-    <link rel="stylesheet" href="~/css/LogReg.css">
     <link rel="stylesheet" href="~/css/Queries.css">
 }
 
@@ -37,8 +36,8 @@
             </div>
             <div class="person-info-text">
                 <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
-                <p><span class="bold">Email: </span>@Model.Email</p>
-                <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
+                <p><span class="bold">Email: </span><a href="mailto:@Model.Email" class="orange">@Model.Email</a></p>
+                <p><span class="bold">Phone: </span><a href="tel:@Model.PhoneNumber" class="orange">@Model.PhoneNumber</a></p>
                 <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
                 <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
 
@@ -47,22 +46,22 @@
                 @foreach (var req in @Model.RequestsCreated)
                 {
                     <div>
-                        <p><span class="bold">Needed by: </span> @req.Urgency.ToString("MM/dd/yyyy HH:mm tt")</p>
-                        <p><span class="bold">Items: </span> @req.Items</p>
-                        <p><span class="bold">Notes: </span>@req.Notes</p>
                     </div>
                     @if (@req.IsCompleted == false)
                     {
-                        <div >
+                        <div>
+                            <p><span class="bold">Needed by: </span> @req.Urgency.ToString("MM/dd/yyyy HH:mm tt")</p>
+                            <p><span class="bold">Items: </span> @req.Items</p>
+                            <p><span class="bold">Notes: </span>@req.Notes</p>
                             @if(req.Creator.UserId != @ViewBag.UserId)
                             {
                             <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
-                                <input type="submit" class="form-btn" value="Accept Request">
+                                <input type="submit" class="accept-btn" value="Accept Request">
                             </form>
                             }
                             else if (req.Creator.UserId == @ViewBag.UserId)
                             {
-                                <a id="delete-btn" asp-action="Delete" asp-route-requestId="@req.RequestId">Delete</a>
+                                <a class="delete-btn" asp-action="Delete" asp-route-requestId="@req.RequestId">Delete</a>
                             }
                         </div>
                     }

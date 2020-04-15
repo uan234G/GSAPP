@@ -93,6 +93,13 @@ namespace GSAPP.Controllers
             User DetailsFor = dbContext.Users.Include(a => a.RequestsCreated).FirstOrDefault(q => q.UserId == Uid);
             User CurrentUser = dbContext.Users.FirstOrDefault(q => q.UserId == UserSession);
             ViewBag.UserId = CurrentUser.UserId;
+            foreach (var req in DetailsFor.RequestsCreated)
+            {
+                if (req.IsCompleted == true)
+                {
+                    ViewBag.CompletedBy = dbContext.Users.FirstOrDefault(q => q.UserId == req.PickedUpByID);
+                }
+            }
             return View(DetailsFor);
         }
 

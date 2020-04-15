@@ -46,13 +46,13 @@
                 <h4>Current Requests</h4>
                 @foreach (var req in @Model.RequestsCreated)
                 {
-                    <div>
-                        <p><span class="bold">Needed by: </span> @req.Urgency.ToString("MM/dd/yyyy HH:mm tt")</p>
-                        <p><span class="bold">Items: </span> @req.Items</p>
-                        <p><span class="bold">Notes: </span>@req.Notes</p>
-                    </div>
                     @if (@req.IsCompleted == false)
                     {
+                        <div>
+                            <p><span class="bold">Needed by: </span> @req.Urgency.ToString("MM/dd/yyyy HH:mm tt")</p>
+                            <p><span class="bold">Items: </span> @req.Items</p>
+                            <p><span class="bold">Notes: </span>@req.Notes</p>
+                        </div>
                         <div >
                             @if(req.Creator.UserId != @ViewBag.UserId)
                             {
@@ -69,8 +69,21 @@
                 }
                 </div>
             </div>
-
         </div>
+        <h2>Completed Request</h2>
+        @foreach (var creq in @Model.RequestsCreated)
+        {
+            @if (creq.IsCompleted ==true)
+            {
+                <div>
+                    <p><span class="bold">Needed by: </span> @creq.Urgency.ToString("MM/dd/yyyy HH:mm tt")</p>
+                    <p><span class="bold">Items: </span> @creq.Items</p>
+                    <p><span class="bold">Notes: </span>@creq.Notes</p>
+                    <p><span class="bold">Completed by: <a asp-action="HelperDetails" asp-route-UserId="@ViewBag.CompletedBy.UserId">@ViewBag.CompletedBy.FirstName @ViewBag.CompletedBy.LastName </a></span></p>
+                </div>
+                <hr>
+            }
+        }
     </div>
     <div id="map" data-aos="zoom-in"></div>
 </section>

@@ -91,7 +91,12 @@
                         <p><span class="bold">Needed by: </span> @creq.Urgency.ToString("MM/dd/yyyy hh:mm tt")</p>
                         <p><span class="bold">Items: </span> @creq.Items</p>
                         <p><span class="bold">Notes: </span>@creq.Notes</p>
-                        <p><span class="bold">Completed by: <a asp-action="HelperDetails" asp-route-UserId="@ViewBag.CompletedBy.UserId">@ViewBag.CompletedBy.FirstName @ViewBag.CompletedBy.LastName </a></span></p>
+                        <p>
+                            <span class="bold">
+                                Completed by: 
+                                <a class="orange" asp-action="HelperDetails" asp-route-UserId="@ViewBag.CompletedBy.UserId">@ViewBag.CompletedBy.FirstName @ViewBag.CompletedBy.LastName</a>
+                            </span>
+                        </p>
                     </div>
                 }
             }

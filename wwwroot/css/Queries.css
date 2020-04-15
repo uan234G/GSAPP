@@ -10,17 +10,6 @@
     .log-container{
         width: 60%;
     }
-    /* Details page */
-    #map{
-        width: 45%;
-        height: 850px;
-    }
-    #detail-content{
-        width: 50%;
-    }
-    .person-info-container .person-image{
-        height: 35vh;
-    }
 }
 @media screen and (max-width: 1350px){
     .explanation-card{
@@ -31,15 +20,14 @@
         width: 65%;
     }
     /* Details page */
-    #detail-main{
-        margin-top: 15rem;
-    }
-    #map{
-        width: 40%;
-        height: 650px;
-    }
     #detail-content{
-        width: 53%;
+        width: 47%;
+    }
+    .person-info-container .person-image{
+        width: 52%;
+    }
+    .person-info-container .person-info-text{
+        width: 45%;
     }
 }
 @media screen and (max-width: 1200px){
@@ -49,19 +37,6 @@
     .log-container,
     .reg-container{
         width: 75%;
-    }
-    /* Details page */
-    #detail-main{
-        flex-direction: column;
-    }
-    #detail-content{
-        width: 70%;
-        margin-bottom: 2rem;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.4);
-    }
-    #map{
-        width: 70%;
-        height: 700px;
     }
 }
 @media screen and (max-width: 1150px){
@@ -77,8 +52,9 @@
     }
 
     /* HelperDetails page */
-    #helper-details{
-        width: 100%;
+    #helper-details,
+    .accepted-container{
+        width: 75%;
     }
 }
 
@@ -94,6 +70,73 @@
     }
     .reg-form-box{
         width: 75%;
+    }
+}
+
+
+@media screen and (max-width: 950px){
+    /* Details page */
+    #detail-main{
+        margin-top: 10rem;
+        flex-direction: column;
+    }
+    .leftCol,
+    #detail-content{
+        width: 100%;
+    }
+    #map{
+        height: 45vh;
+    }
+    .request-container,
+    .completed-container{
+        height: 50vh;
+    }
+    .person-info-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .person-info-container .person-image{
+        width: 60%;
+        height: 60vh;
+        margin-bottom: 1.5rem;
+    }
+    .person-info-container .person-info-text{
+        width: 100%;
+    }
+    #detail-main p,
+    #helperDetails-main p{
+        font-size: 1rem;
+    }
+    #detail-main p span,
+    #helperDetails-main p span{
+        font-size: 1rem;
+        letter-spacing: 0.25px;
+    }
+    .request-container,
+    .completed-container{
+        box-shadow: none;
+    }
+    .request-container{
+        margin-top: 1.5rem;
+    }
+    .backToTop{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .backToTop .toTop{
+        display: block;
+    }
+    #detail-content h4{
+        font-size: 1.25rem;
+    }
+    form .accept-btn{
+        font-size: 1.1rem;
+        padding: 0;
+    }
+    .delete-btn{
+        padding: 8px 20px;
+        font-size: 1.1rem;
     }
 }
 
@@ -116,17 +159,14 @@
         display: none;
     }
 
-    /* Details page */
-    #detail-content{
-        width: 100%;
-    }
-    #map{
-        width: 100%;
-    }
-
     /* HelperDetails page */
     #helper-details .person-image{
-        height: 35vh;
+        height: 45vh;
+        width: 70%;
+    }
+    #helper-details,
+    .accepted-container{
+        width: 75%;
     }
 }
 
@@ -255,56 +295,41 @@
     }
 
     /* Details page */
-    #detail-main{
-        margin-top: 10rem;
-    }
-    #map{
-        height: 500px;
-    }
-    #helper-details .person-image{
-        height: 40vh;
-    }
-    .person-info-container{
-        flex-direction: column;
-        align-items: center;
-    }
     .person-info-container .person-image{
-        width: 100%;
-        height: 65vh;
-        margin-bottom: 1rem;
-    }
-    .person-info-container .person-info-text{
-        width: 100%;
-    }
-    #detail-content p,
-    #helper-details p{
-        font-size: 1rem;
-    }
-    #detail-content p span,
-    #helper-details p span{
-        font-size: 1rem;
-        letter-spacing: 0.25px;
-    }
-    .request-container{
-        margin-top: 1.5rem;
-    }
-    .request-container h4{
-        font-size: 1.25rem;
-        margin-bottom: 10px;
-    }
-    form .accept-btn{
-        font-size: 1.1rem;
-        padding: 0;
-    }
-    .delete-btn{
-        padding: 8px 20px;
-        font-size: 1.1rem;
+        width: 65%;
+        height: 45vh;
     }
 
     /* HelperDetails page */
+    #helper-details,
+    .accepted-container{
+        width: 100%;
+    }
+    #helper-details .person-image{
+        height: 40vh;
+        width: 70%;
+    }
+    .requestee-container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .requestee-container .col{
+        width: 100%;
+    }
     .requestee-container .cancel-btn{
-        padding: 0 30px;
-        height: 1.85rem;
+        margin: 1rem auto 0 auto;
+        width: 50%;
+        height: 2rem;
         font-size: 1rem;
+    }
+}
+@media screen and (max-width: 550px){
+    /* Details page */
+    .person-info-container .person-image{
+        height: 38vh;
+    }
+    #helper-details .person-image{
+        height: 35vh;
+        width: 80%;
     }
 }

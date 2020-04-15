@@ -25,50 +25,50 @@
 </header>
 
 <section id="helperDetails-main" class="wrapper">
-    <div id="helper-details" data-aos="fade-left">
-        <div class="person-info-container">
 
-            <div class="person-image">
-                <img src="~/images/@Model.ImageUrl" class="pic">
-            </div>
-            <div class="person-info-text">
-                <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
-                <p><span class="bold">Email: </span>@Model.Email</p>
-                <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
-                <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
-                <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+    <div id="helper-details" class="person-info-container">
 
-                <div class="request-container">
-                <h4>Accepted Requests</h4>
-                @if (@ViewBag.Completed != null)
-                {
-                    @foreach (var req in @ViewBag.Completed)
-                    {
-                        <div class="requestee-container">
-
-                            <div class="col">
-                                <p><span class="bold">From: </span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId" class="orange">@req.Creator.FirstName @req.Creator.LastName</a></p>
-                                <p><span class="bold">Items: </span> @req.Items</p>
-                                <p><span class="bold">Notes: </span>@req.Notes</p>
-                            </div>
-                            <div class="col">
-                                @if(@Model.UserId == @ViewBag.CurrentUser.UserId)
-                                {
-                                    <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
-                                        <input type="submit" class="cancel-btn" value="Cancel Request">
-                                    </form>
-                                }
-                            </div>
-                        </div>
-                    }
-                }else{
-                    <p>No requests, visit the <a asp-action="Dashboard" class="blue">Dashboard</a> to start helping our community</p>
-                }
-                </div>
-            </div>
-
+        <div class="person-image">
+            <img src="~/images/@Model.ImageUrl" class="pic">
         </div>
+        <div class="person-info-text">
+            <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
+            <p><span class="bold">Email: </span>@Model.Email</p>
+            <p><span class="bold">Phone: </span>@Model.PhoneNumber</p>
+            <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
+            <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+        </div>
+
     </div>
+
+    <div class="accepted-container">
+        <h4>Accepted Requests</h4>
+        @if (@ViewBag.Completed != null)
+        {
+            @foreach (var req in @ViewBag.Completed)
+            {
+                <div class="requestee-container">
+
+                    <div class="col">
+                        <p><span class="bold">From: </span><a asp-action="Detail" asp-route-Uid = "@req.Creator.UserId" class="orange">@req.Creator.FirstName @req.Creator.LastName</a></p>
+                        <p><span class="bold">Items: </span> @req.Items</p>
+                        <p><span class="bold">Notes: </span>@req.Notes</p>
+                    </div>
+                    <div class="col">
+                        @if(@Model.UserId == @ViewBag.CurrentUser.UserId)
+                        {
+                            <form asp-action="CancelReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
+                                <input type="submit" class="cancel-btn" value="Cancel Request">
+                            </form>
+                        }
+                    </div>
+                </div>
+            }
+        }else{
+            <p>No requests, visit the <a asp-action="Dashboard" class="blue">Dashboard</a> to start helping our community</p>
+        }
+    </div>
+
 </section>
 
 <script>

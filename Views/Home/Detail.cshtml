@@ -28,23 +28,52 @@
 </header>
 
 <section id="detail-main" class="wrapper">
-    <div id="detail-content" data-aos="fade-left">
+    <div class="leftCol">
         <div class="person-info-container">
 
             <div class="person-image">
                 <img src="~/images/@Model.ImageUrl" class="pic">
             </div>
             <div class="person-info-text">
-                <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
-                <p><span class="bold">Email: </span><a href="mailto:@Model.Email" class="orange">@Model.Email</a></p>
-                <p><span class="bold">Phone: </span><a href="tel:@Model.PhoneNumber" class="orange">@Model.PhoneNumber</a></p>
-                <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
-                <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+            <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
+            <p><span class="bold">Email: </span><a href="mailto:@Model.Email" class="orange">@Model.Email</a></p>
+            <p><span class="bold">Phone: </span><a href="tel:@Model.PhoneNumber" class="orange">@Model.PhoneNumber</a></p>
+            <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
+            <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+            </div>
 
-                <div class="request-container">
-                <h4>Current Requests</h4>
-                @foreach (var req in @Model.RequestsCreated)
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <div id="detail-content" class="rightCol"  data-aos="fade-left">
+
+        <div class="request-container">
+            <div class="backToTop">
+                <h4>Open Requests</h4>
+                <a href="#Details-header" class="toTop">Back to top</a>
+            </div>
+            @foreach (var req in @Model.RequestsCreated)
+            {
+                @if (@req.IsCompleted == false)
                 {
+                    <div>
+                        <p><span class="bold">Needed by: </span> @req.Urgency.ToString("MM/dd/yyyy hh:mm tt")</p>
+                        <p><span class="bold">Items: </span> @req.Items</p>
+                        <p><span class="bold">Notes: </span>@req.Notes</p>
+                    </div>
+                    <div>
+                        @if(req.Creator.UserId != @ViewBag.UserId)
+                        {
+                        <form asp-action="CompleteReq" asp-route-reqId="@req.RequestId" asp-controller="Home" method="POST">
+                            <input type="submit" class="accept-btn" value="Accept Request">
+                        </form>
+                        }
+                        else if (req.Creator.UserId == @ViewBag.UserId)
+                        {
+                            <a class="delete-btn" asp-action="Delete" asp-route-requestId="@req.RequestId">Delete</a>
+                        }
+                    </div>
                     @if (@req.IsCompleted == false)
                     {
                         <div>
@@ -66,23 +95,39 @@
                         </div>
                     }
                 }
-                </div>
-            </div>
+            }
         </div>
+
+        <div class="completed-container">
+            <div class="backToTop">
+                <h4>Completed Requests</h4>
+                <a href="#Details-header" class="toTop">Back to top</a>
+            </div>
+            @foreach (var creq in @Model.RequestsCreated)
+            {
+                @if (creq.IsCompleted ==true)
+                {
+                    <div class="completed-panel">
+                        <p><span class="bold">Needed by: </span> @creq.Urgency.ToString("MM/dd/yyyy hh:mm tt")</p>
+                        <p><span class="bold">Items: </span> @creq.Items</p>
+                        <p><span class="bold">Notes: </span>@creq.Notes</p>
+                        <p><span class="bold">Completed by: <a asp-action="HelperDetails" asp-route-UserId="@ViewBag.CompletedBy.UserId">@ViewBag.CompletedBy.FirstName @ViewBag.CompletedBy.LastName </a></span></p>
+                    </div>
+                }
+            }
+        </div>
+
     </div>
-    <div id="map" data-aos="zoom-in"></div>
 </section>
 
 <script>
     let smallScreen = window.matchMedia('(max-width: 1200px)');
     const detailCard = document.getElementById('detail-content');
-    const map = document.getElementById('map');
 
     function noAnimate(){
         if(smallScreen.matches){
             console.log('hello world');
             detailCard.setAttribute('data-aos', 'hello-world');
-            map.setAttribute('data-aos', 'hello-world');
         }
     }
     noAnimate();

@@ -52,8 +52,9 @@
     }
 
     /* HelperDetails page */
-    #helper-details{
-        width: 100%;
+    #helper-details,
+    .accepted-container{
+        width: 75%;
     }
 }
 
@@ -103,11 +104,11 @@
         width: 100%;
     }
     #detail-main p,
-    #helper-details p{
+    #helperDetails-main p{
         font-size: 1rem;
     }
     #detail-main p span,
-    #helper-details p span{
+    #helperDetails-main p span{
         font-size: 1rem;
         letter-spacing: 0.25px;
     }
@@ -160,7 +161,12 @@
 
     /* HelperDetails page */
     #helper-details .person-image{
-        height: 35vh;
+        height: 45vh;
+        width: 70%;
+    }
+    #helper-details,
+    .accepted-container{
+        width: 75%;
     }
 }
 
@@ -295,12 +301,25 @@
     }
 
     /* HelperDetails page */
+    #helper-details,
+    .accepted-container{
+        width: 100%;
+    }
     #helper-details .person-image{
-        height: 50vh;
+        height: 40vh;
+        width: 70%;
+    }
+    .requestee-container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .requestee-container .col{
+        width: 100%;
     }
     .requestee-container .cancel-btn{
-        padding: 0 30px;
-        height: 1.85rem;
+        margin: 1rem auto 0 auto;
+        width: 50%;
+        height: 2rem;
         font-size: 1rem;
     }
 }
@@ -308,5 +327,9 @@
     /* Details page */
     .person-info-container .person-image{
         height: 38vh;
+    }
+    #helper-details .person-image{
+        height: 35vh;
+        width: 80%;
     }
 }

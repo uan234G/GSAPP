@@ -134,6 +134,9 @@ table .view-btn:active{
 .completed-container{
     margin-top: 2rem;
 }
+.completed-panel{
+    margin-bottom: 1.5rem;
+}
 .backToTop{
     margin-bottom: 1.5rem;
 }
@@ -208,6 +211,7 @@ form{
 .accepted-container{
     margin-top: 2rem;
     margin-bottom: 5rem;
+    overflow-y: scroll;
     height: 45vh;
 }
 .accepted-container h4{

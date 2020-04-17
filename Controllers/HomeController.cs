@@ -25,13 +25,13 @@ namespace GSAPP.Controllers
         }
 
         private MyContext dbContext;
-        private IHostingEnvironment _hostingEnvironment;
+        // private IHostingEnvironment _hostingEnvironment;
 
         // here we can "inject" our context service into the constructor
-        public HomeController(MyContext context, IHostingEnvironment environment)
+        public HomeController(MyContext context)
         {
             dbContext = context;
-            _hostingEnvironment = environment;
+            // _hostingEnvironment = environment;
         }
 
         private int? UserSession
@@ -143,15 +143,15 @@ namespace GSAPP.Controllers
                     ModelState.AddModelError("Email", "Email already exists!");
                     return View("HelpRegView");
                 }
-                string fileName = null;
-                if (HelpUser.Photo != null)
-                {
-                    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
-                    fileName = HelpUser.Photo.FileName;
-                    string filePath = Path.Combine(uploadsFolder, fileName);
-                    HelpUser.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                }
-                HelpUser.ImageUrl = fileName;
+                // string fileName = null;
+                // if (HelpUser.Photo != null)
+                // {
+                //     string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
+                //     fileName = HelpUser.Photo.FileName;
+                //     string filePath = Path.Combine(uploadsFolder, fileName);
+                //     HelpUser.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                // }
+                // HelpUser.ImageUrl = fileName;
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 string hashedPw = hasher.HashPassword(HelpUser, HelpUser.Password);
                 HelpUser.Password = hashedPw;
@@ -173,22 +173,21 @@ namespace GSAPP.Controllers
                     ModelState.AddModelError("Email", "Email already exists!");
                     return View("HelperReg");
                 }
-                string fileName = null;
-                if (HelperUser.Photo != null)
-                {
-                    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
-                    fileName = HelperUser.Photo.FileName;
-                    string filePath = Path.Combine(uploadsFolder, fileName);
-                    HelperUser.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                }
-                HelperUser.ImageUrl = fileName;
+                // string fileName = null;
+                // if (HelperUser.Photo != null)
+                // {
+                //     string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
+                //     fileName = HelperUser.Photo.FileName;
+                //     string filePath = Path.Combine(uploadsFolder, fileName);
+                //     HelperUser.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                // }
+                // HelperUser.ImageUrl = fileName;
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 string hashedPw = hasher.HashPassword(HelperUser, HelperUser.Password);
                 HelperUser.Password = hashedPw;
                 dbContext.Add(HelperUser);
                 dbContext.SaveChanges();
                 UserSession = HelperUser.UserId;
-
                 return RedirectToAction("Dashboard");
             }
             return View("HelperRegView");

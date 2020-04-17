@@ -31,15 +31,15 @@
     <div class="leftCol">
         <div class="person-info-container">
 
-            <div class="person-image">
+            @* <div class="person-image">
                 <img src="~/images/@Model.ImageUrl" class="pic">
-            </div>
+            </div> *@
             <div class="person-info-text">
             <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
             <p><span class="bold">Email: </span><a href="mailto:@Model.Email" class="orange">@Model.Email</a></p>
             <p><span class="bold">Phone: </span><a href="tel:@Model.PhoneNumber" class="orange">@Model.PhoneNumber</a></p>
             <p><span class="bold">Venmo ID: </span>@Model.VenmoId</p>
-            <p><span class="bold">Address: </span>@Model.Address1, @Model.City, @Model.State, @Model.ZipCode</p>
+            <p><span class="bold">Zipcode: </span>@Model.ZipCode</p>
             </div>
 
         </div>
@@ -112,7 +112,7 @@
     var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
     mapboxClient.geocoding
         .forwardGeocode({
-            query: '@Model.Address1, @Model.City, @Model.ZipCode',
+            query: '@Model.ZipCode',
             autocomplete: false,
             limit: 1
         })

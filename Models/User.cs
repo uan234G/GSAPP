@@ -26,11 +26,11 @@ namespace GSAPP.Models
         [Required(ErrorMessage = "Venmo ID required")]
         public string VenmoId { get; set; }
 
-        public string ImageUrl { get; set; }
+        // public string ImageUrl { get; set; }
 
-        [NotMapped]
-        [Required(ErrorMessage = "Picture required")]
-        public IFormFile Photo { get; set; }
+        // [NotMapped]
+        // [Required(ErrorMessage = "Picture required")]
+        // public IFormFile Photo { get; set; }
 
         [Required(ErrorMessage = "Phone # required")]
         public string PhoneNumber { get; set; }
@@ -52,24 +52,24 @@ namespace GSAPP.Models
         [DataType(DataType.Password)]
         public string Confirm { get; set; }
 
-        [Required(ErrorMessage = "Address required")]
-        [MinLength(5, ErrorMessage = "Name should be more than 5 characters")]
-        public string Address1 { get; set; }
+        // [Required(ErrorMessage = "Address required")]
+        // [MinLength(5, ErrorMessage = "Name should be more than 5 characters")]
+        // public string Address1 { get; set; }
 
-        public string Address2 { get; set; }
+        // public string Address2 { get; set; }
 
-        [Required(ErrorMessage = "City required")]
-        [MinLength(2, ErrorMessage = "Name should be more than 2 characters")]
-        public string City { get; set; }
+        // [Required(ErrorMessage = "City required")]
+        // [MinLength(2, ErrorMessage = "Name should be more than 2 characters")]
+        // public string City { get; set; }
 
         [Required(ErrorMessage = "Zip code required")]
         public int ZipCode { get; set; }
 
-        [Required(ErrorMessage = "Country required")]
-        public string Country { get; set; }
+        // [Required(ErrorMessage = "Country required")]
+        // public string Country { get; set; }
 
-        [Required(ErrorMessage = "State required")]
-        public string State { get; set; }
+        // [Required(ErrorMessage = "State required")]
+        // public string State { get; set; }
 
         public DateTime CreatedAt = DateTime.Now;
         public DateTime UpdatedAt = DateTime.Now;

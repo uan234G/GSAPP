@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/GSAPP.csproj",
+  "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/GSAPP.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -16,73 +16,73 @@
   "RootNamespace": "GSAPP",
   "Documents": [
     {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/LandingPage.cshtml",
-      "TargetPath": "Views\\Home\\LandingPage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Shared/Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/Detail.cshtml",
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/Detail.cshtml",
       "TargetPath": "Views\\Home\\Detail.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/Dashboard.cshtml",
-      "TargetPath": "Views\\Home\\Dashboard.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/HelperRegView.cshtml",
-      "TargetPath": "Views\\Home\\HelperRegView.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/SelectRole.cshtml",
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/SelectRole.cshtml",
       "TargetPath": "Views\\Home\\SelectRole.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/_ViewStart.cshtml",
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/HelperDetails.cshtml",
+      "TargetPath": "Views\\Home\\HelperDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/HelperRegView.cshtml",
+      "TargetPath": "Views\\Home\\HelperRegView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/HelpRegView.cshtml",
-      "TargetPath": "Views\\Home\\HelpRegView.cshtml",
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/RequestForm.cshtml",
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Shared/Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/Dashboard.cshtml",
+      "TargetPath": "Views\\Home\\Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/LandingPage.cshtml",
+      "TargetPath": "Views\\Home\\LandingPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/RequestForm.cshtml",
       "TargetPath": "Views\\Home\\RequestForm.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Shared/_Layout.cshtml",
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/Login.cshtml",
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/HelpRegView.cshtml",
+      "TargetPath": "Views\\Home\\HelpRegView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Home/Login.cshtml",
       "TargetPath": "Views\\Home\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/daesungchoi/Documents/GitHub/GSAPP/Views/Home/HelperDetails.cshtml",
-      "TargetPath": "Views\\Home\\HelperDetails.cshtml",
+      "FilePath": "/Users/rolandolopantzi/Documents/GitHub/GSAPP/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }
   ],

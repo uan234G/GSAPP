@@ -63,16 +63,6 @@
             </div>
 
             <div class="single-row">
-                <div class="inputs">
-                    <label asp-for="Photo">Profile Pic * <span asp-validation-for="Photo" class="red"></span></label>
-
-                    <div class="image-upload">
-                        <input asp-for="Photo" type="file" class="real-file" hidden="hidden">
-                        <button type="button" class="upload-btn">Choose file</button>
-                        <p class="file-callout">No file selected</p>
-                    </div>
-
-                </div>
 
                 <div class="inputs">
                     <label asp-for="VenmoId">Venmo ID * <span asp-validation-for="VenmoId" class="red"></span></label>
@@ -87,36 +77,11 @@
             <input asp-for="Confirm" placeholder="Confirm password">
 
             <hr>
-            <label asp-for="Address1">Address Line 1 * <span asp-validation-for="Address1" class="red"></span></label>
-            <input asp-for="Address1" placeholder="Enter your address 1">
-
-            <label asp-for="Address2">Adress Line 2</label>
-            <input asp-for="Address2" placeholder="Enter your address 2">
-
             <div class="single-row">
-
-                <div class="inputs">
-                    <label asp-for="City">City * <span asp-validation-for="City" class="red"></span></label>
-                    <input asp-for="City" placeholder="Enter your city">
-                </div>
 
                 <div class="inputs">
                     <label asp-for="ZipCode">Zip Code * <span asp-validation-for="ZipCode" class="red"></span></label>
                     <input asp-for="ZipCode" placeholder="Enter your zip code">
-                </div>
-
-            </div>
-
-            <div class="single-row">
-
-                <div class="inputs">
-                    <label asp-for="State">State * <span asp-validation-for="State" class="red"></span></label>
-                    <input asp-for="State" placeholder="Enter your state">
-                </div>
-
-                <div class="inputs">
-                    <label asp-for="Country">Country * <span asp-validation-for="Country" class="red"></span></label>
-                    <input asp-for="Country" placeholder="Enter your country">
                 </div>
 
             </div>

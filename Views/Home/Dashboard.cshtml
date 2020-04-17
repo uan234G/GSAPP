@@ -66,7 +66,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th id="address-th">Address</th>
+                    <th id="address-th">Zipcode</th>
                     <th>Request Urgency</th>
                     <th id="action-th">Action</th>
                 </tr>
@@ -85,7 +85,7 @@
                                     @request.Creator.FirstName @request.Creator.LastName
                                 </span>
                             </td>
-                            <td class="address-td">@request.Creator.City, @request.Creator.State</td>
+                            <td class="address-td">@request.Creator.ZipCode</td>
                             <td>@request.Urgency.ToString("MM/dd/yyyy hh:mm tt")</td>
                             <td class="action-td"><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
                         </tr>

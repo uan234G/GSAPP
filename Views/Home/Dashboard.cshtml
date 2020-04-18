@@ -32,7 +32,9 @@
                 </li>
             </ul>
         </div>
-        <span id="open-dashNav" onclick="openDash()">&#9776</span>
+        <div id="dash-btn" onclick="dashNav()">
+            <span id="menu-icon"></span>
+        </div>
 
     </div>
 </header>
@@ -58,7 +60,7 @@
             <a asp-action="Logout" asp-controller="Home">Logout</a>
         </li>
     </ul>
-    <span id="close-dashNav" onclick="closeDash()">&times;</span>
+    @* <span id="close-dashNav" onclick="closeDash()">&times;</span> *@
 </div>
 
 <section id="dash-main" class="wrapper">
@@ -66,11 +68,12 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th id="address-th">Address</th>
-                    <th>Request Urgency</th>
-                    <th id="action-th">Action</th>
+                    <th id="address-th">Zipcode</th>
+                    <th>Needed By</th>
+                    <th id="action-th">View</th>
                 </tr>
             </thead>
+            
             <tbody>
                 @foreach (var request in Model)
                 {
@@ -85,7 +88,7 @@
                                     @request.Creator.FirstName @request.Creator.LastName
                                 </span>
                             </td>
-                            <td class="address-td">@request.Creator.City, @request.Creator.State</td>
+                            <td class="address-td">@request.Creator.ZipCode</td>
                             <td>@request.Urgency.ToString("MM/dd/yyyy hh:mm tt")</td>
                             <td class="action-td"><a asp-action="Detail" asp-route-Uid="@request.Creator.UserId" class="view-btn">View</a></td>
                         </tr>

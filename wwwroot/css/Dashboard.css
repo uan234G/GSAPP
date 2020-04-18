@@ -4,7 +4,7 @@
 }
 /* Dashboard navigation */
 .mobile-dashNav,
-#open-dashNav{
+#dash-btn{
     display: none;
 }
 #Dash-header .logo h1,
@@ -95,16 +95,7 @@ table .view-btn:active{
     margin-top: 2rem;
 }
 .person-info-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.person-info-container .person-image{
-    height: 40vh;
-    width: 40%;
-}
-.person-info-container .person-info-text{
-    width: 55%;
+    width: 100%;
 }
 #detail-content{
     width: 45%;

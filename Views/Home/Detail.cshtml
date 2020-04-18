@@ -16,9 +16,6 @@
         </div>
         <div class="nav-links">
             <ul>
-                @* <li>
-                    <a asp-action="Logout" asp-controller="Home">Logout</a>
-                </li> *@
                 <li>
                     <a asp-action="Dashboard" asp-controller="Home" id="request-btn" class="standout-btn">Dashboard</a>
                 </li>
@@ -31,9 +28,6 @@
     <div class="leftCol">
         <div class="person-info-container">
 
-            @* <div class="person-image">
-                <img src="~/images/@Model.ImageUrl" class="pic">
-            </div> *@
             <div class="person-info-text">
             <p><span class="bold">Name: </span>@Model.FirstName @Model.LastName</p>
             <p><span class="bold">Email: </span><a href="mailto:@Model.Email" class="orange">@Model.Email</a></p>
@@ -130,9 +124,8 @@
                     container: 'map',
                     style: 'mapbox://styles/mapbox/streets-v11',
                     center: feature.center,
-                    zoom: 15
+                    zoom: 10.5
                 });
-                new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
                 map.addControl(new mapboxgl.NavigationControl());
             }
         });
